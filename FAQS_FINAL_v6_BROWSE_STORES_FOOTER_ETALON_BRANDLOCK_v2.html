@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title><span class="notranslate" translate="no">NoMarkupsClub</span></title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 50:'#eff6ff', 100:'#dbeafe', 500:'#3b82f6', 600:'#2563eb', 700:'#1d4ed8', 900:'#1e3a8a' },
+                        success: { 50:'#f0fdf4', 100:'#dcfce7', 500:'#22c55e', 600:'#16a34a', 700:'#15803d' },
+                        warning: { 50:'#fffbeb', 100:'#fef3c7', 500:'#f59e0b', 600:'#d97706' },
+                        neutral: { 50:'#f8fafc', 100:'#f1f5f9', 200:'#e2e8f0', 300:'#cbd5e1', 400:'#94a3b8', 500:'#64748b', 600:'#475569', 700:'#334155', 800:'#1e293b', 900:'#0f172a' }
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'display': ['Poppins', 'system-ui', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
+                        'medium': '0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                        'large': '0 10px 40px -10px rgba(0, 0, 0, 0.15), 0 20px 25px -5px rgba(0, 0, 0, 0.1)'
+                    }
+                }
+            }
+        }
+    </script>
+<link href="https://nomarkupsclub.com/public/favicon/favicon.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="https://nomarkupsclub.com/public/favicon/favicon.png" rel="shortcut icon"/>
+<link href="https://nomarkupsclub.com/public/css/ionicons.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://nomarkupsclub.com/public/css/main.css" rel="stylesheet"/>
+<script crossorigin="anonymous" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<style>
+        .text-safe{overflow-wrap:anywhere;word-break:break-word;hyphens:auto}
+        .nums{white-space:nowrap}
+        .no-wrap{white-space:nowrap}
+        .card-stable{display:flex;flex-direction:column;height:100%}
+        .push-bottom{margin-top:auto}
+        .regional-store-card{display:flex;flex-direction:column;height:100%}
+        .regional-store-card .region-button{margin-top:auto}
+        .how-card{display:flex;flex-direction:column;height:100%}
+        .how-card .how-stat{margin-top:auto}
+        .hero-card{padding:1.1rem}
+
+        /* Compact 100%: -10% overall density without scaling the whole page */
+        .compact-10 .max-w-7xl,.compact-10 .max-w-6xl,.compact-10 .max-w-4xl{padding-left:1.35rem!important;padding-right:1.35rem!important}
+        .compact-10 section.py-14{padding-top:3.15rem!important;padding-bottom:3.15rem!important}
+        .compact-10 section.py-12{padding-top:2.7rem!important;padding-bottom:2.7rem!important}
+        .compact-10 .mb-12{margin-bottom:2.7rem!important}
+        .compact-10 .mb-10{margin-bottom:2.25rem!important}
+        .compact-10 .gap-10{gap:2.25rem!important}
+        .compact-10 .gap-8{gap:1.8rem!important}
+        .compact-10 .p-7{padding:1.575rem!important}
+        .compact-10 .p-6{padding:1.35rem!important}
+        .compact-10 .p-5{padding:1.125rem!important}
+        .compact-10 .text-4xl{font-size:2.025rem!important;line-height:2.25rem!important}
+        .compact-10 .text-3xl{font-size:1.6875rem!important;line-height:2.05rem!important}
+        .compact-10 .text-2xl{font-size:1.35rem!important;line-height:1.85rem!important}
+        .compact-10 .text-xl{font-size:1.125rem!important;line-height:1.7rem!important}
+        .compact-10 .text-lg{font-size:1.0125rem!important;line-height:1.6rem!important}
+
+        /* Hero headline only: slightly smaller to match 90% feel at 100% zoom */
+        .compact-10 .hero-h1{font-size:3.35rem!important;line-height:1.05!important}
+        @media (max-width: 768px){
+            .compact-10 .hero-h1{font-size:2.35rem!important;line-height:1.1!important}
+        }
+
+        /* Tighten some vertical spacing in hero cards */
+        .compact-10 .hero-card{padding:1rem!important}
+        .compact-10 .space-y-5 > :not([hidden]) ~ :not([hidden]){margin-top:1.125rem!important}
+        .compact-10 .space-y-4 > :not([hidden]) ~ :not([hidden]){margin-top:0.9rem!important}
+        .compact-10 .space-y-3 > :not([hidden]) ~ :not([hidden]){margin-top:0.675rem!important}
+
+        /* Menu: keep alignment stable under translate/zoom */
+        .nav-link{text-transform:uppercase!important;white-space:normal!important;}#mobileMenu a{text-transform:uppercase!important;white-space:normal!important;}
+        nav .bg-primary-600{white-space:nowrap}
+    
+/* === Translate/zoom stability: keep header single-line as much as possible on desktop === */
+.nav-link{white-space:nowrap;}
+@media (min-width:768px){
+  nav .hidden.md\:flex.space-x-8{
+    flex-wrap:nowrap;
+    white-space:nowrap;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    gap:1.25rem !important;
+  }
+  nav .hidden.md\:flex.space-x-8::-webkit-scrollbar{display:none;}
+}
+/* Make check bullets stay perfectly round even if browser translation injects different fonts */
+.check-dot{flex:0 0 auto; border-radius:9999px;}
+/* Numbers/currency should not wrap and should not be translated */
+.nums{white-space:nowrap;}
+
+
+/* Micro-interaction: buttons */
+.btn-unlock-bounce{
+  transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease;
+  will-change: transform;
+}
+.btn-unlock-bounce:hover{ transform: translateY(-2px); }
+.btn-unlock-bounce:active{ transform: translateY(1px); }
+/* Highlight */
+mark.faq-mark{ background: rgba(34,197,94,0.18); color: inherit; }
+
+</style>
+<style>
+        html{font-size:90%;}
+    </style>
+<style>
+  html{ overflow-y: scroll; }
+  body{ overflow-x: hidden; }
+</style>
+<style>
+/* Header hard-sticky (prevents pages where other CSS disables sticky) */
+nav.bg-white\/95.backdrop-blur-sm.sticky{position:-webkit-sticky !important; position:sticky !important; top:0 !important; z-index:50 !important;}
+</style>
+<style>
+/* Fixed header fallback: keep content from sliding under the header */
+body{ padding-top:64px; }
+@media (max-width: 768px){ body{ padding-top:64px; } }
+</style>
+<style>.notranslate{translate:no}</style></head>
+<body class="bg-neutral-50 text-neutral-900 min-h-screen flex flex-col compact-10">
+<nav class="right-0 left-0 bg-white/95 backdrop-blur-sm fixed top-0 z-50 border-b border-neutral-200">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex justify-between items-center h-16 gap-4">
+<div class="flex items-center gap-6 shrink-0">
+<div class="font-display font-bold text-2xl text-primary-600">
+<a class="nav-link" href="https://nomarkupsclub.com">
+<img alt="" src="https://nomarkupsclub.com/public/uploads/logo/260625_00_48_07.png" style="width:50px; !important;"/>
+</a>
+</div>
+<div class="hidden md:flex gap-2 items-center">
+<div class="w-2 h-2 bg-success-500 rounded-full pulse-green shrink-0"></div>
+<span class="text-sm font-medium text-success-600 live-pricing-text text-xs leading-tight whitespace-normal" style="max-width:140px; line-height:1.1; white-space:normal; overflow-wrap:anywhere;">Live Pricing</span>
+</div>
+</div>
+<div class="hidden md:flex flex-1 justify-center">
+<div class="flex items-center gap-6 lg:gap-7 xl:gap-8">
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[10.5rem] text-[15px]" href="https://nomarkupsclub.com">HOME</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[10.5rem] text-[15px]" href="https://nomarkupsclub.com/stores">STORES</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[10.5rem] text-[15px]" href="https://nomarkupsclub.com/affiliate_plan">AFFILIATE PLAN</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[10.5rem] text-[15px]" href="https://nomarkupsclub.com/membership">MEMBERSHIP</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[12rem] text-[15px]" href="https://nomarkupsclub.com/faqs">FAQ'S</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[12rem] text-[15px]" href="https://nomarkupsclub.com/login">DASHBOARD</a>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<a class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2.5 rounded-lg font-medium transition-colors" href="https://nomarkupsclub.com/r/admin">
+          Start Saving
+        </a>
+<div class="md:hidden flex items-center">
+<button class="text-2xl focus:outline-none" id="menuBtn">☰</button>
+</div>
+</div>
+</div>
+</div>
+<div class="md:hidden hidden px-4 pb-4" id="mobileMenu">
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com">HOME</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/stores">STORES</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/affiliate_plan">AFFILIATE PLAN</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/membership">MEMBERSHIP</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/faqs">FAQ'S</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/login">DASHBOARD</a>
+</div>
+</nav>
+<main class="flex-1">
+<section class="py-12 bg-neutral-50">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-10">
+<h1 class="font-display font-bold text-3xl md:text-5xl text-neutral-900 mb-4 text-safe">Frequently Asked Questions</h1>
+<p class="text-lg text-neutral-600 max-w-2xl mx-auto text-safe">Quick answers to common questions about your account, membership, and savings.</p>
+</div>
+
+<div class="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
+  <!-- Main FAQ -->
+  <div class="lg:col-span-2 bg-white border border-neutral-200 rounded-2xl p-7 shadow-soft">
+    <div class="flex items-start justify-between gap-4">
+      <div>
+        <div class="text-xs font-semibold tracking-[0.18em] uppercase text-neutral-500">Help Center</div>
+        <div class="mt-2 text-lg font-semibold text-neutral-900 text-safe">Find answers fast</div>
+        <div class="mt-1 text-base text-neutral-600 leading-relaxed text-safe">
+          Search common questions about membership, pricing, and your account.
+        </div>
+      </div>
+      <div class="hidden sm:flex items-center gap-2 shrink-0">
+        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-success-50 text-success-700 border border-success-100 text-xs font-semibold no-wrap">
+          <span class="w-2 h-2 bg-success-500 rounded-full pulse-green"></span>
+          Updated
+        </span>
+      </div>
+    </div>
+
+    <!-- Search (frontend-only; developer can wire later) -->
+    <div class="mt-6">
+      <label class="text-xs font-semibold tracking-[0.18em] uppercase text-neutral-500">Search</label>
+      <div class="mt-2 flex items-center gap-2">
+        <div class="flex-1 relative">
+          <span class="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400">🔎</span>
+          <input
+            type="text"
+            placeholder="Type a keyword (e.g., cancel, savings, authentic)"
+            class="w-full pl-9 pr-3 py-2.5 rounded-xl border border-neutral-200 bg-neutral-50 focus:bg-white focus:border-primary-300 focus:ring-2 focus:ring-primary-100 outline-none text-sm"
+            id="faqSearch"
+          />
+        </div>
+        <button type="button" class="px-4 py-2.5 rounded-xl bg-neutral-900 text-white font-medium hover:bg-neutral-800 transition-colors text-sm btn-unlock-bounce" id="faqSearchBtn">
+          Search
+        </button>
+      </div>
+      <div class="mt-2 text-xs text-neutral-500 text-safe">Tip: Press Enter to search. Matches will be highlighted.</div>
+    </div>
+
+    <div class="mt-8 space-y-6">
+<h2 class="font-display font-semibold text-xl md:text-2xl text-neutral-900 mb-4 text-safe">Account Management</h2>
+<style>
+          /* FAQ accordion — translate/zoom-stable */
+          .faq-acc details { border: 1px solid rgba(226,232,240,1); border-radius: 12px; background: #fff; overflow: hidden; }
+          .faq-acc details + details { margin-top: 12px; }
+          .faq-acc summary { list-style: none; cursor: pointer; padding: 14px 16px; display:flex; align-items:center; justify-content:space-between; gap:12px; font-weight:600; color:#0f172a; }
+          .faq-acc summary::-webkit-details-marker { display:none; }
+          .faq-acc summary::after { content: "+"; flex: 0 0 auto; width: 18px; height: 18px; line-height: 18px; text-align:center; border-radius: 9999px; background: rgba(241,245,249,1); color: rgba(51,65,85,1); }
+          .faq-acc details[open] summary { background: rgba(248,250,252,1); }
+          .faq-acc details[open] summary::after { content: "−"; }
+          .faq-acc .faq-body { padding: 0 16px 16px 16px; color: rgba(51,65,85,1); }
+          .faq-acc .faq-body p { margin-top: 10px; }
+        </style>
+<div class="faq-acc">
+<details>
+<summary class="text-safe">How much can I really save?</summary>
+<div class="faq-body">
+<p class="text-safe">Our members save an average of 40-60% on retail prices. The exact savings depend on the product category, but most members save enough on their first purchase to cover their membership fee.</p>
+</div>
+</details>
+<details>
+<summary class="text-safe">Are these products authentic?</summary>
+<div class="faq-body">
+<p class="text-safe">Yes, all products come directly from verified manufacturers and authorized distributors. We thoroughly vet all our wholesale partners to ensure product authenticity and quality.</p>
+</div>
+</details>
+<details>
+<summary class="text-safe">Can I cancel my membership anytime?</summary>
+<div class="faq-body">
+<p class="text-safe">Absolutely. You can cancel your membership at any time with no cancellation fees. Your access will continue until the end of your current billing period.</p>
+</div>
+</details>
+<details>
+<summary class="text-safe">What's the difference between plans?</summary>
+<div class="faq-body">
+<p class="text-safe">Both plans give you access to wholesale pricing. The annual plan saves you money and includes additional perks like priority support, early access to new suppliers, and free shipping on all orders.</p>
+</div>
+</details>
+</div>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <aside class="bg-neutral-900 rounded-2xl p-7 shadow-soft overflow-hidden relative">
+    <div class="text-xs font-semibold tracking-[0.18em] uppercase text-neutral-300">Quick links</div>
+    <div class="mt-2 text-xl font-semibold text-white text-safe">Need direct help?</div>
+    <div class="mt-3 text-base text-neutral-200 leading-relaxed text-safe">
+      If you can’t find an answer here, contact support or review key policies.
+    </div>
+
+    <div class="mt-6 grid grid-cols-1 gap-3">
+      <a href="https://nomarkupsclub.com/contact_us" class="rounded-xl bg-white/10 border border-white/10 p-4 hover:bg-white/15 transition-colors">
+        <div class="text-xs font-semibold tracking-[0.18em] uppercase text-neutral-300">Contact</div>
+        <div class="mt-2 text-sm text-neutral-100 text-safe">Contact Us</div>
+      </a>
+      <a href="https://nomarkupsclub.com/membership" class="rounded-xl bg-white/10 border border-white/10 p-4 hover:bg-white/15 transition-colors">
+        <div class="text-xs font-semibold tracking-[0.18em] uppercase text-neutral-300">Membership</div>
+        <div class="mt-2 text-sm text-neutral-100 text-safe">Plans & pricing</div>
+      </a>
+      <a href="https://nomarkupsclub.com/stores" class="rounded-xl bg-white/10 border border-white/10 p-4 hover:bg-white/15 transition-colors">
+        <div class="text-xs font-semibold tracking-[0.18em] uppercase text-neutral-300">Stores</div>
+        <div class="mt-2 text-sm text-neutral-100 text-safe">Browse stores</div>
+      </a>
+    </div>
+
+    <div class="mt-6 rounded-xl bg-white/10 border border-white/10 p-4">
+      <div class="text-xs font-semibold tracking-[0.18em] uppercase text-neutral-300">Support email</div>
+      <div class="mt-2 text-sm text-neutral-100 text-safe">
+        <a class="decorated-link" href="mailto:support@nomarkupsclub.com">support@nomarkupsclub.com</a>
+      </div>
+    </div>
+
+    <div class="absolute -right-10 -bottom-10 w-40 h-40 rounded-full bg-primary-600/20 blur-2xl"></div>
+    <div class="absolute -left-10 -top-10 w-40 h-40 rounded-full bg-success-500/15 blur-2xl"></div>
+  </aside>
+</div>
+</div>
+</div>
+</section>

@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title><span class="notranslate" translate="no">NoMarkupsClub</span> — Affiliate Plan</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+ tailwind.config = {
+ theme: {
+ extend: {
+ colors: {
+ primary: { 50:'#eff6ff', 100:'#dbeafe', 500:'#3b82f6', 600:'#2563eb', 700:'#1d4ed8', 900:'#1e3a8a' },
+ success: { 50:'#f0fdf4', 100:'#dcfce7', 500:'#22c55e', 600:'#16a34a', 700:'#15803d' },
+ warning: { 50:'#fffbeb', 100:'#fef3c7', 500:'#f59e0b', 600:'#d97706' },
+ neutral: { 50:'#f8fafc', 100:'#f1f5f9', 200:'#e2e8f0', 300:'#cbd5e1', 400:'#94a3b8', 500:'#64748b', 600:'#475569', 700:'#334155', 800:'#1e293b', 900:'#0f172a' }
+ },
+ fontFamily: {
+ 'sans': ['Inter', 'system-ui', 'sans-serif'],
+ 'display': ['Poppins', 'system-ui', 'sans-serif']
+ },
+ boxShadow: {
+ 'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
+ 'medium': '0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+ 'large': '0 10px 40px -10px rgba(0, 0, 0, 0.15), 0 20px 25px -5px rgba(0, 0, 0, 0.1)'
+ }
+ }
+ }
+ }
+ </script>
+<link href="https://nomarkupsclub.com/public/favicon/favicon.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="https://nomarkupsclub.com/public/favicon/favicon.png" rel="shortcut icon"/>
+<link href="https://nomarkupsclub.com/public/css/ionicons.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://nomarkupsclub.com/public/css/main.css" rel="stylesheet"/>
+<script crossorigin="anonymous" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<style>
+ .text-safe{overflow-wrap:anywhere;word-break:break-word;hyphens:auto}
+ .nums{white-space:nowrap;}
+ /* Inline spacing for numbers/currency under browser translation (prevents words touching digits) */
+ span.nums, em.nums, strong.nums, b.nums{white-space:nowrap;display:inline-block;margin:0 0.14em;}
+ /* Also cover inline numeric spans that include notranslate */
+ span.notranslate.nums{white-space:nowrap;display:inline-block;margin:0 0.14em;}
+
+ .no-wrap{white-space:nowrap}
+ .card-stable{display:flex;flex-direction:column;height:100%}
+ .push-bottom{margin-top:auto}
+ .regional-store-card{display:flex;flex-direction:column;height:100%}
+ .regional-store-card .region-button{margin-top:auto}
+ .how-card{display:flex;flex-direction:column;height:100%}
+ .how-card .how-stat{margin-top:auto}
+ .hero-card{padding:1.1rem}
+
+ /* Compact 100%: -10% overall density without scaling the whole page */
+ .compact-10 .max-w-7xl,.compact-10 .max-w-6xl,.compact-10 .max-w-4xl{padding-left:1.35rem!important;padding-right:1.35rem!important}
+ .compact-10 section.py-14{padding-top:3.15rem!important;padding-bottom:3.15rem!important}
+ .compact-10 section.py-12{padding-top:2.7rem!important;padding-bottom:2.7rem!important}
+ .compact-10 .mb-12{margin-bottom:2.7rem!important}
+ .compact-10 .mb-10{margin-bottom:2.25rem!important}
+ .compact-10 .gap-10{gap:2.25rem!important}
+ .compact-10 .gap-8{gap:1.8rem!important}
+ .compact-10 .p-7{padding:1.575rem!important}
+ .compact-10 .p-6{padding:1.35rem!important}
+ .compact-10 .p-5{padding:1.125rem!important}
+ .compact-10 .text-4xl{font-size:2.025rem!important;line-height:2.25rem!important}
+ .compact-10 .text-3xl{font-size:1.6875rem!important;line-height:2.05rem!important}
+ .compact-10 .text-2xl{font-size:1.35rem!important;line-height:1.85rem!important}
+ .compact-10 .text-xl{font-size:1.125rem!important;line-height:1.7rem!important}
+ .compact-10 .text-lg{font-size:1.0125rem!important;line-height:1.6rem!important}
+
+ /* Hero headline only: slightly smaller to match 90% feel at 100% zoom */
+ .compact-10 .hero-h1{font-size:3.35rem!important;line-height:1.05!important}
+ @media (max-width: 768px){
+ .compact-10 .hero-h1{font-size:2.35rem!important;line-height:1.1!important}
+ }
+
+ /* Tighten some vertical spacing in hero cards */
+ .compact-10 .hero-card{padding:1rem!important}
+ .compact-10 .space-y-5 > :not([hidden]) ~ :not([hidden]){margin-top:1.125rem!important}
+ .compact-10 .space-y-4 > :not([hidden]) ~ :not([hidden]){margin-top:0.9rem!important}
+ .compact-10 .space-y-3 > :not([hidden]) ~ :not([hidden]){margin-top:0.675rem!important}
+
+ /* Menu: keep alignment stable under translate/zoom */
+ .nav-link{text-transform:uppercase!important;white-space:normal!important;}#mobileMenu a{text-transform:uppercase!important;white-space:normal!important;}
+ nav .bg-primary-600{white-space:nowrap}
+ 
+/* === Translate/zoom stability: keep header single-line as much as possible on desktop === */
+.nav-link{white-space:nowrap;}
+@media (min-width:768px){
+ nav .hidden.md\:flex.space-x-8{
+ flex-wrap:nowrap;
+ white-space:nowrap;
+ overflow-x:auto;
+ -webkit-overflow-scrolling:touch;
+ gap:1.25rem !important;
+ }
+ nav .hidden.md\:flex.space-x-8::-webkit-scrollbar{display:none;}
+}
+/* Make check bullets stay perfectly round even if browser translation injects different fonts */
+.check-dot{flex:0 0 auto; border-radius:9999px;}
+/* Numbers/currency should not wrap and should not be translated */
+.nums{white-space:nowrap;}
+</style>
+<style>
+ html{font-size:90%;}
+ </style>
+<style>
+ html{ overflow-y: scroll; }
+ body{ overflow-x: hidden; }
+</style>
+<style>
+/* Header hard-sticky (prevents pages where other CSS disables sticky) */
+nav.bg-white\/95.backdrop-blur-sm.sticky{position:-webkit-sticky !important; position:sticky !important; top:0 !important; z-index:50 !important;}
+</style>
+<style>
+/* Fixed header fallback: keep content from sliding under the header */
+body{ padding-top:64px; }
+@media (max-width: 768px){ body{ padding-top:64px; } }
+</style>
+<style>.notranslate{translate:no}</style></head>
+<body class="bg-neutral-50 text-neutral-900 min-h-screen flex flex-col compact-10">
+<nav class="right-0 left-0 bg-white/95 backdrop-blur-sm fixed top-0 z-50 border-b border-neutral-200">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex justify-between items-center h-16 gap-4">
+<div class="flex items-center gap-6 shrink-0">
+<div class="font-display font-bold text-2xl text-primary-600">
+<a class="nav-link" href="https://nomarkupsclub.com">
+<img alt="" src="https://nomarkupsclub.com/public/uploads/logo/260625_00_48_07.png" style="width:50px; !important;"/>
+</a>
+</div>
+<div class="hidden md:flex gap-2 items-center">
+<div class="w-2 h-2 bg-success-500 rounded-full pulse-green shrink-0"></div>
+<span class="text-sm font-medium text-success-600 live-pricing-text text-xs leading-tight whitespace-normal" style="max-width:140px; line-height:1.1; white-space:normal; overflow-wrap:anywhere;">Live Pricing</span>
+</div>
+</div>
+<div class="hidden md:flex flex-1 justify-center">
+<div class="flex items-center gap-6 lg:gap-7 xl:gap-8">
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[10.5rem] text-[15px]" href="https://nomarkupsclub.com">HOME</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[10.5rem] text-[15px]" href="https://nomarkupsclub.com/stores">STORES</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[10.5rem] text-[15px]" href="https://nomarkupsclub.com/affiliate_plan">AFFILIATE PLAN</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[10.5rem] text-[15px]" href="https://nomarkupsclub.com/subscription">MEMBERSHIP</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[12rem] text-[15px]" href="https://nomarkupsclub.com/faqs">FAQ'S</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[12rem] text-[15px]" href="https://nomarkupsclub.com/login">DASHBOARD</a>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<a class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2.5 rounded-lg font-medium transition-colors" href="https://nomarkupsclub.com/r/admin">
+ Start Saving
+ </a>
+<div class="md:hidden flex items-center">
+<button class="text-2xl focus:outline-none" id="menuBtn">☰</button>
+</div>
+</div>
+</div>
+</div>
+<div class="md:hidden hidden px-4 pb-4" id="mobileMenu">
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com">HOME</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/stores">STORES</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/affiliate_plan">AFFILIATE PLAN</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/subscription">MEMBERSHIP</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/faqs">FAQ'S</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/login">DASHBOARD</a>
+</div>
+</nav>
+<main class="flex-1" id="main-en">
+<div class="page">
+<section class="py-14 bg-neutral-50">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-10">
+<h1 class="font-display font-bold text-3xl md:text-4xl text-neutral-900 mb-4 no-wrap">Affiliate Plan</h1>
+</div>
+<!-- Keep any legacy CSS frameworks from affecting typography/spacing -->
+<style>
+ /* Scope typography to this page content only (prevents Bootstrap / browser defaults from shifting spacing) */
+ .affiliate-content{max-width: 56rem;margin-left:auto;margin-right:auto}
+ .affiliate-content :where(h1,h2,h3){font-family: Poppins, system-ui, sans-serif;color:#0f172a}
+ .affiliate-content h1{font-weight:800;font-size:1.85rem;line-height:2.25rem;margin:0 0 0.75rem}
+ .affiliate-content h2{font-weight:800;font-size:1.5rem;line-height:2rem;margin:1.5rem 0 0.75rem}
+ .affiliate-content h3{font-weight:700;font-size:1.15rem;line-height:1.7rem;margin:1.25rem 0 0.5rem}
+ .affiliate-content p{margin:0 0 0.75rem;line-height:1.65;color:#334155;overflow-wrap:anywhere;word-break:break-word;hyphens:auto}
+ .affiliate-content ul{margin:0 0 0.9rem 1.25rem;padding:0}
+ .affiliate-content li{margin:0.35rem 0;color:#334155}
+ .affiliate-content hr{border:0;border-top:1px solid #e2e8f0;margin:1.25rem 0}
+ .affiliate-content strong{color:#0f172a}
+ .affiliate-content em{color:#475569}
+ 
+ /* Ensure numbers keep readable spacing under browser translation (Edge/Google Translate) */
+ .affiliate-content p .nums, .affiliate-content li .nums, .affiliate-content h3 .nums{display:inline-block;margin:0 0.12em;}
+ </style>
+<div class="affiliate-content">
+<h1><span class="notranslate" translate="no">NoMarkupsClub</span> — Equal Opportunities for Everyone</h1>
+<p>No hidden fees. No overpriced products. Real earning potential from the very first day.</p>
+<!-- === Styled overview block (layout only; content unchanged elsewhere) === -->
+<div class="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Overview / key numbers -->
+<div class="lg:col-span-2 bg-white border border-neutral-200 rounded-2xl p-6 shadow-soft">
+<div class="flex items-start justify-between gap-4">
+<div>
+<div class="text-xs font-semibold tracking-[0.18em] uppercase text-neutral-500">Quick overview</div>
+<div class="mt-2 text-lg font-semibold text-neutral-900 text-safe">Choose your plan, then follow the steps below.</div>
+<div class="mt-1 text-sm text-neutral-600 text-safe">All details are explained on this page — clear, structured, and transparent.</div>
+</div>
+<div class="hidden sm:flex items-center gap-2 shrink-0">
+<span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-success-50 text-success-700 border border-success-100 text-xs font-semibold no-wrap">
+<span class="w-2 h-2 bg-success-500 rounded-full"></span>
+ Live
+ </span>
+</div>
+</div>
+<div class="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-4">
+<div class="p-4 bg-neutral-50 rounded-xl border border-neutral-200">
+<div class="text-xs font-semibold tracking-[0.18em] uppercase text-neutral-500">Subscription</div>
+<div class="mt-2 text-2xl font-bold nums text-neutral-900 notranslate" translate="no">$9.95</div>
+<div class="text-xs text-neutral-500 text-safe">per month</div>
+<div class="mt-3 text-xs text-neutral-600 text-safe">Full access to wholesale pricing.</div>
+</div>
+<div class="p-4 bg-neutral-50 rounded-xl border border-neutral-200">
+<div class="text-xs font-semibold tracking-[0.18em] uppercase text-neutral-500">Annual</div>
+<div class="mt-2 text-2xl font-bold nums text-neutral-900 notranslate" translate="no">$99.95</div>
+<div class="text-xs text-neutral-500 text-safe">per year</div>
+<div class="mt-3 text-xs text-neutral-600 text-safe">Same access, billed annually.</div>
+</div>
+<div class="p-4 bg-neutral-50 rounded-xl border border-neutral-200">
+<div class="text-xs font-semibold tracking-[0.18em] uppercase text-neutral-500">Activation</div>
+<div class="mt-2 text-2xl font-bold nums text-neutral-900 notranslate" translate="no">$40</div>
+<div class="text-xs text-neutral-500 text-safe">one-time</div>
+<div class="mt-3 text-xs text-neutral-600 text-safe">Compensation plan activation.</div>
+</div>
+</div>
+<div class="mt-5 rounded-xl border border-neutral-200 bg-white p-4">
+<div class="text-sm text-neutral-700 text-safe">
+<strong>First payment:</strong>
+<span class="notranslate nums" translate="no">$49.95</span> (includes <span class="notranslate nums" translate="no">$9.95</span> subscription + <span class="notranslate nums" translate="no">$40</span> one-time activation), then <span class="notranslate nums" translate="no">$9.95</span>/month.
+ <br/>
+<strong>Annual option:</strong>
+<span class="notranslate nums" translate="no">$139.95</span> (includes <span class="notranslate nums" translate="no">$99.95</span> annual subscription + <span class="notranslate nums" translate="no">$40</span> one-time activation), then <span class="notranslate nums" translate="no">$99.95</span>/year.
+ </div>
+<div class="mt-1 text-xs text-neutral-500 text-safe">
+ After sign-up, you will complete payment in your dashboard under <span class="font-semibold">My Subscription</span>.
+ </div>
+</div>
+</div>
+<!-- Visual separator / illustration -->
+<div class="bg-neutral-900 rounded-2xl p-6 shadow-soft overflow-hidden relative">
+<div class="text-xs font-semibold tracking-[0.18em] uppercase text-neutral-300">Structure</div>
+<div class="mt-2 text-lg font-semibold text-white text-safe">Built on subscriptions and real orders.</div>
+<div class="mt-2 text-sm text-neutral-300 text-safe">A clean explanation format — easy to scan and understand.</div>
+<div class="mt-6 rounded-xl bg-white/10 border border-white/10 p-4">
+<svg aria-hidden="true" class="w-full h-auto" viewbox="0 0 360 180">
+<defs>
+<lineargradient id="g1" x1="0" x2="1" y1="0" y2="1">
+<stop offset="0" stop-color="rgba(59,130,246,0.55)"></stop>
+<stop offset="1" stop-color="rgba(34,197,94,0.35)"></stop>
+</lineargradient>
+</defs>
+<rect fill="rgba(255,255,255,0.03)" height="180" rx="16" width="360" x="0" y="0"></rect>
+<path d="M24 130 C 70 65, 140 150, 200 90 S 310 70, 336 40" fill="none" stroke="url(#g1)" stroke-linecap="round" stroke-width="5"></path>
+<circle cx="60" cy="105" fill="rgba(255,255,255,0.7)" r="8"></circle>
+<circle cx="180" cy="92" fill="rgba(255,255,255,0.7)" r="8"></circle>
+<circle cx="300" cy="70" fill="rgba(255,255,255,0.7)" r="8"></circle>
+<g fill="rgba(255,255,255,0.55)">
+<rect height="18" rx="9" width="96" x="28" y="24"></rect>
+<rect height="18" rx="9" width="140" x="28" y="50"></rect>
+<rect height="18" rx="9" width="120" x="28" y="76"></rect>
+</g>
+</svg>
+</div>
+<div class="absolute -right-10 -bottom-10 w-40 h-40 rounded-full bg-primary-600/20 blur-2xl"></div>
+<div class="absolute -left-10 -top-10 w-40 h-40 rounded-full bg-success-500/15 blur-2xl"></div>
+</div>
+</div>
+<!-- === /Styled overview block === -->
+<hr/>
+<h2>How to Earn with <span class="notranslate" translate="no">NoMarkupsClub</span></h2>
+<p class="mt-4 text-neutral-700 text-safe"> Earnings on <span class="notranslate" translate="no">NoMarkupsClub</span> are tied to real orders and transparent pricing — no ad hype, no hidden markups.
+</p>
+<div class="mt-8 space-y-8 max-w-7xl mx-auto px-6"><section class="space-y-2">
+<div class="flex flex-wrap items-center gap-2">
+<h3 class="text-lg font-semibold">1) Registration and start</h3>
+<span class="inline-flex items-center rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-700">Choose subscription first</span>
+</div>
+<p class="text-neutral-700 text-safe">First, choose how you want to use <span class="notranslate" translate="no">NoMarkupsClub</span>.</p>
+<p class="text-neutral-700 text-safe">Option 1 — Wholesale access only: subscribe and shop at wholesale prices. No Compensation Plan participation is required.</p>
+<ul class="list-disc pl-5 text-neutral-700 space-y-1 text-safe">
+<li>$9.95 / month — wholesale access</li>
+<li>$99.95 / year — wholesale access (billed annually)</li>
+</ul>
+<p class="text-neutral-700 text-safe">Option 2 — Partner participation (Compensation Plan): to participate in the Club’s Compensation Plan (Matrix and performance bonuses), a one-time $40 activation is required.</p>
+<div class="rounded-xl border border-neutral-200 bg-neutral-50 p-4 text-neutral-800 text-safe">
+<div class="font-semibold mb-1">Your first payment examples</div>
+<p class="text-sm font-semibold text-neutral-800 mb-2">Examples of initial partner payments</p><ul class="list-disc pl-5 space-y-1"><li class="space-y-1">Initial payment (monthly subscription): $49.95 ($9.95 — subscription for the first month + $40 — one-time activation)
+After the first month: $9.95 per month — subscription only.</li><li class="space-y-1">Initial payment (annual subscription): $139.95 ($99.95 — annual subscription + $40 — one-time activation)
+After the first year: $99.95 per year — subscription only.</li></ul><p class="mt-3 text-sm font-medium">The $40 activation fee is required only once and is not charged again.</p>
+</div>
+<div class="rounded-xl border border-neutral-200 bg-white p-4 text-safe">
+<div class="font-semibold text-neutral-900 mb-1">Important: who can earn what</div>
+<ul class="list-disc pl-5 text-neutral-700 space-y-1">
+<li>Compensation Plan bonuses (Fast Start Bonus, TurboStart Bonus, 2×15 Matrix Monthly Bonus, Matching Bonus, Expert Pool, Founder Pool) require an active subscription plus a one‑time $40 activation.</li>
+<li> Subscription referral bonuses require an active subscription for both you and the subscriber. No Compensation Plan activation is required. </li>
+</ul>
+</div>
+<p class="text-neutral-700 text-safe"> After registration, payments and plan selection are completed inside your dashboard under My Subscription. </p>
+
+<div class="max-w-7xl mx-auto px-6">
+
+</div>
+
+
+</section>
+<section class="space-y-2"><div class="flex flex-wrap items-center gap-2"><h3 class="text-lg font-semibold">2) Fast Start Bonus </h3><span class="inline-flex items-center rounded-full bg-neutral-900 px-3 py-1 text-xs font-medium text-white">Requires Activation</span></div>
+<p class="text-neutral-700 text-safe"> Start earning from day one. Get $25 for every active participant you personally invite to the system. </p>
+<p class="text-neutral-700 text-safe"> The bonus is credited instantly when the invited participant’s Compensation Plan is active ($40 one-time activation)...</li>
+
+</ul>
+<div class="rounded-xl border border-neutral-200 bg-neutral-50 p-4 text-neutral-800 text-safe">
+<div class="font-semibold mb-1">How it works</div>
+<p class="text-sm text-neutral-700 text-safe"> Invite just two active participants. Earn $50 in bonuses. This covers the initial cost: </p>
+<ul class="list-disc pl-5 text-sm text-neutral-700 space-y-1 text-safe mt-2">
+<li>Compensation plan activation requires a one-time $40 fee.</li>
+<li><span class="nums notranslate" translate="no">$9.95</span> — monthly subscription</li>
+</ul>
+<p class="mt-2 text-sm text-neutral-700 text-safe"> Result: after several invitations, you recover your investment and recover the initial cost. </p>
+</div>
+
+
+<div class="rounded-xl border border-neutral-200 bg-neutral-50 p-4 mt-4">
+ <div class="font-semibold mb-1">Payout Schedule</div>
+ <p class="text-sm text-neutral-700">The Fast Start bonus is paid every Friday. Registrations completed by the end of the previous week are included in the calculation.</p>
+</div>
+
+
+</section><section class="space-y-2">
+<div class="flex flex-wrap items-center gap-2">
+<h3 class="text-lg font-semibold">3) TurboStart Bonus — for speed (first 7 days)</h3>
+<span class="inline-flex items-center rounded-full bg-neutral-900 px-3 py-1 text-xs font-medium text-white">Requires Activation</span>
+</div>
+<p class="text-neutral-700 text-safe">The first week is a key period.</p>
+<ul class="list-disc pl-5 text-neutral-700 space-y-1 text-safe">
+<li>Invite 2 partners within 3 days → receive a $10 bonus</li>
+<li>Invite 4 partners within 7 days → receive an additional $10 bonus</li>
+<li> Total TurboStart bonus: $20 for a fast start. </li>
+</ul>
+
+<div class="rounded-xl border border-neutral-200 bg-neutral-50 p-4 text-neutral-800 text-safe">
+<div class="font-semibold mb-1">Payout Schedule</div>
+<p class="text-sm text-neutral-700">The TurboStart bonus is paid on the Friday of the week following the fulfillment of the applicable conditions.</p>
+</div>
+
+
+</section><section class="space-y-2">
+<div class="flex flex-wrap items-center gap-2">
+<h3 class="text-lg font-semibold">4) Subscription referral bonuses — stable recurring income</h3>
+<span class="inline-flex items-center rounded-full bg-neutral-900 px-3 py-1 text-xs font-medium text-white">Subscription Required</span>
+</div>
+<p class="text-neutral-700 text-safe"> For each active subscriber in your structure, you earn recurring bonuses while their subscription stays active: </p>
+<div class="grid gap-3 sm:grid-cols-2">
+<div class="rounded-xl border border-neutral-200 bg-white p-4 text-safe">
+<div class="text-xs text-neutral-600">Monthly subscription</div>
+<div class="mt-1 text-sm text-neutral-800">
+<span class="font-semibold nums notranslate" data-num="$1" translate="no">$1</span>/month per active subscriber
+ </div>
+</div>
+<div class="rounded-xl border border-neutral-200 bg-white p-4 text-safe">
+<div class="text-xs text-neutral-600">Annual subscription</div>
+<div class="mt-1 text-sm text-neutral-800">
+<span class="font-semibold nums notranslate" data-num="$10" translate="no">$10</span>/ per active subscriber</div>
+</div>
+</div>
+<p class="text-neutral-700 text-safe"> This bonus applies to every subscriber — even if they do not activate the Compensation Plan. </p>
+<div class="rounded-xl border border-neutral-200 bg-neutral-50 p-4 text-neutral-800 text-safe">
+<div class="font-semibold mb-1"></div>
+<ul class="list-disc pl-5 text-sm text-neutral-700 space-y-1 text-safe">
+<li>Bonuses are credited only for subscribers with an active Subscription.</li>
+<li>Compensation Plan Activation ($40) is not required for the subscriber to generate this bonus.</li>
+<li>The Subscription must be active at the time of the monthly calculation.</li>
+</ul>
+</div>
+<div class="rounded-xl border border-neutral-200 bg-neutral-50 p-4 text-neutral-800 text-safe">
+<div class="font-semibold mb-1">Payout Schedule</div>
+<p class="text-sm text-neutral-700">Payouts are made on the 1st of each month.</p>
+<p class="mt-3 text-sm text-neutral-700 text-safe"></p>
+</div>
+
+
+</section><section class="space-y-2">
+<div class="flex flex-wrap items-center gap-2">
+<h3 class="text-lg font-semibold">5) Matrix <span class="nums notranslate" data-num="2×15" translate="no">2×15</span> — stable passive income</h3>
+<span class="inline-flex items-center rounded-full bg-neutral-900 px-3 py-1 text-xs font-medium text-white">Requires Activation</span>
+</div>
+<p class="text-neutral-700 text-safe"> You become part of a binary matrix (2×15). Every time someone enters your matrix and remains active, you receive $0.25 from that participant — every month. </p>
+<div class="mt-4 overflow-x-auto rounded-xl border border-neutral-200 bg-white">
+<table class="min-w-[860px] w-full text-sm">
+<thead class="bg-neutral-900 text-white">
+<tr>
+<th class="px-4 py-3 text-left font-semibold">Earnings Per Level</th>
+<th class="px-4 py-3 text-left font-semibold">Member</th>
+<th class="px-4 py-3 text-left font-semibold">Active</th>
+<th class="px-4 py-3 text-left font-semibold">Shaper</th>
+<th class="px-4 py-3 text-left font-semibold">Leader</th>
+<th class="px-4 py-3 text-left font-semibold">Partner</th>
+<th class="px-4 py-3 text-left font-semibold">Expert</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-neutral-200">
+<tr class="bg-neutral-50">
+<td class="px-4 py-3 font-medium">1–12</td>
+<td class="px-4 py-3" data-num="$0.25">$0.25</td>
+<td class="px-4 py-3" data-num="$0.25">$0.25</td>
+<td class="px-4 py-3" data-num="$0.25">$0.25</td>
+<td class="px-4 py-3" data-num="$0.25">$0.25</td>
+<td class="px-4 py-3" data-num="$0.25">$0.25</td>
+<td class="px-4 py-3" data-num="$0.25">$0.25</td>
+</tr>
+<tr>
+<td class="px-4 py-3 font-medium" data-num="13">13</td>
+<td class="px-4 py-3"></td>
+<td class="px-4 py-3" data-num="$0.25">$0.25</td>
+<td class="px-4 py-3" data-num="$0.25">$0.25</td>
+<td class="px-4 py-3" data-num="$0.25">$0.25</td>
+<td class="px-4 py-3" data-num="$0.25">$0.25</td>
+<td class="px-4 py-3" data-num="$0.25">$0.25</td>
+</tr>
+<tr class="bg-neutral-50">
+<td class="px-4 py-3 font-medium" data-num="14">14</td>
+<td class="px-4 py-3"></td>
+<td class="px-4 py-3"></td>
+<td class="px-4 py-3"></td>
+<td class="px-4 py-3" data-num="$0.25">$0.25</td>
+<td class="px-4 py-3" data-num="$0.25">$0.25</td>
+<td class="px-4 py-3" data-num="$0.25">$0.25</td>
+</tr>
+<tr>
+<td class="px-4 py-3 font-medium" data-num="15">15</td>
+<td class="px-4 py-3"></td>
+<td class="px-4 py-3"></td>
+<td class="px-4 py-3"></td>
+<td class="px-4 py-3"></td>
+<td class="px-4 py-3"></td>
+<td class="px-4 py-3" data-num="$0.25">$0.25</td>
+</tr>
+<tr class="bg-neutral-50">
+<td class="px-4 py-3 font-semibold">Total</td>
+<td class="px-4 py-3 font-semibold" data-num="$2047.50">$2047.50</td>
+<td class="px-4 py-3 font-semibold" data-num="$4095.50">$4095.50</td>
+<td class="px-4 py-3 font-semibold" data-num="$4095.50">$4095.50</td>
+<td class="px-4 py-3 font-semibold" data-num="$8191.50">$8191.50</td>
+<td class="px-4 py-3 font-semibold" data-num="$8191.50">$8191.50</td>
+<td class="px-4 py-3 font-semibold" data-num="$16383.50">$16383.50</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="text-neutral-700 text-safe mt-4"> With a complete matrix, this can be up to $2,047.50 per month, even without personal invitations. With maximum fill, earnings can reach up to $16,383.50 per month. Matrix levels are unlocked based on your rank — the higher your rank, the more levels you unlock and the more you can earn. </p>
+<div class="rounded-xl border border-neutral-200 bg-neutral-50 p-4 text-neutral-800 text-safe">
+<div class="font-semibold mb-1">Weekly updates</div>
+<p class="text-sm text-neutral-700"> Structure activity is calculated weekly. Results are locked at the end of Thursday and applied on Friday. </p>
+</div>
+
+
+
+
+<div class="rounded-xl border border-neutral-200 bg-neutral-50 p-4 text-neutral-800 text-safe">
+<div class="font-semibold mb-1">Payout Schedule</div>
+<p class="text-sm text-neutral-700">Payouts are made on the 1st of each month.</p>
+<p class="mt-3 text-sm text-neutral-700 text-safe"></p>
+</div></section><section class="space-y-2">
+<div class="flex flex-wrap items-center gap-2">
+<h3 class="text-lg font-semibold">6) Matching Bonus — earn from your partners’ Matrix income</h3>
+<span class="inline-flex items-center rounded-full bg-neutral-900 px-3 py-1 text-xs font-medium text-white">Requires Activation</span>
+</div>
+<p class="text-neutral-700 text-safe"> This bonus is powerful — it lets you earn not only from your own Matrix, but also from the success of the people you personally referred. </p>
+<p class="text-neutral-700 text-safe mt-3"> In addition to your own Matrix income (from $2,047.50 up to $16,383.50), you receive 50% of the Matrix earnings of each person you personally referred. The percentage and depth (generations) depend on your rank. </p>
+<div class="mt-4 overflow-x-auto rounded-xl border border-neutral-200 bg-white">
+<table class="min-w-[860px] w-full text-sm">
+<thead class="bg-neutral-900 text-white">
+<tr>
+<th class="px-4 py-3 text-left font-semibold">Rank</th>
+<th class="px-4 py-3 text-left font-semibold">1st Generation</th>
+<th class="px-4 py-3 text-left font-semibold">2nd Generation</th>
+<th class="px-4 py-3 text-left font-semibold">3rd Generation</th>
+<th class="px-4 py-3 text-left font-semibold">4th Generation</th>
+<th class="px-4 py-3 text-left font-semibold">5th Generation</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-neutral-200">
+<tr class="bg-neutral-50">
+<td class="px-4 py-3 font-medium">Personally Enrolled</td>
+<td class="px-4 py-3" data-num="50%">50%</td>
+<td class="px-4 py-3"></td>
+<td class="px-4 py-3"></td>
+<td class="px-4 py-3"></td>
+<td class="px-4 py-3"></td>
+</tr>
+<tr>
+<td class="px-4 py-3 font-medium">Shaper</td>
+<td class="px-4 py-3" data-num="10%">10%</td>
+<td class="px-4 py-3" data-num="10%">10%</td>
+<td class="px-4 py-3"></td>
+<td class="px-4 py-3"></td>
+<td class="px-4 py-3"></td>
+</tr>
+<tr class="bg-neutral-50">
+<td class="px-4 py-3 font-medium">Leader</td>
+<td class="px-4 py-3" data-num="5%">5%</td>
+<td class="px-4 py-3" data-num="5%">5%</td>
+<td class="px-4 py-3" data-num="5%">5%</td>
+<td class="px-4 py-3"></td>
+<td class="px-4 py-3"></td>
+</tr>
+<tr>
+<td class="px-4 py-3 font-medium">Partner</td>
+<td class="px-4 py-3" data-num="5%">5%</td>
+<td class="px-4 py-3" data-num="5%">5%</td>
+<td class="px-4 py-3" data-num="5%">5%</td>
+<td class="px-4 py-3" data-num="5%">5%</td>
+<td class="px-4 py-3"></td>
+</tr>
+<tr class="bg-neutral-50">
+<td class="px-4 py-3 font-medium">Expert</td>
+<td class="px-4 py-3" data-num="3%">3%</td>
+<td class="px-4 py-3" data-num="3%">3%</td>
+<td class="px-4 py-3" data-num="3%">3%</td>
+<td class="px-4 py-3" data-num="3%">3%</td>
+<td class="px-4 py-3" data-num="3%">3%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="text-neutral-700 text-safe mt-4"> Example: if you invited 10 members and each earns $1,000 per month from the Matrix, and you qualify for 50% on your personally enrolled generation, you would earn $500 from each — totaling $5,000 per month in Matching Bonuses. </p>
+
+
+
+
+<div class="rounded-xl border border-neutral-200 bg-neutral-50 p-4 text-neutral-800 text-safe">
+<div class="font-semibold mb-1">Payout Schedule</div>
+<p class="text-sm text-neutral-700">Payouts are made on the 1st of each month.</p>
+<p class="mt-3 text-sm text-neutral-700 text-safe"></p>
+</div></section><section class="space-y-2">
+<div class="flex flex-wrap items-center gap-2">
+<h3 class="text-lg font-semibold">7) Ranks and access depth</h3>
+<span class="inline-flex items-center rounded-full bg-neutral-900 px-3 py-1 text-xs font-medium text-white">Requires Activation</span>
+</div>
+<p class="text-neutral-700 text-safe"> Your rank determines how deep your Matrix levels unlock, how many Matching Bonus generations you can earn on, and whether you qualify for global Bonus Pools. </p>
+<ul class="list-disc pl-5 text-neutral-700 space-y-1 text-safe">
+<li>Rank updates are calculated weekly and applied on Fridays.</li>
+
+</ul>
+
+
+</section><section class="space-y-2">
+<div class="flex flex-wrap items-center gap-2">
+<h3 class="text-lg font-semibold">8) Bonus Pools — share the Club’s success</h3>
+<span class="inline-flex items-center rounded-full bg-neutral-900 px-3 py-1 text-xs font-medium text-white">Requires Activation</span>
+</div>
+<p class="text-neutral-700 text-safe"> The Club runs two global bonus pools. Eligible participants receive a proportional share based on qualification: </p>
+<ul class="list-disc pl-5 text-neutral-700 space-y-1 text-safe">
+<li><span class="font-medium">Expert Pool:</span> <span class="nums notranslate" data-num="2%" translate="no">2%</span> of total Club turnover is distributed among members who hold the Expert rank.</li>
+<li><span class="font-medium">Founder Pool:</span> <span class="nums notranslate" data-num="0.5%" translate="no">0.5%</span> of total turnover is distributed among members who meet the Founder rank criteria.</li>
+</ul>
+<p class="text-neutral-700 text-safe"> Distribution is proportional and only among participants who qualified for the corresponding rank. </p>
+<div class="rounded-xl border border-neutral-200 bg-neutral-50 p-4 text-neutral-800 text-safe">
+<div class="font-semibold mb-1">Payout Schedule</div>
+<p class="text-sm text-neutral-700">Payouts are made on the 1st of each month based on the qualifications from the previous month.</p>
+</div>
+
+
+</section><section class="space-y-2">
+<div class="flex flex-wrap items-center gap-2">
+<h3 class="text-lg font-semibold">9) Earn on referred orders (price difference share)</h3>
+<span class="inline-flex items-center rounded-full bg-neutral-900 px-3 py-1 text-xs font-medium text-white">Available to All Users</span>
+</div>
+<p class="text-neutral-700 text-safe"> Share your personal referral link and earn from the purchases of customers you referred. You can earn up to 50% of the retail‑to‑wholesale difference on eligible items. Participation is available without a subscription. </p>
+<div class="rounded-xl border border-neutral-200 bg-white p-4 text-safe">
+<div class="font-semibold text-neutral-900 mb-1">How it works</div>
+<ul class="list-disc pl-5 text-neutral-700 space-y-1 text-safe text-sm">
+<li>Commission is credited only for successfully placed and confirmed orders.</li>
+<li>If an order is cancelled or refunded, commission is not required.</li>
+<li>All tracking, reporting, and order details are available in your dashboard.</li>
+</ul>
+</div>
+<div class="rounded-xl border border-neutral-200 bg-neutral-50 p-4 text-neutral-800 text-safe">
+<div class="font-semibold mb-1">Payout Schedule</div>
+<p class="text-sm text-neutral-700"> Payouts are made 45 days after order confirmation. </p>
+</div>
+
+
+</section><section class="space-y-2">
+<h3 class="text-lg font-semibold">How the system stays sustainable</h3>
+<p class="text-neutral-700 text-safe"> Unlike projects that rely only on continuous recruitment, <span class="notranslate" translate="no">NoMarkupsClub</span> is built around subscriptions and real product turnover: </p>
+<ul class="list-disc pl-5 text-neutral-700 space-y-1 text-safe">
+<li>Recurring payouts can continue as long as subscribers remain active.</li>
+<li>Income is tied to product orders and active memberships — not “hype cycles.”</li>
+<li>You can build stability even without nonstop growth.</li>
+</ul>
+<p class="text-neutral-700 text-safe"> If you want a quick start, focus on Fast Start and TurboStart. If you want stability, build a subscription base and use referred orders. If you want maximum depth, develop your team and climb ranks. </p>
+
+
+</section></div>
+<h2 data-end="2895" data-start="2864">Why <span class="notranslate" translate="no">NoMarkupsClub</span> is Different</h2>
+<p data-end="3019" data-start="2896">Unlike many projects that rely solely on recruiting, our system is built on both subscriptions and real product turnover.</p>
+<ul class="list-disc pl-5 text-neutral-700 space-y-1 text-safe" data-end="3270" data-start="3021">
+<li data-end="3103" data-start="3021"><p data-end="3103" data-start="3023">Payments are generated by existing subscribers, as long as they remain active.</p></li>
+<li data-end="3184" data-start="3104"><p data-end="3184" data-start="3106">Income is supported by product sales, not just by inviting new participants.</p></li>
+<li data-end="3270" data-start="3185"><p data-end="3270" data-start="3187">You can maintain stable earnings even without continuous growth of the structure.</p></li>
+</ul>
+<hr data-end="3275" data-start="3272"/>
+<h2 data-end="3306" data-start="3277">Start building your position today</h2>
+<p data-end="3372" data-start="3307">The earlier you join, the stronger your position in the system.</p>
+<p data-end="3456" data-start="3374">Join <span class="notranslate" translate="no">NoMarkupsClub</span> and start building a reliable source of income from day one.</p>
+</div>
+</div>
+
+
+</section>
+</div>
+<script>
+ // Keep the same mobile menu behavior as other pages
+ const menuBtn = document.getElementById("menuBtn");
+ const mobileMenu = document.getElementById("mobileMenu");
+ if (menuBtn && mobileMenu) {
+ menuBtn.addEventListener("click", () => {
+ mobileMenu.classList.toggle("hidden");
+ });
+ }
+ </script>
+</main><main class="flex-1" id="main-ru" style="display:none">
+<div class="page">
+<section class="py-14 bg-neutral-50">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-10">
+<h1 class="font-display font-bold text-3xl md:text-4xl text-neutral-900 mb-4 no-wrap">Партнёрский план</h1>
+</div>
+<!-- Keep any legacy CSS frameworks from affecting typography/spacing -->
+<style>
+ /* Scope typography to this page content only (prevents Bootstrap / browser defaults from shifting spacing) */
+ .affiliate-content{max-width: 56rem;margin-left:auto;margin-right:auto}
+ .affiliate-content :where(h1,h2,h3){font-family: Poppins, system-ui, sans-serif;color:#0f172a}
+ .affiliate-content h1{font-weight:800;font-size:1.85rem;line-height:2.25rem;margin:0 0 0.75rem}
+ .affiliate-content h2{font-weight:800;font-size:1.5rem;line-height:2rem;margin:1.5rem 0 0.75rem}
+ .affiliate-content h3{font-weight:700;font-size:1.15rem;line-height:1.7rem;margin:1.25rem 0 0.5rem}
+ .affiliate-content p{margin:0 0 0.75rem;line-height:1.65;color:#334155;overflow-wrap:anywhere;word-break:break-word;hyphens:auto}
+ .affiliate-content ul{margin:0 0 0.9rem 1.25rem;padding:0}
+ .affiliate-content li{margin:0.35rem 0;color:#334155}
+ .affiliate-content hr{border:0;border-top:1px solid #e2e8f0;margin:1.25rem 0}
+ .affiliate-content strong{color:#0f172a}
+ .affiliate-content em{color:#475569}
+ 
+ /* Ensure numbers keep readable spacing under browser translation (Edge/Google Translate) */
+ .affiliate-content p .nums, .affiliate-content li .nums, .affiliate-content h3 .nums{display:inline-block;margin:0 0.12em;}
+ </style>
+<div class="affiliate-content">
+<h1><span class="notranslate" translate="no">NoMarkupsClub</span> — равные возможности для всех</h1>
+<p>Никаких скрытых платежей. Никаких завышенных цен. Реальный потенциал заработка с первого дня.</p>
+<!-- === Styled overview block (layout only; content unchanged elsewhere) === -->
+<div class="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Overview / key numbers -->
+<div class="lg:col-span-2 bg-white border border-neutral-200 rounded-2xl p-6 shadow-soft">
+<div class="flex items-start justify-between gap-4">
+<div>
+<div class="text-xs font-semibold tracking-[0.18em] uppercase text-neutral-500">Quick overview</div>
+<div class="mt-2 text-lg font-semibold text-neutral-900 text-safe">Choose your plan, then follow the steps below.</div>
+<div class="mt-1 text-sm text-neutral-600 text-safe">All details are explained on this page — clear, structured, and transparent.</div>
+</div>
+<div class="hidden sm:flex items-center gap-2 shrink-0">
+<span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-success-50 text-success-700 border border-success-100 text-xs font-semibold no-wrap">
+<span class="w-2 h-2 bg-success-500 rounded-full"></span>
+ Live
+ </span>
+</div>
+</div>
+<div class="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-4">
+<div class="p-4 bg-neutral-50 rounded-xl border border-neutral-200">
+<div class="text-xs font-semibold tracking-[0.18em] uppercase text-neutral-500">Subscription</div>
+<div class="mt-2 text-2xl font-bold nums text-neutral-900 notranslate" translate="no">$9.95</div>
+<div class="text-xs text-neutral-500 text-safe">per month</div>
+<div class="mt-3 text-xs text-neutral-600 text-safe">Full access to wholesale pricing.</div>
+</div>
+<div class="p-4 bg-neutral-50 rounded-xl border border-neutral-200">
+<div class="text-xs font-semibold tracking-[0.18em] uppercase text-neutral-500">Annual</div>
+<div class="mt-2 text-2xl font-bold nums text-neutral-900 notranslate" translate="no">$99.95</div>
+<div class="text-xs text-neutral-500 text-safe">per year</div>
+<div class="mt-3 text-xs text-neutral-600 text-safe">Same access, billed annually.</div>
+</div>
+<div class="p-4 bg-neutral-50 rounded-xl border border-neutral-200">
+<div class="text-xs font-semibold tracking-[0.18em] uppercase text-neutral-500">Activation</div>
+<div class="mt-2 text-2xl font-bold nums text-neutral-900 notranslate" translate="no">$40</div>
+<div class="text-xs text-neutral-500 text-safe">one-time</div>
+<div class="mt-3 text-xs text-neutral-600 text-safe">Compensation plan activation.</div>
+</div>
+</div>
+<div class="mt-5 rounded-xl border border-neutral-200 bg-white p-4">
+<div class="text-sm text-neutral-700 text-safe">
+<strong>First payment:</strong>
+<span class="notranslate nums" translate="no">$49.95</span> (includes <span class="notranslate nums" translate="no">$9.95</span> subscription + <span class="notranslate nums" translate="no">$40</span> one-time activation), then <span class="notranslate nums" translate="no">$9.95</span>/month.
+ <br/>
+<strong>Annual option:</strong>
+<span class="notranslate nums" translate="no">$139.95</span> (includes <span class="notranslate nums" translate="no">$99.95</span> annual subscription + <span class="notranslate nums" translate="no">$40</span> one-time activation), then <span class="notranslate nums" translate="no">$99.95</span>/year.
+ </div>
+<div class="mt-1 text-xs text-neutral-500 text-safe">
+ After sign-up, you will complete payment in your dashboard under <span class="font-semibold">My Subscription</span>.
+ </div>
+</div>
+</div>
+<!-- Visual separator / illustration -->
+<div class="bg-neutral-900 rounded-2xl p-6 shadow-soft overflow-hidden relative">
+<div class="text-xs font-semibold tracking-[0.18em] uppercase text-neutral-300">Structure</div>
+<div class="mt-2 text-lg font-semibold text-white text-safe">Built on subscriptions and real orders.</div>
+<div class="mt-2 text-sm text-neutral-300 text-safe">A clean explanation format — easy to scan and understand.</div>
+<div class="mt-6 rounded-xl bg-white/10 border border-white/10 p-4">
+<svg aria-hidden="true" class="w-full h-auto" viewbox="0 0 360 180">
+<defs>
+<lineargradient id="g1" x1="0" x2="1" y1="0" y2="1">
+<stop offset="0" stop-color="rgba(59,130,246,0.55)"></stop>
+<stop offset="1" stop-color="rgba(34,197,94,0.35)"></stop>
+</lineargradient>
+</defs>
+<rect fill="rgba(255,255,255,0.03)" height="180" rx="16" width="360" x="0" y="0"></rect>
+<path d="M24 130 C 70 65, 140 150, 200 90 S 310 70, 336 40" fill="none" stroke="url(#g1)" stroke-linecap="round" stroke-width="5"></path>
+<circle cx="60" cy="105" fill="rgba(255,255,255,0.7)" r="8"></circle>
+<circle cx="180" cy="92" fill="rgba(255,255,255,0.7)" r="8"></circle>
+<circle cx="300" cy="70" fill="rgba(255,255,255,0.7)" r="8"></circle>
+<g fill="rgba(255,255,255,0.55)">
+<rect height="18" rx="9" width="96" x="28" y="24"></rect>
+<rect height="18" rx="9" width="140" x="28" y="50"></rect>
+<rect height="18" rx="9" width="120" x="28" y="76"></rect>
+</g>
+</svg>
+</div>
+<div class="absolute -right-10 -bottom-10 w-40 h-40 rounded-full bg-primary-600/20 blur-2xl"></div>
+<div class="absolute -left-10 -top-10 w-40 h-40 rounded-full bg-success-500/15 blur-2xl"></div>
+</div>
+</div>
+<!-- === /Styled overview block === -->
+<hr/>
+<h2>Как зарабатывать с <span class="notranslate" translate="no">NoMarkupsClub</span></h2>
+<p class="mt-4 text-neutral-700 text-safe">Доход в <span class="notranslate" translate="no">NoMarkupsClub</span> привязан к реальным заказам и прозрачному ценообразованию — без рекламного хайпа и без скрытых наценок.</p>
+<div class="mt-8 space-y-8"><section class="space-y-2">
+<div class="flex flex-wrap items-center gap-2">
+<h3 class="text-lg font-semibold">1) Регистрация и старт</h3>
+<span class="inline-flex items-center rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-700">Choose subscription first</span>
+</div>
+<p class="text-neutral-700 text-safe">Сначала выберите, как вы хотите использовать <span class="notranslate" translate="no">NoMarkupsClub</span>. Вариант 1 — только оптовый доступ: оформите подписку и покупайте по оптовым ценам. Участие в компенсационном плане не требуется.</p>
+<ul class="list-disc pl-5 text-neutral-700 space-y-1 text-safe">
+<li>$9.95 / месяц — доступ к оптовым ценам</li>
+<li>$99.95 / год — доступ к оптовым ценам (оплата раз в год)</li>
+</ul>
+<p class="text-neutral-700 text-safe">Вариант 2 — участие как партнёр (Compensation Plan): чтобы участвовать в компенсационном плане Клуба (Матрица и бонусы за результаты), требуется единоразовая активация $40.</p>
+<div class="rounded-xl border border-neutral-200 bg-neutral-50 p-4 text-neutral-800 text-safe">
+<div class="font-semibold mb-1">Your first payment examples</div>
+<p class="text-sm font-semibold text-neutral-800 mb-2">Примеры первых платежей партнёра</p><ul class="list-disc pl-5 space-y-1"><li class="space-y-1">&lt;strong&gt;Первоначальный платёж (месячная подписка): $49.95&lt;/strong&gt;&lt;br&gt;( $9.95 — подписка за первый месяц + $40 — единоразовая активация )&lt;br&gt;&lt;span class="text-sm text-neutral-600"&gt;После первого месяца: $9.95 в месяц — только подписка.&lt;/span&gt;</li><li class="space-y-1">&lt;strong&gt;Первоначальный платёж (годовая подписка): $139.95&lt;/strong&gt;&lt;br&gt;( $99.95 — годовая подписка + $40 — единоразовая активация )&lt;br&gt;&lt;span class="text-sm text-neutral-600"&gt;После первого года: $99.95 в год — только подписка.&lt;/span&gt;</li></ul><p class="mt-3 text-sm font-medium">Активация $40 оплачивается только один раз. Повторно не взимается.</p>
+</div>
+<div class="rounded-xl border border-neutral-200 bg-white p-4 text-safe">
+<div class="font-semibold text-neutral-900 mb-1">Important: who can earn what</div>
+<ul class="list-disc pl-5 text-neutral-700 space-y-1">
+<li>Бонусы компенсационного плана (Fast Start Bonus, TurboStart Bonus, Matrix 2×15 Monthly Bonus, Matching Bonus, Expert Pool, Founder Pool) требуют активной подписки и единоразовой активации $40.</li>
+<li>Реферальные бонусы за подписку требуют активной подписки и у вас, и у подписчика. Активация компенсационного плана не обязательна.</li>
+<li>Заработок на заказах по вашей рекомендации (доля разницы цен) доступен любому зарегистрированному пользователю (подписка не требуется).</li>
+</ul>
+</div>
+<p class="text-neutral-700 text-safe">После регистрации оплата и выбор плана выполняются в личном кабинете в разделе My Subscription.</p>
+
+
+</section>
+<section class="space-y-2"><div class="flex flex-wrap items-center gap-2"><h3 class="text-lg font-semibold">2) Бонус Fast Start</h3><span class="inline-flex items-center rounded-full bg-neutral-900 px-3 py-1 text-xs font-medium text-white">Требуется активация</span></div>
+<p class="text-neutral-700 text-safe">Начинайте зарабатывать с первого дня. Получайте $25 за каждого активного участника, которого вы лично пригласили в систему.</p>
+<p class="text-neutral-700 text-safe">Бонус начисляется сразу, как только приглашённый участник:</p>
+<ul class="list-disc pl-5 text-neutral-700 space-y-1 text-safe">
+<li>оплатит единоразовую активацию компенсационного плана $40;</li>
+
+</ul>
+<div class="rounded-xl border border-neutral-200 bg-neutral-50 p-4 text-neutral-800 text-safe">
+<div class="font-semibold mb-1">How it works</div>
+<p class="text-sm text-neutral-700 text-safe">Пригласите всего 2 активных участника и заработайте $50 в виде бонусов — это полностью покрывает ваши стартовые затраты:</p>
+<ul class="list-disc pl-5 text-sm text-neutral-700 space-y-1 text-safe mt-2">
+<li>$40 — активация компенсационного плана</li>
+<li>$9.95 — ежемесячная подписка</li>
+</ul>
+<p class="mt-2 text-sm text-neutral-700 text-safe">Итог: вы возвращаете вложения при двух активных приглашениях.</p>
+</div>
+
+
+</section><section class="space-y-2">
+<div class="flex flex-wrap items-center gap-2">
+<h3 class="text-lg font-semibold">3) Бонус TurboStart — за скорость (первые 7 дней)</h3>
+<span class="inline-flex items-center rounded-full bg-neutral-900 px-3 py-1 text-xs font-medium text-white">Requires Activation</span>
+</div>
+<p class="text-neutral-700 text-safe">Первая неделя — ключевой период. Получайте дополнительные бонусы за выполнение этих этапов:</p>
+<ul class="list-disc pl-5 text-neutral-700 space-y-1 text-safe">
+<li>Пригласите 2 партнёров за 3 дня → получите бонус $10</li>
+<li>Пригласите 4 партнёров за 7 дней → получите ещё $10</li>
+<li>Итого TurboStart: $20 за быстрый старт.</li>
+</ul>
+<div class="rounded-xl border border-neutral-200 bg-neutral-50 p-4 text-neutral-800 text-safe">
+<div class="font-semibold mb-1">График выплат</div>
+<p class="text-sm text-neutral-700">Выплата — в пятницу следующей недели после выполнения условий.</p>
+</div>
+</section><section class="space-y-2">
+<div class="flex flex-wrap items-center gap-2">
+<h3 class="text-lg font-semibold">За каждого активного подписчика в вашей структуре вы получаете регулярные бонусы, пока его подписка активна:</h3>
+<span class="inline-flex items-center rounded-full bg-neutral-900 px-3 py-1 text-xs font-medium text-white">Subscription Required</span>
+</div>
+<p class="text-neutral-700 text-safe">Этот бонус начисляется за каждого подписчика — даже если он не активировал компенсационный план.</p>
+<div class="grid gap-3 sm:grid-cols-2">
+<div class="rounded-xl border border-neutral-200 bg-white p-4 text-safe">
+<div class="text-xs text-neutral-600">Monthly subscription</div>
+<div class="mt-1 text-sm text-neutral-800">
+<span class="font-semibold nums notranslate" data-num="$1" translate="no">$1</span>/month per active subscriber
+ </div>
+</div>
+<div class="rounded-xl border border-neutral-200 bg-white p-4 text-safe">
+<div class="text-xs text-neutral-600">Annual subscription</div>
+<div class="mt-1 text-sm text-neutral-800">
+<span class="font-semibold nums notranslate" data-num="$10" translate="no">$10</span>/ per active subscriber</div>
+</div>
+</div>
+<p class="text-neutral-700 text-safe">У вас должна быть активная подписка.</p>
+<div class="rounded-xl border border-neutral-200 bg-neutral-50 p-4 text-neutral-800 text-safe">
+<div class="font-semibold mb-1"></div>
+<ul class="list-disc pl-5 text-sm text-neutral-700 space-y-1 text-safe">
+<li>У подписчика должна быть активная подписка.</li>
+<li>Бонусы начисляются, пока подписки остаются активными.</li>
+<li>Выплата — 1-го числа каждого месяца, пока подписки активны.</li>
+</ul>
+</div>
+<div class="rounded-xl border border-neutral-200 bg-neutral-50 p-4 text-neutral-800 text-safe">
+<div class="font-semibold mb-1">Payout Schedule</div>
+<p class="text-sm text-neutral-700"></p>
+<p class="mt-3 text-sm text-neutral-700 text-safe">5) Матрица 2×15 — стабильный пассивный доход</p>
+</div>
+</section><section class="space-y-2">
+<div class="flex flex-wrap items-center gap-2">
+<h3 class="text-lg font-semibold">Вы становитесь частью бинарной матрицы (2×15). Каждый раз, когда кто-то входит в вашу матрицу и остаётся активным, вы получаете $0.25 с этого участника — каждый месяц.</h3>
+<span class="inline-flex items-center rounded-full bg-neutral-900 px-3 py-1 text-xs font-medium text-white">Requires Activation</span>
+</div>
+<p class="text-neutral-700 text-safe">При полной матрице это может составлять до $2,047.50 в месяц даже без личных приглашений. Чем выше ваш ранг, тем больше уровней открывается и тем больше вы можете зарабатывать.</p>
+<div class="mt-4 overflow-x-auto rounded-xl border border-neutral-200 bg-white">
+<table class="min-w-[860px] w-full text-sm">
+<thead class="bg-neutral-900 text-white">
+<tr>
+<th class="px-4 py-3 text-left font-semibold">Earnings Per Level</th>
+<th class="px-4 py-3 text-left font-semibold">Member</th>
+<th class="px-4 py-3 text-left font-semibold">Active</th>
+<th class="px-4 py-3 text-left font-semibold">Shaper</th>
+<th class="px-4 py-3 text-left font-semibold">Leader</th>
+<th class="px-4 py-3 text-left font-semibold">Partner</th>
+<th class="px-4 py-3 text-left font-semibold">Expert</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-neutral-200">
+<tr class="bg-neutral-50">
+<td class="px-4 py-3 font-medium">1–12</td>
+<td class="px-4 py-3" data-num="$0.25">$0.25</td>
+<td class="px-4 py-3" data-num="$0.25">$0.25</td>
+<td class="px-4 py-3" data-num="$0.25">$0.25</td>
+<td class="px-4 py-3" data-num="$0.25">$0.25</td>
+<td class="px-4 py-3" data-num="$0.25">$0.25</td>
+<td class="px-4 py-3" data-num="$0.25">$0.25</td>
+</tr>
+<tr>
+<td class="px-4 py-3 font-medium" data-num="13">13</td>
+<td class="px-4 py-3"></td>
+<td class="px-4 py-3" data-num="$0.25">$0.25</td>
+<td class="px-4 py-3" data-num="$0.25">$0.25</td>
+<td class="px-4 py-3" data-num="$0.25">$0.25</td>
+<td class="px-4 py-3" data-num="$0.25">$0.25</td>
+<td class="px-4 py-3" data-num="$0.25">$0.25</td>
+</tr>
+<tr class="bg-neutral-50">
+<td class="px-4 py-3 font-medium" data-num="14">14</td>
+<td class="px-4 py-3"></td>
+<td class="px-4 py-3"></td>
+<td class="px-4 py-3"></td>
+<td class="px-4 py-3" data-num="$0.25">$0.25</td>
+<td class="px-4 py-3" data-num="$0.25">$0.25</td>
+<td class="px-4 py-3" data-num="$0.25">$0.25</td>
+</tr>
+<tr>
+<td class="px-4 py-3 font-medium" data-num="15">15</td>
+<td class="px-4 py-3"></td>
+<td class="px-4 py-3"></td>
+<td class="px-4 py-3"></td>
+<td class="px-4 py-3"></td>
+<td class="px-4 py-3"></td>
+<td class="px-4 py-3" data-num="$0.25">$0.25</td>
+</tr>
+<tr class="bg-neutral-50">
+<td class="px-4 py-3 font-semibold">Total</td>
+<td class="px-4 py-3 font-semibold" data-num="$2047.50">$2047.50</td>
+<td class="px-4 py-3 font-semibold" data-num="$4095.50">$4095.50</td>
+<td class="px-4 py-3 font-semibold" data-num="$4095.50">$4095.50</td>
+<td class="px-4 py-3 font-semibold" data-num="$8191.50">$8191.50</td>
+<td class="px-4 py-3 font-semibold" data-num="$8191.50">$8191.50</td>
+<td class="px-4 py-3 font-semibold" data-num="$16383.50">$16383.50</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="text-neutral-700 text-safe mt-4">Активность структуры рассчитывается еженедельно. Итоги фиксируются в конце четверга и применяются в пятницу.</p>
+<div class="rounded-xl border border-neutral-200 bg-neutral-50 p-4 text-neutral-800 text-safe">
+<div class="font-semibold mb-1">Weekly updates</div>
+<p class="text-sm text-neutral-700">6) Matching Bonus — заработок на доходе Матрицы ваших партнёров</p>
+</div>
+</section><section class="space-y-2">
+<div class="flex flex-wrap items-center gap-2">
+<h3 class="text-lg font-semibold">Этот бонус сильный: он позволяет зарабатывать не только на вашей Матрице, но и на успехе людей, которых вы лично пригласили.</h3>
+<span class="inline-flex items-center rounded-full bg-neutral-900 px-3 py-1 text-xs font-medium text-white">Requires Activation</span>
+</div>
+<p class="text-neutral-700 text-safe">Дополнительно к вашему доходу Матрицы (от $2,047.50 до $16,383.50) вы получаете 50% от заработка Матрицы каждого лично приглашённого вами участника. Процент и глубина (поколения) зависят от ранга.</p>
+<p class="text-neutral-700 text-safe mt-3">Пример: если вы пригласили 10 участников и каждый зарабатывает $1,000 в месяц в Матрице, а вы квалифицированы на 50% по личным приглашениям — вы получаете $500 с каждого, то есть $5,000 в месяц в виде Matching Bonus.</p>
+<div class="mt-4 overflow-x-auto rounded-xl border border-neutral-200 bg-white">
+<table class="min-w-[860px] w-full text-sm">
+<thead class="bg-neutral-900 text-white">
+<tr>
+<th class="px-4 py-3 text-left font-semibold">Rank</th>
+<th class="px-4 py-3 text-left font-semibold">1st Generation</th>
+<th class="px-4 py-3 text-left font-semibold">2nd Generation</th>
+<th class="px-4 py-3 text-left font-semibold">3rd Generation</th>
+<th class="px-4 py-3 text-left font-semibold">4th Generation</th>
+<th class="px-4 py-3 text-left font-semibold">5th Generation</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-neutral-200">
+<tr class="bg-neutral-50">
+<td class="px-4 py-3 font-medium">Personally Enrolled</td>
+<td class="px-4 py-3" data-num="50%">50%</td>
+<td class="px-4 py-3"></td>
+<td class="px-4 py-3"></td>
+<td class="px-4 py-3"></td>
+<td class="px-4 py-3"></td>
+</tr>
+<tr>
+<td class="px-4 py-3 font-medium">Shaper</td>
+<td class="px-4 py-3" data-num="10%">10%</td>
+<td class="px-4 py-3" data-num="10%">10%</td>
+<td class="px-4 py-3"></td>
+<td class="px-4 py-3"></td>
+<td class="px-4 py-3"></td>
+</tr>
+<tr class="bg-neutral-50">
+<td class="px-4 py-3 font-medium">Leader</td>
+<td class="px-4 py-3" data-num="5%">5%</td>
+<td class="px-4 py-3" data-num="5%">5%</td>
+<td class="px-4 py-3" data-num="5%">5%</td>
+<td class="px-4 py-3"></td>
+<td class="px-4 py-3"></td>
+</tr>
+<tr>
+<td class="px-4 py-3 font-medium">Partner</td>
+<td class="px-4 py-3" data-num="5%">5%</td>
+<td class="px-4 py-3" data-num="5%">5%</td>
+<td class="px-4 py-3" data-num="5%">5%</td>
+<td class="px-4 py-3" data-num="5%">5%</td>
+<td class="px-4 py-3"></td>
+</tr>
+<tr class="bg-neutral-50">
+<td class="px-4 py-3 font-medium">Expert</td>
+<td class="px-4 py-3" data-num="3%">3%</td>
+<td class="px-4 py-3" data-num="3%">3%</td>
+<td class="px-4 py-3" data-num="3%">3%</td>
+<td class="px-4 py-3" data-num="3%">3%</td>
+<td class="px-4 py-3" data-num="3%">3%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="text-neutral-700 text-safe mt-4">7) Ранги и глубина доступа</p>
+</section><section class="space-y-2">
+<div class="flex flex-wrap items-center gap-2">
+<h3 class="text-lg font-semibold">Ваш ранг определяет, насколько глубоко открываются уровни Матрицы, на каких уровнях вы можете зарабатывать и получаете ли вы доступ к глобальным Bonus Pools.</h3>
+<span class="inline-flex items-center rounded-full bg-neutral-900 px-3 py-1 text-xs font-medium text-white">Requires Activation</span>
+</div>
+<p class="text-neutral-700 text-safe">Обновление ранга рассчитывается еженедельно и применяется по пятницам.</p>
+<ul class="list-disc pl-5 text-neutral-700 space-y-1 text-safe">
+<li>8) Bonus Pools — доля успеха Клуба</li>
+
+</ul>
+</section><section class="space-y-2">
+<div class="flex flex-wrap items-center gap-2">
+<h3 class="text-lg font-semibold">В Клубе работают два глобальных бонусных пула. Участники, которые соответствуют условиям, получают пропорциональную долю:</h3>
+<span class="inline-flex items-center rounded-full bg-neutral-900 px-3 py-1 text-xs font-medium text-white">Requires Activation</span>
+</div>
+<p class="text-neutral-700 text-safe">Expert Pool: 2% от общего оборота Клуба распределяется среди участников с рангом Expert.</p>
+<ul class="list-disc pl-5 text-neutral-700 space-y-1 text-safe">
+<li>Founder Pool: 0.5% от общего оборота распределяется среди участников, которые выполняют критерии ранга Founder.</li>
+<li>Распределение пропорциональное и только среди участников, которые квалифицировались по соответствующему рангу.</li>
+</ul>
+<p class="text-neutral-700 text-safe">Выплата — 1-го числа каждого месяца по квалификации за предыдущий месяц.</p>
+<div class="rounded-xl border border-neutral-200 bg-neutral-50 p-4 text-neutral-800 text-safe">
+<div class="font-semibold mb-1">Payout Schedule</div>
+<p class="text-sm text-neutral-700">9) Заработок на заказах по вашей рекомендации (доля разницы цен)</p>
+</div>
+</section><section class="space-y-2">
+<div class="flex flex-wrap items-center gap-2">
+<h3 class="text-lg font-semibold">Поделитесь своей персональной реферальной ссылкой и зарабатывайте на покупках розничных клиентов по подходящим товарам. Участвовать можно без подписки.</h3>
+<span class="inline-flex items-center rounded-full bg-neutral-900 px-3 py-1 text-xs font-medium text-white">Available to All Users</span>
+</div>
+<p class="text-neutral-700 text-safe">Комиссия начисляется только за успешно оформленные и подтверждённые заказы.</p>
+<div class="rounded-xl border border-neutral-200 bg-white p-4 text-safe">
+<div class="font-semibold text-neutral-900 mb-1">How it works</div>
+<ul class="list-disc pl-5 text-neutral-700 space-y-1 text-safe text-sm">
+<li>Если заказ отменён или возвращён, комиссия не выплачивается.</li>
+<li>Комиссия не начисляется на заказы пользователей с активной подпиской (нет разницы «розница → опт»).</li>
+<li>Вся статистика, отчёты и детали заказов доступны в вашем кабинете.</li>
+<li>Выплаты выполняются через 45 дней после подтверждения заказа.</li>
+</ul>
+</div>
+<div class="rounded-xl border border-neutral-200 bg-neutral-50 p-4 text-neutral-800 text-safe">
+<div class="font-semibold mb-1">Payout Schedule</div>
+<p class="text-sm text-neutral-700">Как система остаётся устойчивой</p>
+</div>
+</section><section class="space-y-2">
+<h3 class="text-lg font-semibold">В отличие от проектов, которые держатся только на постоянном рекрутинге, <span class="notranslate" translate="no">NoMarkupsClub</span> построен на подписках и реальном товарообороте:</h3>
+<p class="text-neutral-700 text-safe">Регулярные выплаты могут продолжаться, пока подписчики остаются активными.</p>
+<ul class="list-disc pl-5 text-neutral-700 space-y-1 text-safe">
+<li>Доход привязан к заказам и активным подпискам — а не к «хайповым циклам».</li>
+<li>Можно выстроить стабильность даже без бесконечного роста.</li>
+<li>Хотите быстрый старт — сфокусируйтесь на Fast Start и TurboStart. Хотите максимальную глубину — развивайте команду и повышайте ранги.</li>
+</ul>
+<p class="text-neutral-700 text-safe">Почему <span class="notranslate" translate="no">NoMarkupsClub</span> отличается</p>
+</section></div>
+<h2 data-end="2895" data-start="2864">В отличие от многих проектов, которые держатся только на рекрутинге, наша система построена одновременно на подписках и реальном товарообороте.</h2>
+<p data-end="3019" data-start="2896">Выплаты формируются за счёт действующих подписчиков, пока они остаются активными.</p>
+<ul data-end="3270" data-start="3021">
+<li data-end="3103" data-start="3021">Доход поддерживается продажами товаров, а не только приглашениями новых участников.</li>
+<li data-end="3184" data-start="3104">Займите позицию сегодня</li>
+<li data-end="3270" data-start="3185">Присоединяйтесь к <span class="notranslate" translate="no">NoMarkupsClub</span> и начните строить надёжный источник дохода с первого дня.</li>
+</ul>
+<hr data-end="3275" data-start="3272"/>
+<h2 data-end="3306" data-start="3277">Start building your position today</h2>
+<p data-end="3372" data-start="3307">The earlier you join, the stronger your position in the system.</p>
+<p data-end="3456" data-start="3374">Join <span class="notranslate" translate="no">NoMarkupsClub</span> and start building a reliable source of income from day one.</p>
+</div>
+</div>
+</section>
+</div>
+<script>
+ // Keep the same mobile menu behavior as other pages
+ const menuBtn = document.getElementById("menuBtn");
+ const mobileMenu = document.getElementById("mobileMenu");
+ if (menuBtn && mobileMenu) {
+ menuBtn.addEventListener("click", () => {
+ mobileMenu.classList.toggle("hidden");
+ });
+ }
+ </script>
+</main>
+<footer class="bg-neutral-900 text-white py-16">
+<div class="max-w-6xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div>
+<div class="font-display font-bold text-2xl mb-6">
+                        <span class="notranslate" translate="no"><span class="notranslate" translate="no">NoMarkupsClub</span></span>
+</div>
+<p class="text-neutral-400 mb-6">
+                        No hidden markups, no retail tricks. Just honest wholesale pricing for smart shoppers.
+                    </p>
+<div class="flex space-x-4">
+<div class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors cursor-pointer">
+<a href="https://www.facebook.com/nomarkupsclub" target="_blank"><i class="ion-social-facebook"></i></a>
+</div>
+<div class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors cursor-pointer">
+<a href="https://www.x.com" target="_blank"><i class="ion-social-twitter"></i></a>
+</div>
+<div class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors cursor-pointer">
+<a href="https://www.instagram.com" target="_blank"><i class="ion-social-instagram"></i></a>
+</div>
+</div>
+</div>
+<div>
+<h4 class="font-semibold text-lg mb-6">Company</h4>
+<ul class="space-y-3 text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/aboutus">About Us</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/#howitworks">How It Works</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/affiliate_plan">Affiliate Plan</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/press">Press</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-lg mb-6">Support</h4>
+<ul class="space-y-3 text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/supports/index">Help Center</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/contact_us">Contact Us</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/shipping_info">Shipping Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/certificate">Certificate of Analysis</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-lg mb-6">Legal</h4>
+<ul class="space-y-3 text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/privacy_policy">Privacy Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/terms_conditions">Terms &amp; Conditions</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/refund_policy">Refund Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/cookie_policy">Cookie Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-neutral-800 mt-12 pt-8 text-center">
+<p class="text-neutral-400">
+                   © 2025 nomarkupsclub.com. All right reserved.
+                </p>
+</div>
+</div>
+</footer>
+<script>
+/* === Edge/Translate numeric guard: restore preserved numbers if translation removes them === */
+(function(){
+ function hasDigit(s){ return /\d/.test(s || ""); }
+ function restore(){
+ document.querySelectorAll('span.nums.notranslate[translate="no"][data-num]').forEach(function(el){
+ var want = el.getAttribute('data-num') || '';
+ var cur = (el.textContent || '').trim();
+ if (want && (!hasDigit(cur) || cur.length < want.length)) {
+ el.textContent = want;
+ }
+ });
+ document.querySelectorAll('td[data-num]').forEach(function(td){
+ var want = td.getAttribute('data-num') || '';
+ var cur = (td.textContent || '').trim();
+ if (want && (!hasDigit(cur) || cur.length < want.length)) {
+ td.textContent = want;
+ }
+ });
+ }
+ if (document.readyState === "loading") {
+ document.addEventListener("DOMContentLoaded", function(){ restore(); setTimeout(restore, 800); setTimeout(restore, 1800); });
+ } else {
+ restore(); setTimeout(restore, 800); setTimeout(restore, 1800);
+ }
+})();
+</script>
+<div id="lang-toggle" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:8px;"></div><script>
+(function(){
+ const enMain = document.getElementById('main-en');
+ const ruMain = document.getElementById('main-ru');
+ const btnEn = document.getElementById('btn-en');
+ const btnRu = document.getElementById('btn-ru');
+
+ function setLang(lang){
+ if(!enMain || !ruMain) return;
+ const isRU = (lang === 'ru');
+ enMain.style.display = isRU ? 'none' : '';
+ ruMain.style.display = isRU ? '' : 'none';
+
+ // mark html lang for accessibility
+ document.documentElement.setAttribute('lang', isRU ? 'ru' : 'en');
+
+ // persist
+ try { localStorage.setItem('nmc_lang', isRU ? 'ru' : 'en'); } catch(e){}
+ // button emphasis
+ if(btnEn && btnRu){
+ btnEn.style.opacity = isRU ? '0.6' : '1';
+ btnRu.style.opacity = isRU ? '1' : '0.6';
+ }
+ }
+
+ if(btnEn) btnEn.addEventListener('click', ()=>setLang('en'));
+ if(btnRu) btnRu.addEventListener('click', ()=>setLang('ru'));
+
+ // default: EN, but restore preference
+ let pref = 'en';
+ try { pref = localStorage.getItem('nmc_lang') || 'en'; } catch(e){}
+ setLang(pref);
+})();
+</script></body>
+</html>

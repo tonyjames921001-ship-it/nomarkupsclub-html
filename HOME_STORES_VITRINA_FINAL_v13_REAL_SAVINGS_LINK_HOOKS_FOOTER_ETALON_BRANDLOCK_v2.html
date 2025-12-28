@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title><span class="notranslate" translate="no">NoMarkupsClub</span></title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 50:'#eff6ff', 100:'#dbeafe', 500:'#3b82f6', 600:'#2563eb', 700:'#1d4ed8', 900:'#1e3a8a' },
+                        success: { 50:'#f0fdf4', 100:'#dcfce7', 500:'#22c55e', 600:'#16a34a', 700:'#15803d' },
+                        warning: { 50:'#fffbeb', 100:'#fef3c7', 500:'#f59e0b', 600:'#d97706' },
+                        neutral: { 50:'#f8fafc', 100:'#f1f5f9', 200:'#e2e8f0', 300:'#cbd5e1', 400:'#94a3b8', 500:'#64748b', 600:'#475569', 700:'#334155', 800:'#1e293b', 900:'#0f172a' }
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'display': ['Poppins', 'system-ui', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
+                        'medium': '0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                        'large': '0 10px 40px -10px rgba(0, 0, 0, 0.15), 0 20px 25px -5px rgba(0, 0, 0, 0.1)'
+                    }
+                }
+            }
+        }
+    </script>
+<link href="https://nomarkupsclub.com/public/favicon/favicon.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="https://nomarkupsclub.com/public/favicon/favicon.png" rel="shortcut icon"/>
+<link href="https://nomarkupsclub.com/public/css/ionicons.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://nomarkupsclub.com/public/css/main.css" rel="stylesheet"/>
+<script crossorigin="anonymous" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<style>
+        .text-safe{overflow-wrap:break-word;word-break:normal;hyphens:auto;}
+.howitworks-grid{grid-auto-rows:1fr;}
+
+        .nums{white-space:nowrap}
+        .no-wrap{white-space:nowrap}
+        .card-stable{display:flex;flex-direction:column;height:100%}
+        .push-bottom{margin-top:auto}
+        .regional-store-card{display:flex;flex-direction:column;height:100%}
+        .regional-store-card .region-button{margin-top:auto}
+        .how-card{display:flex;flex-direction:column;height:100%}
+        .how-card .how-stat{margin-top:auto}
+        .hero-card{padding:1.1rem}
+
+        /* Compact 100%: -10% overall density without scaling the whole page */
+        .compact-10 .max-w-7xl,.compact-10 .max-w-6xl,.compact-10 .max-w-4xl{padding-left:1.35rem!important;padding-right:1.35rem!important}
+        .compact-10 section.py-14{padding-top:3.15rem!important;padding-bottom:3.15rem!important}
+        .compact-10 section.py-12{padding-top:2.7rem!important;padding-bottom:2.7rem!important}
+        .compact-10 .mb-12{margin-bottom:2.7rem!important}
+        .compact-10 .mb-10{margin-bottom:2.25rem!important}
+        .compact-10 .gap-10{gap:2.25rem!important}
+        .compact-10 .gap-8{gap:1.8rem!important}
+        .compact-10 .p-7{padding:1.575rem!important}
+        .compact-10 .p-6{padding:1.35rem!important}
+        .compact-10 .p-5{padding:1.125rem!important}
+        .compact-10 .text-4xl{font-size:2.025rem!important;line-height:2.25rem!important}
+        .compact-10 .text-3xl{font-size:1.6875rem!important;line-height:2.05rem!important}
+        .compact-10 .text-2xl{font-size:1.35rem!important;line-height:1.85rem!important}
+        .compact-10 .text-xl{font-size:1.125rem!important;line-height:1.7rem!important}
+        .compact-10 .text-lg{font-size:1.0125rem!important;line-height:1.6rem!important}
+
+        /* Hero headline only: slightly smaller to match 90% feel at 100% zoom */
+        .compact-10 .hero-h1{font-size:3.35rem!important;line-height:1.05!important}
+        @media (max-width: 768px){
+            .compact-10 .hero-h1{font-size:2.35rem!important;line-height:1.1!important}
+        }
+
+        /* Tighten some vertical spacing in hero cards */
+        .compact-10 .hero-card{padding:1rem!important}
+        .compact-10 .space-y-5 > :not([hidden]) ~ :not([hidden]){margin-top:1.125rem!important}
+        .compact-10 .space-y-4 > :not([hidden]) ~ :not([hidden]){margin-top:0.9rem!important}
+        .compact-10 .space-y-3 > :not([hidden]) ~ :not([hidden]){margin-top:0.675rem!important}
+    
+/* === FIX: recolor decorative grey pill to card color === */
+.store-card .decor-blob,
+.region-card .decor-blob,
+[class*="region"] .decor-blob{
+  background: rgba(255,255,255,0.12) !important;
+  mix-blend-mode: overlay;
+}
+
+
+/* === HARD FIX: paint decorative grey blobs in card color (no layout/text changes) === */
+.region-card .decor-blob,
+.store-card .decor-blob,
+.regionA-blob,
+.region-blob{
+  background: inherit !important;
+  opacity: 0.22; /* keeps original soft look */
+}
+
+
+
+/* Micro-interaction: Browse all stores button */
+.btn-browse-bounce{
+  transition: transform 140ms ease, box-shadow 140ms ease;
+  will-change: transform;
+}
+.btn-browse-bounce:hover{ transform: translateY(-2px); }
+.btn-browse-bounce:active{ transform: translateY(1px); }
+
+</style>
+<style>
+html{font-size:90%;}
+</style>
+<style>
+        .text-safe{overflow-wrap:break-word;word-break:normal;hyphens:auto;}
+.howitworks-grid{grid-auto-rows:1fr;}
+
+        .nums{white-space:nowrap}
+        .no-wrap{white-space:nowrap}
+        .card-stable{display:flex;flex-direction:column;height:100%}
+        .push-bottom{margin-top:auto}
+        .regional-store-card{display:flex;flex-direction:column;height:100%}
+        .regional-store-card .region-button{margin-top:auto}
+        .how-card{display:flex;flex-direction:column;height:100%}
+        .how-card .how-stat{margin-top:auto}
+        .hero-card{padding:1.1rem}
+
+        /* Compact 100%: -10% overall density without scaling the whole page */
+        .compact-10 .max-w-7xl,.compact-10 .max-w-6xl,.compact-10 .max-w-4xl{padding-left:1.35rem!important;padding-right:1.35rem!important}
+        .compact-10 section.py-14{padding-top:3.15rem!important;padding-bottom:3.15rem!important}
+        .compact-10 section.py-12{padding-top:2.7rem!important;padding-bottom:2.7rem!important}
+        .compact-10 .mb-12{margin-bottom:2.7rem!important}
+        .compact-10 .mb-10{margin-bottom:2.25rem!important}
+        .compact-10 .gap-10{gap:2.25rem!important}
+        .compact-10 .gap-8{gap:1.8rem!important}
+        .compact-10 .p-7{padding:1.575rem!important}
+        .compact-10 .p-6{padding:1.35rem!important}
+        .compact-10 .p-5{padding:1.125rem!important}
+        .compact-10 .text-4xl{font-size:2.025rem!important;line-height:2.25rem!important}
+        .compact-10 .text-3xl{font-size:1.6875rem!important;line-height:2.05rem!important}
+        .compact-10 .text-2xl{font-size:1.35rem!important;line-height:1.85rem!important}
+        .compact-10 .text-xl{font-size:1.125rem!important;line-height:1.7rem!important}
+        .compact-10 .text-lg{font-size:1.0125rem!important;line-height:1.6rem!important}
+
+        /* Hero headline only: slightly smaller to match 90% feel at 100% zoom */
+        .compact-10 .hero-h1{font-size:3.35rem!important;line-height:1.05!important}
+        @media (max-width: 768px){
+            .compact-10 .hero-h1{font-size:2.35rem!important;line-height:1.1!important}
+        }
+
+        /* Tighten some vertical spacing in hero cards */
+        .compact-10 .hero-card{padding:1rem!important}
+        .compact-10 .space-y-5 > :not([hidden]) ~ :not([hidden]){margin-top:1.125rem!important}
+        .compact-10 .space-y-4 > :not([hidden]) ~ :not([hidden]){margin-top:0.9rem!important}
+        .compact-10 .space-y-3 > :not([hidden]) ~ :not([hidden]){margin-top:0.675rem!important}
+
+        /* Menu: keep alignment stable under translate/zoom */
+        .nav-link{text-transform:uppercase!important;white-space:normal!important;}#mobileMenu a{text-transform:uppercase!important;white-space:normal!important;}
+        nav .bg-primary-600{white-space:nowrap}
+    
+/* === Translate/zoom stability: keep header single-line as much as possible on desktop === */
+.nav-link{white-space:nowrap;}
+@media (min-width:768px){
+  nav .hidden.md\:flex.space-x-8{
+    flex-wrap:nowrap;
+    white-space:nowrap;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    gap:1.25rem !important;
+  }
+  nav .hidden.md\:flex.space-x-8::-webkit-scrollbar{display:none;}
+}
+/* Make check bullets stay perfectly round even if browser translation injects different fonts */
+.check-dot{flex:0 0 auto; border-radius:9999px;}
+/* Numbers/currency should not wrap and should not be translated */
+.nums{white-space:nowrap;}
+</style>
+<style>
+        html{font-size:90%;}
+    </style>
+<style>
+  html{ overflow-y: scroll; }
+  body{ overflow-x: hidden; }
+</style>
+<style>
+/* Header hard-sticky (prevents pages where other CSS disables sticky) */
+nav.bg-white\/95.backdrop-blur-sm.sticky{position:-webkit-sticky !important; position:sticky !important; top:0 !important; z-index:50 !important;}
+</style>
+<style>
+/* Fixed header fallback: keep content from sliding under the header */
+body{ padding-top:64px; }
+@media (max-width: 768px){ body{ padding-top:64px; } }
+</style>
+<style>
+.price-ru{display:none}
+:lang(ru) .price-en{display:none}
+:lang(ru) .price-ru{display:inline}
+</style>
+<style>
+/* clamp for step1: keep blue block same height as green in all languages */
+#howitworks .step1-clamp{
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+</style>
+<style id="luxury-upgrade">
+  :root{
+    --lux-ink:#0b1220;
+    --lux-ink-2:#111a2e;
+    --lux-surface:rgba(255,255,255,.72);
+    --lux-surface-2:rgba(255,255,255,.58);
+    --lux-border:rgba(148,163,184,.35);
+    --lux-blue:#2563eb;
+    --lux-blue-2:#1d4ed8;
+    --lux-green:#16a34a;
+    --lux-amber:#d97706;
+  }
+
+  /* Global premium background */
+  body{
+    background:
+      radial-gradient(1200px 700px at 18% -10%, rgba(37,99,235,.14), transparent 60%),
+      radial-gradient(900px 600px at 85% 10%, rgba(34,197,94,.12), transparent 55%),
+      radial-gradient(900px 700px at 55% 110%, rgba(245,158,11,.10), transparent 55%),
+      linear-gradient(180deg, #f8fafc 0%, #f5f7fb 55%, #f8fafc 100%);
+  }
+
+  /* Soft noise overlay (subtle, premium) */
+  .lux-noise{
+    position:absolute; inset:0; pointer-events:none; opacity:.065;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+    mix-blend-mode:multiply;
+  }
+
+  /* Section rhythm */
+  .lux-section{ position:relative; }
+  .lux-divider{
+    height:1px; width:100%;
+    background:linear-gradient(90deg, transparent, rgba(148,163,184,.35), transparent);
+  }
+
+  /* Glass cards */
+  .lux-card{
+    background:var(--lux-surface);
+    border:1px solid var(--lux-border);
+    box-shadow:0 10px 40px -22px rgba(15,23,42,.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 1.25rem;
+  }
+  .lux-card-strong{
+    background:rgba(255,255,255,.80);
+    border:1px solid rgba(148,163,184,.40);
+    box-shadow:0 18px 60px -28px rgba(15,23,42,.28);
+  }
+  .lux-hover{
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .lux-hover:hover{
+    transform: translateY(-3px);
+    box-shadow:0 24px 70px -34px rgba(15,23,42,.34);
+    border-color: rgba(59,130,246,.35);
+  }
+
+  /* Premium buttons */
+  .lux-btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:.55rem;
+    padding:.9rem 1.3rem;
+    border-radius:.9rem;
+    font-weight:700;
+    letter-spacing:.01em;
+    transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease, color .18s ease, border-color .18s ease;
+    white-space:nowrap;
+  }
+  .lux-btn:active{ transform: translateY(1px); }
+  .lux-btn-primary{
+    color:#fff;
+    background: linear-gradient(135deg, #0f172a, #111827 55%, #0b1220);
+    box-shadow: 0 14px 40px -22px rgba(15,23,42,.60);
+  }
+  .lux-btn-primary:hover{ background: linear-gradient(135deg, #111827, #0f172a 55%, #0b1220); }
+  .lux-btn-blue{
+    color:#fff;
+    background: linear-gradient(135deg, var(--lux-blue), var(--lux-blue-2));
+    box-shadow: 0 16px 45px -24px rgba(37,99,235,.55);
+  }
+  .lux-btn-blue:hover{ filter: brightness(.98); }
+  .lux-btn-ghost{
+    color: var(--lux-ink);
+    background: rgba(255,255,255,.78);
+    border:1px solid rgba(148,163,184,.45);
+  }
+  .lux-btn-ghost:hover{ background: rgba(241,245,249,.95); }
+
+  /* Badges & chips */
+  .lux-pill{
+    display:inline-flex; align-items:center; gap:.45rem;
+    padding:.35rem .7rem;
+    border-radius:9999px;
+    font-size:.78rem;
+    font-weight:700;
+    border:1px solid rgba(148,163,184,.35);
+    background: rgba(255,255,255,.68);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    white-space:nowrap;
+  }
+  .lux-pill-blue{ border-color: rgba(37,99,235,.30); }
+  .lux-pill-green{ border-color: rgba(22,163,74,.30); }
+  .lux-pill-amber{ border-color: rgba(217,119,6,.28); }
+
+  /* Image framing */
+  .lux-media{
+    border-radius:1.35rem;
+    overflow:hidden;
+    box-shadow: 0 18px 60px -35px rgba(15,23,42,.35);
+    border:1px solid rgba(148,163,184,.35);
+  }
+
+  /* Horizontal chips scrollbar (stores) */
+  .lux-scroll{ overflow:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+  .lux-scroll::-webkit-scrollbar{ display:none; }
+
+  /* Small animation */
+  @keyframes lux-float { 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-4px);} }
+  .lux-float{ animation: lux-float 6s ease-in-out infinite; }
+</style>
+<style id="region-premium-variants">
+  /* Variant A: deep fintech cards */
+  .regionA-card{
+    position:relative;
+    border-radius:1.5rem;
+    overflow:hidden;
+    border:1px solid rgba(148,163,184,.25);
+    box-shadow: 0 18px 60px -40px rgba(15,23,42,.45);
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .regionA-card:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 26px 80px -48px rgba(15,23,42,.55);
+    border-color: rgba(59,130,246,.30);
+  }
+  .regionA-overlay{
+    position:absolute; inset:0;
+    background: transparent;
+    pointer-events:none;
+  }
+  .regionA-meta{
+    display:flex; gap:.5rem; flex-wrap:wrap;
+    color:rgba(255,255,255,.82);
+    font-size:.85rem;
+  }
+  .regionA-chip{
+    padding:.28rem .6rem;
+    border-radius:9999px;
+    border:1px solid rgba(255,255,255,.22);
+    background: rgba(15,23,42,.22);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    white-space:nowrap;
+  }
+
+  /* Variant B: minimal outline cards with accent rail */
+  .regionB-card{
+    border-radius:1.5rem;
+    border:1px solid rgba(148,163,184,.35);
+    background: rgba(255,255,255,.72);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 14px 55px -42px rgba(15,23,42,.35);
+    transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    overflow:hidden;
+    position:relative;
+  }
+  .regionB-card:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 22px 70px -50px rgba(15,23,42,.45);
+    border-color: rgba(59,130,246,.30);
+  }
+  .regionB-rail{
+    position:absolute; left:0; top:0; bottom:0; width:10px;
+    background: linear-gradient(180deg, rgba(37,99,235,.90), rgba(29,78,216,.55));
+  }
+  .regionB-rail.eu{ background: linear-gradient(180deg, rgba(22,163,74,.88), rgba(21,128,61,.55));}
+  .regionB-rail.in{ background: linear-gradient(180deg, rgba(245,158,11,.88), rgba(217,119,6,.55));}
+</style>
+<style id="real-savings-match-stores">
+.card-hover{
+    transform: scale(.9);
+    transform-origin: top center;
+  }
+  .card-hover .text-3xl{ font-size:1.4rem !important; }
+  .card-hover .text-2xl{ font-size:1.15rem !important; }
+  .card-hover p{ font-size:.9rem !important; }
+  .grid.gap-8{ gap:1.4rem !important; }
+  .grid.gap-6{ gap:1.2rem !important; }
+</style>
+<style id="cta-translate-fix">
+  /* Translate-safe: prevent overflow in CTA cards when RU strings expand */
+  #cta-ready-savings, #cta-ready-savings * { min-width: 0; }
+  #cta-ready-savings .cta-card { overflow: hidden; }
+  #cta-ready-savings .cta-wrap { overflow-wrap: anywhere; word-break: break-word; hyphens: auto; }
+  #cta-ready-savings .cta-nowrap { white-space: nowrap; }
+  #cta-ready-savings .cta-btn { white-space: normal; line-height: 1.2; }
+  #cta-ready-savings .cta-pill { white-space: normal; }
+  #cta-ready-savings .cta-price { white-space: nowrap; }
+</style>
+<style id="price-transparency-hard-fix">
+  .price-transparency-label{
+    display:block;
+    max-width:72px;
+    line-height:1.15;
+    white-space:normal;
+    word-break:break-word;
+    overflow-wrap:anywhere;
+    text-align:left;
+  }
+</style>
+
+<style id="verified-badge-combo">
+/* VERIFIED — GLASS default */
+.verified-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:.4rem;
+  padding:.3rem .65rem;
+  border-radius:9999px;
+  font-weight:700;
+  font-size:.85rem;
+  line-height:1;
+  white-space:nowrap;
+  letter-spacing:.01em;
+  background:rgba(255,255,255,.18);
+  color:#ffffff;
+  border:1px solid rgba(255,255,255,.28);
+  box-shadow:0 10px 26px rgba(0,0,0,.20);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.verified-badge::before{
+  content:"✓";
+  display:inline-grid;
+  place-items:center;
+  width:1.1rem;
+  height:1.1rem;
+  border-radius:9999px;
+  background:rgba(16,185,129,.28);
+  border:1px solid rgba(16,185,129,.55);
+  color:#ffffff;
+  font-weight:900;
+  font-size:.8rem;
+}
+
+/* NEON only when the STORE CARD is hovered */
+.regionA-card:hover .verified-badge,
+.regionB-card:hover .verified-badge,
+.regionC-card:hover .verified-badge,
+.store-card:hover .verified-badge,
+.regional-store-card:hover .verified-badge,
+.lux-card:hover .verified-badge{
+  background:rgba(0,0,0,.20);
+  color:#d1fae5;
+  border:1px solid rgba(16,185,129,.60);
+  box-shadow:0 0 0 1px rgba(16,185,129,.25), 0 14px 28px rgba(0,0,0,.22);
+}
+.regionA-card:hover .verified-badge::before,
+.regionB-card:hover .verified-badge::before,
+.regionC-card:hover .verified-badge::before,
+.store-card:hover .verified-badge::before,
+.regional-store-card:hover .verified-badge::before,
+.lux-card:hover .verified-badge::before{
+  background:rgba(16,185,129,.25);
+  color:#d1fae5;
+}
+</style>
+
+<style id="verified-badge-green">
+/* Green version for Real Savings Examples (matches screenshot) */
+.verified-badge-green{
+  background: rgba(34,197,94,.95) !important; /* success-500 */
+  border: 1px solid rgba(22,163,74,.95) !important; /* success-600 */
+  box-shadow: 0 12px 28px rgba(22,163,74,.22) !important;
+  color: #ffffff !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.verified-badge-green::before{
+  background: rgba(255,255,255,.22) !important;
+  border: 1px solid rgba(255,255,255,.35) !important;
+  color: #ffffff !important;
+}
+</style>
+
+<style id="home-region-entry-cta-level-fix">
+/* === HOME: Region entry cards CTA alignment (translate-safe) === */
+.regionA-card{ height:100%; }
+.regionA-card .relative.p-7{
+  display:flex !important;
+  flex-direction:column !important;
+  height:100% !important;
+}
+/* Push the CTA row (Browse selection / Open) to the bottom for equal baseline across cards */
+.regionA-card .relative.p-7 > .mt-6{
+  margin-top:auto !important;
+}
+/* Prevent the CTA label/button from breaking onto multiple lines unexpectedly */
+.regionA-card .relative.p-7 > .mt-6 span{
+  overflow-wrap:anywhere;
+}
+.regionA-card .relative.p-7 > .mt-6 .lux-btn{
+  white-space:nowrap;
+}
+</style>
+
+
+<style id="store-entry-click-fix">
+/* === Make ONLY the Open button clickable (disable whole-card click) === */
+.regional-store-card > a,
+.regionA-card > a,
+.regionB-card > a{
+  pointer-events:none !important;
+}
+.regional-store-card .region-button a,
+.regionA-card .region-button a,
+.regionB-card .region-button a{
+  pointer-events:auto !important;
+}
+</style>
+
+
+<style id="store-entry-cursor-fix">
+/* === Cursor behavior: pointer ONLY on Open button === */
+
+/* Default: card is not clickable */
+.regional-store-card,
+.regionA-card,
+.regionB-card{
+  cursor: default !important;
+}
+
+/* Explicitly disable pointer on any wrapping links */
+.regional-store-card > a,
+.regionA-card > a,
+.regionB-card > a{
+  cursor: default !important;
+}
+
+/* Enable pointer ONLY on the Open button */
+.regional-store-card .region-button a,
+.regionA-card .region-button a,
+.regionB-card .region-button a{
+  cursor: pointer !important;
+}
+</style>
+
+
+<style id="region-entry-cursor-fix">
+  .regionA-card{ cursor: default !important; }
+  .regionA-card .lux-btn{ cursor: pointer !important; }
+</style>
+
+
+<style id="open-button-hover-interaction">
+/* === Open button hover interaction (color change + tactile feedback) === */
+.region-button a.lux-btn,
+.store-actions a.lux-btn,
+.region-button a.cta-primary,
+.store-actions a.cta-primary,
+.region-button a,
+.store-actions a{
+  transition: filter .18s ease, transform .18s ease, box-shadow .18s ease, background-color .18s ease, color .18s ease, border-color .18s ease;
+}
+
+/* Hover: visibly interactive */
+.region-button a:hover,
+.store-actions a:hover{
+  filter: brightness(.95);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px -18px rgba(15,23,42,.35);
+}
+
+/* Active: pressed */
+.region-button a:active,
+.store-actions a:active{
+  transform: translateY(0);
+  filter: brightness(.90);
+  box-shadow: 0 10px 24px -18px rgba(15,23,42,.30);
+}
+
+/* Focus: accessible outline */
+.region-button a:focus-visible,
+.store-actions a:focus-visible{
+  outline: 2px solid rgba(37,99,235,.55);
+  outline-offset: 2px;
+}
+</style>
+
+
+<style id="open-button-color-hover-final">
+/* === OPEN button: clear color change + interaction feedback === */
+
+/* Base (do not alter layout) */
+.region-button a,
+.store-actions a{
+  transition: background-color .18s ease, color .18s ease, transform .15s ease, box-shadow .15s ease;
+}
+
+/* Hover: visible color shift */
+.region-button a:hover,
+.store-actions a:hover{
+  background-color:#1d4ed8 !important; /* primary-700 */
+  color:#ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px -16px rgba(29,78,216,.55);
+}
+
+/* Active: pressed */
+.region-button a:active,
+.store-actions a:active{
+  background-color:#1e40af !important; /* primary-800 */
+  transform: translateY(0);
+  box-shadow: 0 6px 16px -12px rgba(29,78,216,.45);
+}
+</style>
+
+
+<style id="open-button-hover-working">
+/* OPEN button is the small ghost button inside the region cards (href="#stores-grid") */
+a.lux-btn[href="#stores-grid"]{
+  transition: background .18s ease, box-shadow .18s ease, transform .18s ease, border-color .18s ease, color .18s ease !important;
+}
+
+/* Hover: visible color change */
+a.lux-btn[href="#stores-grid"]:hover{
+  background: rgba(255,255,255,.22) !important;   /* brighter glass */
+  border-color: rgba(255,255,255,.42) !important;
+  color: rgba(255,255,255,.98) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 14px 30px -18px rgba(0,0,0,.45) !important;
+}
+
+/* Active: pressed */
+a.lux-btn[href="#stores-grid"]:active{
+  background: rgba(255,255,255,.14) !important;
+  transform: translateY(0) !important;
+  box-shadow: 0 10px 22px -18px rgba(0,0,0,.38) !important;
+}
+</style>
+
+
+<style id="verified-pill-premium">
+/* Premium section: soft green pill like original screenshot */
+.verified-pill{
+  background:#e9f8ef !important;
+  color:#15803d !important;
+  border:1px solid #bbf7d0 !important;
+  box-shadow:none !important;
+  font-weight:700;
+}
+.verified-pill::before{ display:none !important; }
+</style>
+
+
+<style id="cta-ready-interaction">
+/* Ready to Start Saving — button interactivity only */
+#cta-ready-savings a,
+#cta-ready-savings button{
+  cursor:pointer !important;
+  transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease, color .15s ease;
+}
+#cta-ready-savings a:hover,
+#cta-ready-savings button:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px -18px rgba(15,23,42,.35);
+}
+#cta-ready-savings a:active,
+#cta-ready-savings button:active{
+  transform: translateY(0);
+  box-shadow: 0 6px 16px -14px rgba(15,23,42,.30);
+}
+</style>
+
+
+<style>
+
+/* REGION CARDS: hide grey decorative ghost button inside Shop by Region */
+.regionA-card .lux-btn-ghost[aria-hidden="true"]{
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  pointer-events: none !important; /* no click */
+  cursor: default !important;      /* no hand cursor */
+}
+
+</style>
+<style>.notranslate{translate:no}</style></head>
+<body class="bg-neutral-50 text-neutral-900 min-h-screen flex flex-col compact-10" cz-shortcut-listen="true">
+<nav class="right-0 left-0 bg-white/95 backdrop-blur-sm fixed top-0 z-50 border-b border-neutral-200">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex justify-between items-center h-16 gap-4">
+<div class="flex items-center gap-6 shrink-0">
+<div class="font-display font-bold text-2xl text-primary-600">
+<a class="nav-link" href="https://nomarkupsclub.com">
+<img alt="" src="https://nomarkupsclub.com/public/uploads/logo/260625_00_48_07.png" style="width:50px; !important;"/>
+</a>
+</div>
+<div class="hidden md:flex gap-2 items-center">
+<div class="w-2 h-2 bg-success-500 rounded-full pulse-green shrink-0"></div>
+<span class="text-sm font-medium text-success-600 live-pricing-text text-xs leading-tight whitespace-normal" style="max-width:140px; line-height:1.1; white-space:normal; overflow-wrap:anywhere;">Live Pricing</span>
+</div>
+</div>
+<div class="hidden md:flex flex-1 justify-center">
+<div class="flex items-center gap-6 lg:gap-7 xl:gap-8">
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[10.5rem] text-[15px]" href="https://nomarkupsclub.com">HOME</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[10.5rem] text-[15px]" href="https://nomarkupsclub.com/stores">STORES</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[10.5rem] text-[15px]" href="https://nomarkupsclub.com/affiliate_plan">AFFILIATE PLAN</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[10.5rem] text-[15px]" href="https://nomarkupsclub.com/membership">MEMBERSHIP</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[12rem] text-[15px]" href="https://nomarkupsclub.com/faqs">FAQ'S</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[12rem] text-[15px]" href="https://nomarkupsclub.com/login">DASHBOARD</a>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<a class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2.5 rounded-lg font-medium transition-colors" href="https://nomarkupsclub.com/r/admin">
+          Start Saving
+        </a>
+<div class="md:hidden flex items-center">
+<button class="text-2xl focus:outline-none" id="menuBtn">☰</button>
+</div>
+</div>
+</div>
+</div>
+<div class="md:hidden hidden px-4 pb-4" id="mobileMenu">
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com">HOME</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/stores">STORES</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/affiliate_plan">AFFILIATE PLAN</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/membership">MEMBERSHIP</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/faqs">FAQ'S</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/login">DASHBOARD</a>
+</div>
+</nav>
+<div class="page active" id="home">
+<section class="relative text-white py-14 md:py-16 overflow-hidden lux-section" style="background:linear-gradient(135deg,#0b1220 0%,#0f172a 40%,#111827 100%);">
+<div class="absolute inset-0">
+<div class="lux-noise"></div>
+<svg class="w-full h-full object-cover" fill="none" viewbox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="skyGradient" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:#667eea;stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:#764ba2;stop-opacity:1"></stop>
+</lineargradient>
+<lineargradient id="warehouseGradient" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:#4a5568;stop-opacity:0.9"></stop>
+<stop offset="100%" style="stop-color:#2d3748;stop-opacity:0.9"></stop>
+</lineargradient>
+</defs>
+<rect fill="url(#skyGradient)" height="600" width="1200"></rect>
+<rect fill="url(#warehouseGradient)" height="300" opacity="0.6" width="300" x="0" y="300"></rect>
+<rect fill="url(#warehouseGradient)" height="350" opacity="0.5" width="280" x="320" y="250"></rect>
+<rect fill="url(#warehouseGradient)" height="320" opacity="0.4" width="250" x="620" y="280"></rect>
+<rect fill="url(#warehouseGradient)" height="340" opacity="0.3" width="310" x="890" y="260"></rect>
+<polygon fill="#2d3748" opacity="0.7" points="0,300 150,250 300,300"></polygon>
+<polygon fill="#2d3748" opacity="0.6" points="320,250 460,200 600,250"></polygon>
+<polygon fill="#2d3748" opacity="0.5" points="620,280 745,230 870,280"></polygon>
+<polygon fill="#2d3748" opacity="0.4" points="890,260 1045,210 1200,260"></polygon>
+<rect fill="#e53e3e" height="40" opacity="0.8" width="80" x="50" y="450"></rect>
+<rect fill="#3182ce" height="40" opacity="0.8" width="80" x="150" y="460"></rect>
+<rect fill="#38a169" height="40" opacity="0.8" width="80" x="250" y="440"></rect>
+<rect fill="#ed8936" height="30" opacity="0.6" width="60" x="400" y="420"></rect>
+<rect fill="#805ad5" height="30" opacity="0.6" width="60" x="480" y="430"></rect>
+<rect fill="#d69e2e" height="30" opacity="0.6" width="60" x="560" y="425"></rect>
+<rect fill="#2d3748" height="25" opacity="0.9" width="60" x="100" y="520"></rect>
+<circle cx="115" cy="555" fill="#4a5568" r="8"></circle>
+<circle cx="145" cy="555" fill="#4a5568" r="8"></circle>
+<rect fill="#2d3748" height="20" opacity="0.7" width="50" x="350" y="510"></rect>
+<circle cx="362" cy="538" fill="#4a5568" opacity="0.7" r="6"></circle>
+<circle cx="388" cy="538" fill="#4a5568" opacity="0.7" r="6"></circle>
+<line opacity="0.6" stroke="#4a5568" stroke-width="4" x1="200" x2="200" y1="200" y2="400"></line>
+<line opacity="0.6" stroke="#4a5568" stroke-width="3" x1="180" x2="220" y1="220" y2="220"></line>
+<line opacity="0.6" stroke="#4a5568" stroke-width="2" x1="220" x2="280" y1="220" y2="280"></line>
+<line opacity="0.4" stroke="#4a5568" stroke-width="3" x1="500" x2="500" y1="180" y2="350"></line>
+<line opacity="0.4" stroke="#4a5568" stroke-width="2" x1="485" x2="515" y1="200" y2="200"></line>
+<circle cx="750" cy="250" fill="#f6e05e" opacity="0.9" r="30"></circle>
+<text fill="#744210" font-size="12" font-weight="bold" text-anchor="middle" x="750" y="248">40%</text>
+<text fill="#744210" font-size="8" text-anchor="middle" x="750" y="260">OFF</text>
+<circle cx="650" cy="180" fill="#68d391" opacity="0.8" r="25"></circle>
+<text fill="#22543d" font-size="10" font-weight="bold" text-anchor="middle" x="650" y="178">60%</text>
+<text fill="#22543d" font-size="7" text-anchor="middle" x="650" y="190">SAVED</text>
+<defs>
+<marker id="arrowhead" markerheight="7" markerwidth="10" orient="auto" refx="9" refy="3.5">
+<polygon fill="#f6e05e" opacity="0.8" points="0 0, 10 3.5, 0 7"></polygon>
+</marker>
+</defs>
+<path d="M 300 400 Q 400 350 500 400" fill="none" marker-end="url(#arrowhead)" opacity="0.7" stroke="#f6e05e" stroke-width="3"></path>
+<path d="M 500 400 Q 600 350 700 400" fill="none" marker-end="url(#arrowhead)" opacity="0.6" stroke="#f6e05e" stroke-width="3"></path>
+<circle cx="120" cy="380" fill="#38a169" opacity="0.9" r="15"></circle>
+<path d="M 112 380 L 118 386 L 128 374" fill="none" stroke="white" stroke-width="2"></path>
+<circle cx="420" cy="360" fill="#38a169" opacity="0.7" r="12"></circle>
+<path d="M 414 360 L 418 364 L 426 354" fill="none" stroke="white" stroke-width="1.5"></path>
+</svg>
+<div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent"></div>
+</div>
+<div class="max-w-7xl mx-auto px-6 relative">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+<div class="text-center lg:text-left">
+<div class="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-5 py-2.5 mb-6">
+<div class="w-3 h-3 bg-green-400 rounded-full mr-3 animate-pulse"></div>
+<span class="text-sm font-semibold no-wrap">50+Members Saving Daily</span>
+</div>
+<h1 class="font-display font-bold text-4xl md:text-6xl mb-5 leading-tight hero-h1">
+                            Shop Without <span class="text-yellow-300">Hidden Markups</span><br/>
+                            Save up to 60% on Everything
+                        </h1>
+<p>Wholesale pricing unlocked with membership.</p>
+<div class="flex flex-wrap justify-center lg:justify-start gap-4 mb-7">
+<div class="flex items-center bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2">
+<span class="text-2xl mr-2">🛡️</span>
+<div class="text-left">
+<div class="text-sm font-semibold no-wrap">Verified</div><div class="text-xs text-blue-200 no-wrap">Suppliers</div>
+</div>
+</div>
+<div class="flex items-center bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2">
+<span class="text-2xl mr-2">💰</span>
+<div class="text-left">
+<div class="text-sm font-semibold nums">Real</div>
+<div class="text-xs text-blue-200 no-wrap">Savings</div>
+</div>
+</div>
+<div class="flex items-center bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2">
+<span class="text-2xl mr-2">⭐</span>
+<div class="text-left">
+<div class="text-sm font-semibold nums">4.9/5</div>
+<div class="text-xs text-blue-200 no-wrap">Rating</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+<a class="bg-white text-primary-600 hover:bg-neutral-50 px-7 py-3.5 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 shadow-lg no-wrap" href="https://nomarkupsclub.com/r/admin">
+                                Start Saving
+                            </a>
+<button class="border-2 border-white text-white hover:bg-white hover:text-primary-600 px-7 py-3.5 rounded-lg font-semibold text-lg transition-all no-wrap">
+                                See How It Works
+                            </button>
+</div>
+</div>
+<div class="relative">
+<!-- ADMIN_PATH: home.hero_featured_products -->
+<div class="relative bg-white/10 backdrop-blur-sm rounded-3xl p-6 border border-white/20" data-admin-section="home.hero_featured_products" data-admin-path="home.hero_featured_products">
+<div class="space-y-5">
+<div class="bg-white rounded-2xl hero-card shadow-xl transform rotate-2 hover:rotate-0 transition-transform" data-admin-item="0" data-admin-path="home.hero_featured_products.items[0]">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center">
+<div class="w-60 h-30 bg-blue-100 rounded-xl flex items-center justify-center mr-4 overflow-hidden">
+<img alt="" class="w-full h-full object-cover" src="https://nomarkupsclub.com/public/img/ban_01.jpg" data-admin-field="image_url" data-admin-path="home.hero_featured_products.items[0].image_url"/>
+</div>
+<div>
+<div class="font-bold text-gray-900 text-safe" data-admin-field="title" data-admin-path="home.hero_featured_products.items[0].title">CAROLINA HERRERA 212 VIP TESTER 4.2 EAU DE PARFUM SPRAY FOR WOMEN</div>
+</div>
+</div>
+<div class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-bold no-wrap">
+                                            VERIFIED
+                                        </div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<span class="text-gray-600 no-wrap">Retail Price:</span>
+<span class="text-gray-400 line-through font-bold nums notranslate" translate="no" data-admin-field="retail_price" data-admin-path="home.hero_featured_products.items[0].retail_price">$175.00</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-gray-600 no-wrap">Wholesale:</span>
+<span class="text-2xl font-bold text-green-600 nums notranslate" translate="no" data-admin-field="wholesale_price" data-admin-path="home.hero_featured_products.items[0].wholesale_price">$65.00</span>
+</div>
+<div class="border-t pt-2">
+<div class="flex justify-between items-center">
+<span class="font-bold text-gray-900 no-wrap">You Save:</span>
+<span class="bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full font-bold nums notranslate" translate="no" data-admin-field="savings" data-admin-path="home.hero_featured_products.items[0].savings">$110.00</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-2xl hero-card shadow-xl transform rotate-2 hover:rotate-0 transition-transform" data-admin-item="1" data-admin-path="home.hero_featured_products.items[1]">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center">
+<div class="w-60 h-30 bg-blue-100 rounded-xl flex items-center justify-center mr-4 overflow-hidden">
+<img alt="" class="w-full h-full object-cover" src="https://nomarkupsclub.com/public/img/ban_02.jpg" data-admin-field="image_url" data-admin-path="home.hero_featured_products.items[1].image_url"/>
+</div>
+<div>
+<div class="font-bold text-gray-900 text-safe" data-admin-field="title" data-admin-path="home.hero_featured_products.items[1].title">GIORGIO ARMANI ACQUA DI GIOIA 3.4 EAU DE PARFUM SPRAY FOR WOMEN</div>
+</div>
+</div>
+<div class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-bold no-wrap">
+                                            VERIFIED
+                                        </div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<span class="text-gray-600 no-wrap">Retail Price:</span>
+<span class="text-gray-400 line-through font-bold nums notranslate" translate="no" data-admin-field="retail_price" data-admin-path="home.hero_featured_products.items[1].retail_price">$145.00</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-gray-600 no-wrap">Wholesale:</span>
+<span class="text-2xl font-bold text-green-600 nums notranslate" translate="no" data-admin-field="wholesale_price" data-admin-path="home.hero_featured_products.items[1].wholesale_price">$85.60</span>
+</div>
+<div class="border-t pt-2">
+<div class="flex justify-between items-center">
+<span class="font-bold text-gray-900 no-wrap">You Save:</span>
+<span class="bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full font-bold nums notranslate" translate="no" data-admin-field="savings" data-admin-path="home.hero_featured_products.items[1].savings">$59.40</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute -top-4 -right-4 bg-yellow-400 text-yellow-900 px-4 py-2 rounded-full font-bold text-sm animate-bounce no-wrap">
+                                up to 60% OFF
+                            </div>
+<div class="absolute -bottom-4 -left-4 bg-green-500 text-white px-4 py-2 rounded-full font-bold text-sm no-wrap">
+                                ✓ Verified Suppliers
+                            </div>
+</div>
+<div class="absolute -top-8 left-8 bg-white rounded-xl p-4 shadow-lg">
+<div class="text-center">
+<div class="text-2xl font-bold text-green-600 nums notranslate" translate="no">$3,000+</div>
+<div class="text-xs text-gray-600 no-wrap">Estimated annual savings</div>
+</div>
+</div>
+<div class="absolute -bottom-8 right-8 bg-white rounded-xl p-4 shadow-lg">
+<div class="text-center">
+<div class="text-2xl font-bold text-blue-600 nums">2k+</div>
+<div class="text-xs text-gray-600 no-wrap">Active Members</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="lux-section">
+<div class="max-w-7xl mx-auto px-6">
+<div class="lux-card lux-card-strong lux-hover p-6 md:p-7">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-2xl bg-primary-50 flex items-center justify-center border border-primary-100">
+<span class="text-primary-700 font-bold">✓</span>
+</div>
+<div>
+<div class="font-display font-bold text-neutral-900">Verified suppliers only</div>
+<div class="text-neutral-600 text-sm text-safe">Quality‑checked suppliers you can trust.</div>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-2xl bg-success-50 flex items-center justify-center border border-success-100">
+<span class="text-success-700 font-bold">%</span>
+</div>
+<div>
+<div class="font-display font-bold text-neutral-900">Retail vs Wholesale shown</div>
+<div class="text-neutral-600 text-sm text-safe">Shown clearly on every product.</div>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-2xl bg-warning-50 flex items-center justify-center border border-warning-100">
+<span class="text-warning-600 font-bold">⚡</span>
+</div>
+<div>
+<div class="font-display font-bold text-neutral-900">Wholesale checkout unlocked</div>
+<div class="text-neutral-600 text-sm text-safe">Unlocked after membership — ready for checkout.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="py-8">
+<div class="lux-divider"></div>
+</div>
+</div>
+</section>
+<section class="py-12 bg-white">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-10">
+<h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-neutral-900 text-safe">Premium shopping, without the retail markup</h2>
+<p>Subscribe once. Buy wholesale. Save more.</p>
+</div>
+<div class="relative overflow-hidden rounded-3xl border border-neutral-200 shadow-soft">
+<div class="absolute inset-0 gradient-bg"></div>
+<div class="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-primary-100/60 blur-3xl"></div>
+<div class="absolute -bottom-28 -left-28 w-96 h-96 rounded-full bg-success-100/60 blur-3xl"></div>
+<div class="relative p-6 sm:p-10">
+<div class="bg-white/70 backdrop-blur-md rounded-2xl border border-white/50 p-6 sm:p-8">
+<div class="grid gap-8 lg:grid-cols-2 lg:items-center">
+<div class="min-w-0">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-success-50 text-success-700 text-sm font-semibold">
+<span class="w-2 h-2 rounded-full bg-success-500 pulse-green"></span>
+                Live Pricing
+              </div>
+<h3 class="mt-4 text-2xl sm:text-3xl font-extrabold tracking-tight text-neutral-900 text-safe">
+                Retail vs Wholesale — always visible
+              </h3>
+<p>Verified suppliers only. Real savings.</p>
+<div class="mt-6 grid gap-3 sm:grid-cols-2">
+<div class="flex items-start gap-3 rounded-2xl border border-neutral-200/70 bg-white/60 p-4">
+<div class="w-10 h-10 rounded-xl bg-primary-50 flex items-center justify-center">
+<span class="text-primary-700 font-bold">%</span>
+</div>
+<div class="min-w-0">
+<div class="text-sm font-semibold text-neutral-900 text-safe">Typical savings</div>
+<div class="text-sm text-neutral-600 text-safe">up to 60% across key categories</div>
+</div>
+</div>
+<div class="flex items-start gap-3 rounded-2xl border border-neutral-200/70 bg-white/60 p-4">
+<div class="w-10 h-10 rounded-xl bg-success-50 flex items-center justify-center">
+<span class="text-success-700 font-bold">✓</span>
+</div>
+<div class="min-w-0">
+<div class="text-sm font-semibold text-neutral-900 text-safe">Verified suppliers only</div>
+<div class="text-sm text-neutral-600 text-safe">Quality checked and trusted</div>
+</div>
+</div>
+</div>
+<div class="mt-6 flex flex-col sm:flex-row sm:items-center gap-3">
+<a class="inline-flex justify-center items-center px-5 py-3 rounded-xl bg-primary-600 text-white font-semibold shadow-soft hover:bg-primary-700 transition" href="#membership">Start Saving</a>
+<a class="inline-flex justify-center items-center px-5 py-3 rounded-xl border border-neutral-300 bg-white/60 text-neutral-900 font-semibold hover:bg-white transition" href="#howitworks">See How It Works</a>
+</div>
+</div>
+<div class="min-w-0">
+<div class="rounded-2xl border border-neutral-200/70 bg-white/65 backdrop-blur-md overflow-hidden">
+<div class="relative">
+<div class="absolute inset-0 bg-gradient-to-br from-primary-100/70 via-white/30 to-warning-100/70"></div>
+<div class="relative p-6">
+<div class="flex items-center justify-between gap-3">
+<div class="min-w-0">
+<div class="text-xs font-semibold text-neutral-600 uppercase tracking-wider text-safe">Featured</div>
+<div class="mt-1 text-lg font-bold text-neutral-900 text-safe">Today’s best wholesale picks</div>
+</div>
+<span class="verified-badge verified-badge-green verified-pill">Verified</span>
+</div>
+<div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="rounded-2xl bg-white/70 border border-white/60 p-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-white border border-neutral-200 flex items-center justify-center overflow-hidden">
+<img alt="Product" class="w-full h-full object-cover" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2796%27%20height%3D%2796%27%20viewBox%3D%270%200%2096%2096%27%3E%0A%3Cdefs%3E%3ClinearGradient%20id%3D%27g%27%20x1%3D%270%27%20x2%3D%271%27%20y1%3D%270%27%20y2%3D%271%27%3E%0A%3Cstop%20stop-color%3D%27%23dbeafe%27/%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%23dcfce7%27/%3E%3C/linearGradient%3E%3C/defs%3E%0A%3Crect%20width%3D%2796%27%20height%3D%2796%27%20rx%3D%2718%27%20fill%3D%27url%28%23g%29%27/%3E%0A%3Cpath%20d%3D%27M26%2054c10-18%2034-18%2044%200%27%20fill%3D%27none%27%20stroke%3D%27%230f172a%27%20stroke-width%3D%276%27%20stroke-linecap%3D%27round%27/%3E%0A%3Ccircle%20cx%3D%2738%27%20cy%3D%2738%27%20r%3D%278%27%20fill%3D%27%23fff%27%20fill-opacity%3D%27.9%27/%3E%0A%3Ccircle%20cx%3D%2760%27%20cy%3D%2738%27%20r%3D%278%27%20fill%3D%27%23fff%27%20fill-opacity%3D%27.9%27/%3E%0A%3C/svg%3E"/>
+</div>
+<div class="min-w-0">
+<div class="text-sm font-semibold text-neutral-900 text-safe">Retail vs Wholesale</div>
+<div class="text-xs text-neutral-600 text-safe">Shown on every item</div>
+</div>
+</div>
+</div>
+<div class="rounded-2xl bg-white/70 border border-white/60 p-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-white border border-neutral-200 flex items-center justify-center overflow-hidden">
+<img alt="Savings" class="w-full h-full object-cover" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2796%27%20height%3D%2796%27%20viewBox%3D%270%200%2096%2096%27%3E%0A%3Cdefs%3E%3ClinearGradient%20id%3D%27g2%27%20x1%3D%270%27%20x2%3D%271%27%20y1%3D%270%27%20y2%3D%271%27%3E%0A%3Cstop%20stop-color%3D%27%23fff7ed%27/%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%23eff6ff%27/%3E%3C/linearGradient%3E%3C/defs%3E%0A%3Crect%20width%3D%2796%27%20height%3D%2796%27%20rx%3D%2718%27%20fill%3D%27url%28%23g2%29%27/%3E%0A%3Cpath%20d%3D%27M30%2060l10-14%2010%2010%2016-22%27%20fill%3D%27none%27%20stroke%3D%27%230f172a%27%20stroke-width%3D%276%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27/%3E%0A%3C/svg%3E"/>
+</div>
+<div class="min-w-0">
+<div class="text-sm font-semibold text-neutral-900 text-safe">Real savings</div>
+<div class="text-xs text-neutral-600 text-safe">Clear and consistent</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 rounded-2xl bg-white/75 border border-white/60 p-4">
+<div class="flex items-start justify-between gap-4">
+<div class="min-w-0">
+<div class="text-sm font-semibold text-neutral-900 text-safe">Member checkout advantage</div>
+<div class="text-sm text-neutral-600 text-safe">Wholesale pricing unlocks instantly after membership.</div>
+</div>
+<div class="text-right">
+<div class="text-xs text-neutral-500 text-safe">Membership</div>
+<div class="text-lg font-extrabold text-primary-700 text-safe">$9.95/mo</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-14 bg-neutral-50" id="howitworks">
+<div class="max-w-6xl mx-auto px-6">
+<div class="text-center mb-12">
+<h2 class="font-display font-bold text-3xl md:text-4xl text-neutral-900 mb-4">
+                        How <span class="notranslate" translate="no">NoMarkupsClub</span> Works
+                    </h2>
+<p>Verified suppliers only. Real savings.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch howitworks-grid">
+<div class="card-hover bg-white rounded-2xl border border-neutral-200 shadow-soft p-8 card-stable overflow-hidden flex flex-col h-full min-w-0">
+<div class="flex flex-wrap items-start justify-between gap-4 mb-6 min-w-0">
+<div class="w-12 h-12 rounded-2xl bg-primary-50 flex items-center justify-center text-primary-700 text-xl">
+<i class="ion-ios-people"></i>
+</div>
+<span class="bg-white border border-neutral-200 text-neutral-700 px-3 py-1 rounded-full text-xs font-semibold no-wrap">STEP 1</span>
+</div>
+<h3 class="font-display font-semibold text-2xl text-neutral-900 mb-3 text-safe">Join the Club</h3>
+<p>Unlock member checkout to access wholesale pricing.</p>
+<div class="bg-primary-50 rounded-2xl p-5 flex flex-wrap items-start justify-between gap-4 min-w-0 mt-auto overflow-hidden">
+<div class="flex-1 min-w-0">
+<div class="text-sm font-medium text-primary-700 text-safe whitespace-normal step1-clamp">Membership</div>
+<div class="text-xs text-primary-700/80 text-safe step1-clamp">Unlock wholesale access</div>
+</div>
+<div class="text-xl font-bold text-primary-700 leading-tight w-full sm:w-auto sm:shrink-0 sm:max-w-[55%] text-left sm:text-right break-words [overflow-wrap:anywhere]"><span class="price-en">$9.95/mo</span><span class="price-ru">$9.95/мес</span></div>
+</div>
+</div>
+<div class="card-hover bg-white rounded-2xl border border-neutral-200 shadow-soft p-8 card-stable overflow-hidden flex flex-col h-full min-w-0">
+<div class="flex flex-wrap items-start justify-between gap-4 mb-6 min-w-0">
+<div class="w-12 h-12 rounded-2xl bg-success-50 flex items-center justify-center text-success-700 text-xl">
+<i class="ion-ios-eye"></i>
+</div>
+<span class="bg-white border border-neutral-200 text-neutral-700 px-3 py-1 rounded-full text-xs font-semibold no-wrap">STEP 2</span>
+</div>
+<h3 class="font-display font-semibold text-2xl text-neutral-900 mb-3 text-safe">Earn with referrals</h3>
+<p>Share your referral link and earn rewards when people buy.</p>
+<div class="bg-success-50 rounded-2xl p-5 flex flex-wrap items-start justify-between gap-4 min-w-0 mt-auto overflow-hidden">
+<div class="flex-1 min-w-0">
+<div class="text-sm font-medium text-success-700 whitespace-normal">Referral program</div>
+<div class="text-xs text-success-700/80 text-safe">Retail vs wholesale shown</div>
+</div>
+<div class="text-xl font-bold text-success-600 shrink-0 text-right max-w-full ml-auto whitespace-normal break-words">100%</div>
+</div>
+</div>
+<div class="card-hover bg-white rounded-2xl border border-neutral-200 shadow-soft p-8 card-stable overflow-hidden flex flex-col h-full min-w-0">
+<div class="flex flex-wrap items-start justify-between gap-4 mb-6 min-w-0">
+<div class="w-12 h-12 rounded-2xl bg-warning-50 flex items-center justify-center text-warning-600 text-xl">
+<i class="ion-ios-cart"></i>
+</div>
+<span class="bg-white border border-neutral-200 text-neutral-700 px-3 py-1 rounded-full text-xs font-semibold no-wrap">STEP 3</span>
+</div>
+<h3 class="font-display font-semibold text-2xl text-neutral-900 mb-3 text-safe">Buy Wholesale, Save Big</h3>
+<p>Check out at wholesale and see your savings in the totals.</p>
+<div class="bg-warning-50 rounded-2xl p-5 flex flex-wrap items-start justify-between gap-4 min-w-0 mt-auto overflow-hidden">
+<div class="flex-1 min-w-0">
+<div class="text-sm font-medium text-warning-600 whitespace-normal">Average savings</div>
+<div class="text-xs text-warning-600/80 text-safe">Across key categories</div>
+</div>
+<div class="text-xl font-bold text-warning-600 shrink-0 text-right max-w-full ml-auto whitespace-normal break-words">up to 60%</div>
+</div>
+</div>
+</div>
+</div>
+</section></div>
+<section class="py-14 bg-white" id="real-savings-examples" data-admin-section="home.real_savings_examples">
+<!-- ADMIN_PATH: home.real_savings_examples -->
+<div class="max-w-6xl mx-auto px-6">
+<div class="text-center mb-12">
+<h2 class="font-display font-bold text-3xl md:text-4xl text-neutral-900 mb-4">
+                        Real Savings Examples
+                    </h2>
+<p class="text-lg text-neutral-600">
+                        See how much you could save on popular products
+                    </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="card-hover bg-white rounded-2xl border border-neutral-200 shadow-soft card-stable overflow-hidden hover-lift" data-admin-item="1" data-admin-path="home.real_savings_examples.items[0]" data-admin-link-field="product_url">
+<div class="relative">
+<img alt="" class="w-full h-56 object-cover" src="https://nomarkupsclub.com/public/img/ban_b_01.jpg"/ data-admin-field="image_url">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
+<div class="absolute top-4 left-4 flex items-center gap-2">
+<span class="bg-green-500 text-white px-4 py-2 rounded-full text-xs font-bold no-wrap">✓ Verified Supplier</span>
+<span class="bg-white/90 text-neutral-900 px-3 py-1 rounded-full text-xs font-bold no-wrap" data-admin-field="category">JEWELRY</span>
+</div>
+<div class="absolute bottom-4 left-4 right-4">
+<h3 class="font-display font-semibold text-xl md:text-2xl text-white leading-snug text-safe" data-admin-field="title">
+        925 Sterling Silver Inlaid Zircon Ring
+      </h3>
+
+</div>
+</div>
+<div class="p-5">
+<div class="grid grid-cols-3 gap-3 mb-3">
+<div class="bg-neutral-50 rounded-xl p-4 text-center">
+<div class="text-xs text-neutral-500 no-wrap">Retail</div>
+<div class="text-lg font-bold text-neutral-400 price-comparison nums notranslate" translate="no" data-admin-field="retail_price">$27.00</div>
+</div>
+<div class="bg-primary-50 rounded-xl p-4 text-center">
+<div class="text-xs text-primary-700 no-wrap">Wholesale</div>
+<div class="text-lg font-bold text-primary-700 nums notranslate" translate="no" data-admin-field="wholesale_price">$15.00</div>
+</div>
+<div class="bg-warning-50 rounded-xl p-4 text-center">
+<div class="text-xs text-warning-600 no-wrap">You Save</div>
+<div class="text-lg font-bold text-warning-600 nums notranslate" translate="no" data-admin-field="you_save">$12.00</div>
+</div>
+</div>
+<div class="flex items-center justify-between bg-success-50 rounded-xl p-4 mb-5">
+<div class="min-w-0">
+<div class="text-sm font-medium text-success-700 no-wrap">Savings</div>
+<div class="text-xs text-success-700/80 text-safe">Compared to retail</div>
+</div>
+<div class="text-2xl font-bold text-success-600 nums" data-admin-field="savings_percent">80%</div>
+</div>
+<button class="w-full bg-primary-600 hover:bg-primary-700 text-white py-3 rounded-lg font-semibold no-wrap">
+      View Wholesale Price
+    </button>
+</div>
+</div>
+<div class="card-hover bg-white rounded-2xl border border-neutral-200 shadow-soft card-stable overflow-hidden hover-lift" data-admin-item="2" data-admin-path="home.real_savings_examples.items[1]" data-admin-link-field="product_url">
+<div class="relative">
+<img alt="" class="w-full h-56 object-cover" src="https://nomarkupsclub.com/public/img/ban_b_02.jpg"/ data-admin-field="image_url">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
+<div class="absolute top-4 left-4 flex items-center gap-2">
+<span class="bg-green-500 text-white px-4 py-2 rounded-full text-xs font-bold no-wrap">✓ Verified Supplier</span>
+<span class="bg-white/90 text-neutral-900 px-3 py-1 rounded-full text-xs font-bold no-wrap" data-admin-field="category">JEWELRY</span>
+</div>
+<div class="absolute bottom-4 left-4 right-4">
+<h3 class="font-display font-semibold text-xl md:text-2xl text-white leading-snug text-safe" data-admin-field="title">
+        Sterling Silver Heart Necklace
+      </h3>
+
+</div>
+</div>
+<div class="p-5">
+<div class="grid grid-cols-3 gap-3 mb-3">
+<div class="bg-neutral-50 rounded-xl p-4 text-center">
+<div class="text-xs text-neutral-500 no-wrap">Retail</div>
+<div class="text-lg font-bold text-neutral-400 price-comparison nums notranslate" translate="no" data-admin-field="retail_price">$77.00</div>
+</div>
+<div class="bg-primary-50 rounded-xl p-4 text-center">
+<div class="text-xs text-primary-700 no-wrap">Wholesale</div>
+<div class="text-lg font-bold text-primary-700 nums notranslate" translate="no" data-admin-field="wholesale_price">$50.00</div>
+</div>
+<div class="bg-warning-50 rounded-xl p-4 text-center">
+<div class="text-xs text-warning-600 no-wrap">You Save</div>
+<div class="text-lg font-bold text-warning-600 nums notranslate" translate="no" data-admin-field="you_save">$27.00</div>
+</div>
+</div>
+<div class="flex items-center justify-between bg-success-50 rounded-xl p-4 mb-5">
+<div class="min-w-0">
+<div class="text-sm font-medium text-success-700 no-wrap">Savings</div>
+<div class="text-xs text-success-700/80 text-safe">Compared to retail</div>
+</div>
+<div class="text-2xl font-bold text-success-600 nums" data-admin-field="savings_percent">54%</div>
+</div>
+<button class="w-full bg-primary-600 hover:bg-primary-700 text-white py-3 rounded-lg font-semibold no-wrap">
+      View Wholesale Price
+    </button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 flex justify-center">
+  </div>
+</section>
+<section class="py-14 bg-white">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-12">
+<h2 class="font-display font-bold text-3xl md:text-4xl text-neutral-900 mb-4">
+                        Shop by Region
+                    </h2>
+<p>No tricks. No hidden margins.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+<!-- USA -->
+<div aria-label="USA stores" class="regionA-card block cursor-default" role="group">
+<div class="absolute inset-0" style="background:linear-gradient(135deg,#1e3a8a 0%, #1d4ed8 45%, #0b1220 100%);"></div>
+<div class="regionA-overlay"></div>
+<div class="relative p-7">
+<div class="flex items-center justify-between gap-4">
+<div class="lux-pill lux-pill-blue" style="border-color: rgba(255,255,255,.22); background: rgba(15,23,42,.18); color: rgba(255,255,255,.90);">USA</div>
+<span class="regionA-chip"><span class="verified-badge">Verified</span></span>
+</div>
+<div class="mt-5">
+<div class="text-white font-display font-bold text-2xl">United States</div>
+<div class="regionA-meta mt-2">
+<span class="regionA-chip">Fast delivery lanes</span>
+<span class="regionA-chip">Popular essentials</span>
+</div>
+</div>
+<div class="mt-6 flex items-center justify-between">
+<span class="text-white/80 text-sm" cursor-default>Browse selection</span>
+<span class="lux-btn lux-btn-ghost cursor-default select-none" aria-hidden="true"></span>
+</div>
+</div>
+</div>
+<!-- EU -->
+<div aria-label="Europe stores" class="regionA-card block cursor-default" role="group">
+<div class="absolute inset-0" style="background:linear-gradient(135deg,#064e3b 0%, #16a34a 40%, #0b1220 100%);"></div>
+<div class="regionA-overlay"></div>
+<div class="relative p-7">
+<div class="flex items-center justify-between gap-4">
+<div class="lux-pill lux-pill-green" style="border-color: rgba(255,255,255,.22); background: rgba(15,23,42,.18); color: rgba(255,255,255,.90);">EU</div>
+<span class="regionA-chip"><span class="verified-badge">Verified</span></span>
+</div>
+<div class="mt-5">
+<div class="text-white font-display font-bold text-2xl">Europe</div>
+<div class="regionA-meta mt-2">
+<span class="regionA-chip">Quality-first brands</span>
+<span class="regionA-chip">Stable pricing</span>
+</div>
+</div>
+<div class="mt-6 flex items-center justify-between">
+<span class="text-white/80 text-sm" cursor-default>Browse selection</span>
+<span class="lux-btn lux-btn-ghost cursor-default select-none" aria-hidden="true"></span>
+</div>
+</div>
+</div>
+<!-- India -->
+<div aria-label="India stores" class="regionA-card block cursor-default" role="group">
+<div class="absolute inset-0" style="background:linear-gradient(135deg,#7c2d12 0%, #d97706 45%, #0b1220 100%);"></div>
+<div class="regionA-overlay"></div>
+<div class="relative p-7">
+<div class="flex items-center justify-between gap-4">
+<div class="lux-pill lux-pill-amber" style="border-color: rgba(255,255,255,.22); background: rgba(15,23,42,.18); color: rgba(255,255,255,.90);">IN</div>
+<span class="regionA-chip"><span class="verified-badge">Verified</span></span>
+</div>
+<div class="mt-5">
+<div class="text-white font-display font-bold text-2xl">India</div>
+<div class="regionA-meta mt-2">
+<span class="regionA-chip">Emerging favorites</span>
+<span class="regionA-chip">Value picks</span>
+</div>
+</div>
+<div class="mt-6 flex items-center justify-between">
+<span class="text-white/80 text-sm" cursor-default>Browse selection</span>
+<span class="lux-btn lux-btn-ghost cursor-default select-none" aria-hidden="true"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 flex justify-center">
+  <a href="https://nomarkupsclub.com/stores" class="inline-flex items-center px-6 py-3 rounded-xl bg-neutral-900 text-white font-semibold shadow-soft hover:bg-neutral-800 transition btn-browse-bounce">
+    Browse all stores
+  </a>
+</div>
+</div>
+</section>
+<section class="relative py-16 overflow-hidden text-white lux-section" id="cta-ready-savings" style="background:linear-gradient(135deg,#0b1220 0%, #1d4ed8 45%, #2563eb 100%);">
+<!-- Soft glow -->
+<div class="absolute inset-0">
+<div class="absolute -top-40 -right-40 w-[32rem] h-[32rem] rounded-full bg-white/10 blur-3xl"></div>
+<div class="absolute -bottom-48 -left-48 w-[36rem] h-[36rem] rounded-full bg-success-500/15 blur-3xl"></div>
+<div class="lux-noise"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-black/35 via-black/15 to-transparent"></div>
+</div>
+<div class="relative max-w-6xl mx-auto px-6 text-center cta-wrap">
+<div class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md mb-6">
+<span class="w-2 h-2 rounded-full bg-success-400 pulse-green"></span>
+<span class="text-sm font-semibold text-white/90 no-wrap">Transparent wholesale pricing</span>
+</div>
+<h2 class="font-display font-bold text-3xl md:text-4xl mb-4 text-safe cta-wrap">
+      Ready to Start Saving?
+    </h2>
+<p>Retail vs Wholesale shown on every item.</p>
+<div class="max-w-3xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch">
+<!-- Card -->
+<div class="lux-card cta-card border border-white/15 bg-white/10 backdrop-blur-md text-white p-6 md:p-7 text-left overflow-hidden relative cta-wrap">
+<div class="absolute inset-0 bg-gradient-to-br from-white/10 via-white/0 to-white/0 pointer-events-none"></div>
+<div class="relative">
+<div class="text-sm font-semibold text-white/85 mb-2 text-safe">Average Member Saves</div>
+<div class="flex items-end gap-1 mb-1">
+<span class="text-5xl font-extrabold nums notranslate cta-price" translate="no">$250</span>
+<span class="text-2xl font-bold text-white/80">.00</span>
+</div>
+<div class="text-sm text-white/80 no-wrap">per month</div>
+<div class="mt-5 flex flex-wrap gap-2">
+<span class="lux-pill cta-pill" style="border-color: rgba(255,255,255,.20); background: rgba(15,23,42,.18); color: rgba(255,255,255,.90);">
+                ✓ Verified suppliers only
+              </span>
+<span class="lux-pill cta-pill" style="border-color: rgba(255,255,255,.20); background: rgba(15,23,42,.18); color: rgba(255,255,255,.90);">
+                Retail vs wholesale shown
+              </span>
+</div>
+</div>
+</div>
+<!-- Proof -->
+<div class="lux-card cta-card border border-white/15 bg-white/10 backdrop-blur-md text-white p-6 md:p-7 text-left overflow-hidden relative cta-wrap">
+<div class="absolute inset-0 bg-gradient-to-br from-white/10 via-white/0 to-white/0 pointer-events-none"></div>
+<div class="relative">
+<div class="text-sm font-semibold text-white/85 mb-2 text-safe">Why members win</div>
+<div class="text-2xl font-extrabold mb-1 text-safe">up to 60% savings</div>
+<div class="text-sm text-white/80 text-safe">Typical across key categories.</div>
+<div class="mt-5 grid grid-cols-2 gap-3">
+<div class="rounded-2xl border border-white/15 bg-black/15 p-4 min-w-0">
+<div class="text-xs text-white/75 no-wrap"><span class="price-transparency-label">Price<br/>transparency</span></div>
+<div class="mt-1 text-lg font-bold nums">100%</div>
+</div>
+<div class="rounded-2xl border border-white/15 bg-black/15 p-4 min-w-0">
+<div class="text-xs text-white/75 no-wrap">Members</div>
+<div class="mt-1 text-lg font-bold nums">2k+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- CTA -->
+<div class="lux-card cta-card border border-white/15 bg-white/10 backdrop-blur-md p-6 md:p-7 flex flex-col justify-between overflow-hidden relative">
+<div class="absolute inset-0 bg-gradient-to-br from-white/10 via-white/0 to-white/0 pointer-events-none"></div>
+<div class="relative text-left cta-wrap">
+<div class="text-sm font-semibold text-white/85 mb-2 text-safe">Start in minutes</div>
+<div class="text-2xl font-extrabold mb-1 text-safe">Unlock wholesale checkout</div>
+<div class="text-sm text-white/80 text-safe">Get the same clear savings view on every product.</div>
+</div>
+<div class="relative mt-6 flex flex-col gap-3">
+<a class="lux-btn lux-btn-primary w-full justify-center cta-btn min-w-0" href="https://nomarkupsclub.com/r/admin" style="background:linear-gradient(135deg, rgba(255,255,255,.95), rgba(255,255,255,.88)); color:#0b1220; border:1px solid rgba(255,255,255,.25);">
+              Start Saving
+              <span class="text-lg">→</span>
+</a>
+<a class="lux-btn lux-btn-ghost w-full justify-center cta-btn min-w-0" href="#howitworks" style="background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.22); color: rgba(255,255,255,.92);">
+              See How It Works
+            </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>
+        function retshop(id){
+            var url="https://nomarkupsclub.com/shop";
+            window.location.href=url+'?region='+id;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page');
+
+            const budgetSlider = document.getElementById('budgetSlider');
+            const budgetValue = document.getElementById('budgetValue');
+            const savingsValue = document.getElementById('savingsValue');
+
+            if (budgetSlider) {
+                budgetSlider.addEventListener('input', function() {
+                    const budget = parseInt(this.value);
+                    const savings = Math.round(budget * 0.5);
+                    budgetValue.textContent = `$${budget}`;
+                    savingsValue.textContent = `$${savings}`;
+                });
+            }
+
+            document.querySelectorAll('button').forEach(button => {
+                if (button.textContent.includes('Start Saving') ||
+                    button.textContent.includes('Start Free Trial') ||
+                    button.textContent.includes('Start Monthly') ||
+                    button.textContent.includes('Start Annual')) {
+                    button.addEventListener('click', function() {
+                        pages.forEach(page => {
+                            page.classList.add('hidden');
+                            page.classList.remove('active');
+                        });
+                        document.getElementById('membership').classList.remove('hidden');
+                        document.getElementById('membership').classList.add('active');
+
+                        navLinks.forEach(navLink => {
+                            navLink.classList.remove('text-primary-600');
+                            navLink.classList.add('text-neutral-600');
+                        });
+                        document.querySelector('a[href="#membership"]').classList.remove('text-neutral-600');
+                        document.querySelector('a[href="#membership"]').classList.add('text-primary-600');
+                    });
+                }
+
+                if (button.textContent.includes('See How It Works')) {
+                    button.addEventListener('click', function() {
+                        document.querySelector('section#howitworks').scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    });
+                }
+
+                if (button.textContent.includes('Browse Products')) {
+                    button.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        showNotification('This is a demo. In the real app, this would show the store\'s product catalog.');
+                    });
+                }
+
+                if (button.textContent.includes('Enter USA Stores') ||
+                    button.textContent.includes('Enter Europe Stores') ||
+                    button.textContent.includes('Enter India Stores')) {
+                    button.addEventListener('click', function() {
+                        const region = this.textContent.includes('USA') ? 'USA' : this.textContent.includes('Europe') ? 'Europe' : 'India';
+                        showNotification(`Welcome to ${region} wholesale marketplace! Browse thousands of verified suppliers.`);
+                    });
+                }
+
+                if (button.textContent.includes('Share Referral')) {
+                    button.addEventListener('click', function() {
+                        showNotification('Referral link copied to clipboard! Share with friends to earn $15 per referral.');
+                    });
+                }
+            });
+
+            function showNotification(message) {
+                const notification = document.createElement('div');
+                notification.className = 'fixed top-20 right-6 bg-white border border-neutral-200 rounded-lg shadow-large p-4 z-50 max-w-sm';
+                notification.innerHTML = `
+                    <div class="flex items-start">
+                        <div class="w-10 h-6 bg-success-500 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                            <span class="text-white text-xs">?</span>
+                        </div>
+                        <div class="text-sm text-neutral-700">${message}</div>
+                    </div>
+                `;
+
+                document.body.appendChild(notification);
+
+                setTimeout(() => {
+                    notification.style.opacity = '0';
+                    notification.style.transform = 'translateX(100%)';
+                    setTimeout(() => notification.remove(), 300);
+                }, 3000);
+            }
+        });
+    </script>
+<footer class="bg-neutral-900 text-white py-16">
+<div class="max-w-6xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div>
+<div class="font-display font-bold text-2xl mb-6">
+                        <span class="notranslate" translate="no"><span class="notranslate" translate="no">NoMarkupsClub</span></span>
+</div>
+<p class="text-neutral-400 mb-6">
+                        No hidden markups, no retail tricks. Just honest wholesale pricing for smart shoppers.
+                    </p>
+<div class="flex space-x-4">
+<div class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors cursor-pointer">
+<a href="https://www.facebook.com/nomarkupsclub" target="_blank"><i class="ion-social-facebook"></i></a>
+</div>
+<div class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors cursor-pointer">
+<a href="https://www.x.com" target="_blank"><i class="ion-social-twitter"></i></a>
+</div>
+<div class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors cursor-pointer">
+<a href="https://www.instagram.com" target="_blank"><i class="ion-social-instagram"></i></a>
+</div>
+</div>
+</div>
+<div>
+<h4 class="font-semibold text-lg mb-6">Company</h4>
+<ul class="space-y-3 text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/aboutus">About Us</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/#howitworks">How It Works</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/affiliate_plan">Affiliate Plan</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/press">Press</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-lg mb-6">Support</h4>
+<ul class="space-y-3 text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/supports/index">Help Center</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/contact_us">Contact Us</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/shipping_info">Shipping Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/certificate">Certificate of Analysis</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-lg mb-6">Legal</h4>
+<ul class="space-y-3 text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/privacy_policy">Privacy Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/terms_conditions">Terms &amp; Conditions</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/refund_policy">Refund Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/cookie_policy">Cookie Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-neutral-800 mt-12 pt-8 text-center">
+<p class="text-neutral-400">
+                   © 2025 nomarkupsclub.com. All right reserved.
+                </p>
+</div>
+</div>
+</footer>
+<script>
+        const menuBtn = document.getElementById("menuBtn");
+        const mobileMenu = document.getElementById("mobileMenu");
+        menuBtn.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><span class="notranslate" translate="no">NoMarkupsClub</span></title> 
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a'
+                        },
+                        success: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d'
+                        },
+                        warning: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            500: '#f59e0b',
+                            600: '#d97706'
+                        },
+                        neutral: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a'
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'display': ['Poppins', 'system-ui', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
+                        'medium': '0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                        'large': '0 10px 40px -10px rgba(0, 0, 0, 0.15), 0 20px 25px -5px rgba(0, 0, 0, 0.1)'
+                    }
+                }
+            }
+        }
+    </script>
+	 <link rel="icon" type="image/png" sizes="32x32" href="https://nomarkupsclub.com/public/favicon/favicon.png" />		
+	 <link rel="shortcut icon" href="https://nomarkupsclub.com/public/favicon/favicon.png" />			
+	<link rel="stylesheet" href="https://nomarkupsclub.com/public/css/ionicons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://nomarkupsclub.com/public/css/main.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.js" crossorigin="anonymous"></script>
+				
+		
+<style>
+        .text-safe{overflow-wrap:anywhere;word-break:break-word;hyphens:auto}
+        .nums{white-space:nowrap}
+        .no-wrap{white-space:nowrap}
+        .card-stable{display:flex;flex-direction:column;height:100%}
+        .push-bottom{margin-top:auto}
+        .regional-store-card{display:flex;flex-direction:column;height:100%}
+        .regional-store-card .region-button{margin-top:auto}
+        .how-card{display:flex;flex-direction:column;height:100%}
+        .how-card .how-stat{margin-top:auto}
+        .hero-card{padding:1.1rem}
+
+        /* Compact 100%: -10% overall density without scaling the whole page */
+        .compact-10 .max-w-7xl,.compact-10 .max-w-6xl,.compact-10 .max-w-4xl{padding-left:1.35rem!important;padding-right:1.35rem!important}
+        .compact-10 section.py-14{padding-top:3.15rem!important;padding-bottom:3.15rem!important}
+        .compact-10 section.py-12{padding-top:2.7rem!important;padding-bottom:2.7rem!important}
+        .compact-10 .mb-12{margin-bottom:2.7rem!important}
+        .compact-10 .mb-10{margin-bottom:2.25rem!important}
+        .compact-10 .gap-10{gap:2.25rem!important}
+        .compact-10 .gap-8{gap:1.8rem!important}
+        .compact-10 .p-7{padding:1.575rem!important}
+        .compact-10 .p-6{padding:1.35rem!important}
+        .compact-10 .p-5{padding:1.125rem!important}
+        .compact-10 .text-4xl{font-size:2.025rem!important;line-height:2.25rem!important}
+        .compact-10 .text-3xl{font-size:1.6875rem!important;line-height:2.05rem!important}
+        .compact-10 .text-2xl{font-size:1.35rem!important;line-height:1.85rem!important}
+        .compact-10 .text-xl{font-size:1.125rem!important;line-height:1.7rem!important}
+        .compact-10 .text-lg{font-size:1.0125rem!important;line-height:1.6rem!important}
+
+        /* Hero headline only: slightly smaller to match 90% feel at 100% zoom */
+        .compact-10 .hero-h1{font-size:3.35rem!important;line-height:1.05!important}
+        @media (max-width: 768px){
+            .compact-10 .hero-h1{font-size:2.35rem!important;line-height:1.1!important}
+        }
+
+        /* Tighten some vertical spacing in hero cards */
+        .compact-10 .hero-card{padding:1rem!important}
+        .compact-10 .space-y-5 > :not([hidden]) ~ :not([hidden]){margin-top:1.125rem!important}
+        .compact-10 .space-y-4 > :not([hidden]) ~ :not([hidden]){margin-top:0.9rem!important}
+        .compact-10 .space-y-3 > :not([hidden]) ~ :not([hidden]){margin-top:0.675rem!important}
+
+        /* Menu: keep alignment stable under translate/zoom */
+        .nav-link{text-transform:uppercase!important;white-space:normal!important;}#mobileMenu a{text-transform:uppercase!important;white-space:normal!important;}
+        nav .bg-primary-600{white-space:nowrap}
+    
+/* === Translate/zoom stability: keep header single-line as much as possible on desktop === */
+.nav-link{white-space:nowrap;}
+@media (min-width:768px){
+  nav .hidden.md\:flex.space-x-8{
+    flex-wrap:nowrap;
+    white-space:nowrap;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    gap:1.25rem !important;
+  }
+  nav .hidden.md\:flex.space-x-8::-webkit-scrollbar{display:none;}
+}
+/* Make check bullets stay perfectly round even if browser translation injects different fonts */
+.check-dot{flex:0 0 auto; border-radius:9999px;}
+/* Numbers/currency should not wrap and should not be translated */
+.nums{white-space:nowrap;}
+
+
+/* Terms typography (scoped) */
+.terms-body p{
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #334155; /* neutral-700 */
+  margin-top: 0.75rem;
+}
+.terms-body p:first-child{ margin-top: 0; }
+.terms-body ul{
+  margin-top: 0.75rem;
+  padding-left: 1.25rem;
+  list-style: disc;
+  color: #334155;
+}
+.terms-body li{ margin-top: 0.4rem; }
+.terms-body strong{ color: #0f172a; } /* neutral-900 */
+
+</style>
+<style>
+        html{font-size:90%;}
+    </style>
+<style>
+  html{ overflow-y: scroll; }
+  body{ overflow-x: hidden; }
+</style>
+<style>
+/* Header hard-sticky (prevents pages where other CSS disables sticky) */
+nav.bg-white\/95.backdrop-blur-sm.sticky{position:-webkit-sticky !important; position:sticky !important; top:0 !important; z-index:50 !important;}
+</style>
+<style>
+/* Fixed header fallback: keep content from sliding under the header */
+body{ padding-top:64px; }
+@media (max-width: 768px){ body{ padding-top:64px; } }
+</style>
+<style>.notranslate{translate:no}</style></head>
+<body class="bg-neutral-50 text-neutral-900 min-h-screen flex flex-col compact-10" cz-shortcut-listen="true">
+   
+    <nav class="right-0 left-0 bg-white/95 backdrop-blur-sm fixed top-0 z-50 border-b border-neutral-200">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex justify-between items-center h-16 gap-4">
+<div class="flex items-center gap-6 shrink-0">
+<div class="font-display font-bold text-2xl text-primary-600">
+<a class="nav-link" href="https://nomarkupsclub.com">
+<img alt="" src="https://nomarkupsclub.com/public/uploads/logo/260625_00_48_07.png" style="width:50px; !important;"/>
+</a>
+</div>
+<div class="hidden md:flex gap-2 items-center">
+<div class="w-2 h-2 bg-success-500 rounded-full pulse-green shrink-0"></div>
+<span class="text-sm font-medium text-success-600 live-pricing-text text-xs leading-tight whitespace-normal" style="max-width:140px; line-height:1.1; white-space:normal; overflow-wrap:anywhere;">Live Pricing</span>
+</div>
+</div>
+<div class="hidden md:flex flex-1 justify-center">
+<div class="flex items-center gap-6 lg:gap-7 xl:gap-8">
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[10.5rem] text-[15px]" href="https://nomarkupsclub.com">HOME</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[10.5rem] text-[15px]" href="https://nomarkupsclub.com/stores">STORES</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[10.5rem] text-[15px]" href="https://nomarkupsclub.com/affiliate_plan">AFFILIATE PLAN</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[10.5rem] text-[15px]" href="https://nomarkupsclub.com/membership">MEMBERSHIP</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[12rem] text-[15px]" href="https://nomarkupsclub.com/faqs">FAQ'S</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[12rem] text-[15px]" href="https://nomarkupsclub.com/login">DASHBOARD</a>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<a class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2.5 rounded-lg font-medium transition-colors" href="https://nomarkupsclub.com/r/admin">
+          Start Saving
+        </a>
+<div class="md:hidden flex items-center">
+<button class="text-2xl focus:outline-none" id="menuBtn">☰</button>
+</div>
+</div>
+</div>
+</div>
+<div class="md:hidden hidden px-4 pb-4" id="mobileMenu">
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com">HOME</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/stores">STORES</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/affiliate_plan">AFFILIATE PLAN</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/membership">MEMBERSHIP</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/faqs">FAQ'S</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/login">DASHBOARD</a>
+</div>
+</nav>
+<div class="page flex-1">
+         <section class="py-20 bg-neutral-50">
+            <div class="max-w-7xl mx-auto px-6">
+		
+                
+<div class="text-center">
+                    <h1 class="font-display font-bold text-4xl md:text-6xl text-neutral-900 mb-6">
+                     Terms & Conditions
+                    </h1> 
+				</div>
+
+<div class="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
+  <!-- Main Terms content -->
+  <div class="lg:col-span-2 bg-white border border-neutral-200 rounded-2xl p-7 shadow-soft">
+    <div class="flex items-start justify-between gap-4">
+      <div>
+        <div class="text-xs font-semibold tracking-[0.18em] uppercase text-neutral-500">Legal</div>
+        <div class="mt-2 text-lg font-semibold text-neutral-900 text-safe">Terms &amp; Conditions</div>
+      </div>
+      <div class="hidden sm:flex items-center gap-2 shrink-0">
+        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-50 text-neutral-700 border border-neutral-200 text-xs font-semibold no-wrap">
+          Effective
+        </span>
+      </div>
+    </div>
+
+    <div class="mt-6 terms-body">
+      <p data-start="193" data-end="219"><strong data-start="193" data-end="217">Terms and Conditions</strong></p>
+<p data-start="221" data-end="257"><strong data-start="221" data-end="255">Effective as of August 1, 2025</strong></p>
+<p data-start="259" data-end="445">These Terms and Conditions of NETWORTHY GLOBAL LLC are designed to define the rights and responsibilities of NETWORTHY GLOBAL LLC and its Independent Customers, Members, or Affiliates.</p>
+<p data-start="447" data-end="585">While most of these Terms are directed toward Affiliates, they apply equally to all registered parties, including Customers and Members.</p>
+<p data-start="587" data-end="845">By registering with NETWORTHY GLOBAL LLC, every Independent Customer, Member, or Affiliate agrees unconditionally to all terms outlined herein and waives any liability claims against NETWORTHY GLOBAL LLC resulting from their participation in the agreement.</p>
+<p data-start="847" data-end="1186">NETWORTHY GLOBAL LLC (&ldquo;the Company&rdquo;) has established the following Code of Conduct to serve as a guide for ethical, professional, and compliant business practices. We require all Customers, Members, and Affiliates to comply with both the letter and the spirit of this code, which forms the foundation of their agreement with the Company.</p>
+<p data-start="1188" data-end="1820"><strong data-start="1188" data-end="1244">1. Obligations of Customers, Members, and Affiliates</strong><br data-start="1244" data-end="1247" /> All parties registered with NETWORTHY GLOBAL LLC agree to conduct themselves in an ethical and professional manner, promote and sell the Company&rsquo;s products according to the Compensation Plan, clearly state that success in the Company&rsquo;s plan is based on product purchases and not recruitment, present the Compensation Plan only as officially outlined by the Company, make only accurate and Company-approved claims about the products, comply with all applicable consumer protection laws and regulations, and provide accurate and up-to-date personal and contact information.</p>
+<p data-start="1822" data-end="2495"><strong data-start="1822" data-end="1847">2. Prohibited Actions</strong><br data-start="1847" data-end="1850" /> Participants with NETWORTHY GLOBAL LLC agree not to engage in fraudulent, illegal, or unethical business or recruitment practices, not to use high-pressure sales or recruitment tactics, not to make misleading claims or promises about the products, not to make deceptive statements regarding potential earnings, not to enroll or sponsor minors or individuals incapable of making informed decisions, not to conduct business in countries not approved by NETWORTHY GLOBAL LLC, not to purchase volume on behalf of another Customer or Member to earn bonuses or commissions, and not to attempt to circumvent or manipulate Company policies in any way.</p>
+<p data-start="2497" data-end="3381"><strong data-start="2497" data-end="2545">3. Eligibility and Registration Requirements</strong><br data-start="2545" data-end="2548" /> To become a Customer, Member, or Affiliate, applicants must have reached the age of majority in their jurisdiction. Authorization to participate begins only after completing the required registration forms. The Company retains the right to accept, renew, or reject any application. Proof of residency, work authorization, and legal right to conduct business may be required. No purchase of products is necessary to participate. Legal entities may be required to provide entity identification numbers and ownership documentation. For tax reporting and identification, applicants must submit a valid identification number. Submission of false information may result in termination. Agreements remain valid for one year and automatically renew if the participant remains active. No exclusive franchise or territory rights are granted.</p>
+<p data-start="3383" data-end="4187"><strong data-start="3383" data-end="3419">4. Independent Contractor Status</strong><br data-start="3419" data-end="3422" /> Each Customer, Member, or Affiliate is considered an independent contractor and is responsible for their own business expenses, decisions, and actions. They may not represent themselves as agents, employees, partners, or joint ventures of the Company, nor may they make purchases or agreements on behalf of the Company. All business strategies, hours, and expenses are determined independently. Any statements regarding products, services, or the Compensation Plan not expressly included in official Company materials are the sole responsibility of the individual. Participants agree to indemnify and hold the Company harmless for any liabilities arising from unauthorized statements or actions. These obligations continue even after termination of the Agreement.</p>
+<p data-start="4189" data-end="4473"><strong data-start="4189" data-end="4216">5. Compliance with Laws</strong><br data-start="4216" data-end="4219" /> All Customers, Members, and Affiliates must comply with national and local laws, rules, and regulations in conducting their business. They must not engage in unfair competition or unethical practices, including selling products below wholesale pricing.</p>
+<p data-start="4475" data-end="4740"><strong data-start="4475" data-end="4505">6. Unauthorized Promotions</strong><br data-start="4505" data-end="4508" /> Customers, Members, and Affiliates are prohibited from offering or promoting incentives, programs, opportunities, or marketing tools that have not been approved by the Company in conjunction with the promotion of Company products.</p>
+<p data-start="4742" data-end="5045"><strong data-start="4742" data-end="4761">7. Retail Sales</strong><br data-start="4761" data-end="4764" /> Success as an Affiliate requires time, dedication, and effort. Commissions are not guaranteed and are performance-based. A successful Affiliate business depends on recurring retail sales of the Company&rsquo;s products, both personally and within the Affiliate&rsquo;s downline organization.</p>
+<p data-start="5047" data-end="5379"><strong data-start="5047" data-end="5073">8. Negative Statements</strong><br data-start="5073" data-end="5076" /> Customers, Members, and Affiliates may not make defamatory, misleading, inaccurate, or unfair statements, claims, or comparisons about the Company, its products, its business model, other Customers, Members, or Affiliates, or about competing companies, their services, products, or business practices.</p>
+<p data-start="5381" data-end="5634"><strong data-start="5381" data-end="5403">9. Ethical Conduct</strong><br data-start="5403" data-end="5406" /> All Customers, Members, and Affiliates are required to uphold ethical and professional standards in all business dealings. They are responsible for ensuring that their downline participants do not engage in unethical behavior.</p>
+<p data-start="5636" data-end="6198"><strong data-start="5636" data-end="5661">10. Unethical Conduct</strong><br data-start="5661" data-end="5664" /> Unethical conduct includes but is not limited to using another person&rsquo;s credit card without permission, unauthorized use of Company confidential information, cross-company recruiting, making unapproved product claims, making non-compliant income claims, spreading false or misleading statements, engaging in personal conduct that discredits the Company, violating laws governing direct selling practices, failing to fulfill responsibilities as a participant, or violating the Company&rsquo;s Code of Ethics and these Terms and Conditions.</p>
+<p data-start="6200" data-end="6583"><strong data-start="6200" data-end="6226">11. Dispute Resolution</strong><br data-start="6226" data-end="6229" /> All Customers, Members, and Affiliates must conduct their business activities in a way that serves the best interests of the Company. Upline leaders are encouraged to make reasonable efforts to resolve disputes within their organizations. Personal disputes should be resolved quickly, privately, and in a way that protects the integrity of the Company.</p>
+<p data-start="122" data-end="374"><strong data-start="122" data-end="149">12. Fair Representation</strong><br data-start="149" data-end="152" /> Customers, Members, or Affiliates may not claim or suggest that they have a unique or preferential relationship with the Company&rsquo;s executives, employees, or leadership that is not equally available to other participants.</p>
+<p data-start="376" data-end="736"><strong data-start="376" data-end="403">13. Detrimental Conduct</strong><br data-start="403" data-end="406" /> If the Company determines that any actions or behaviors by a Customer, Member, or Affiliate are disruptive, harmful, or damaging to the Company&rsquo;s operations, reputation, or other participants, the Company reserves the right to take corrective measures, including disciplinary action, suspension, or termination of the agreement.</p>
+<p data-start="738" data-end="1019"><strong data-start="738" data-end="773">14. Professional Responsibility</strong><br data-start="773" data-end="776" /> Customers, Members, or Affiliates must not rely on the Company for legal, tax, financial, or any other professional advice. Any guidance provided by the Company should not be considered as a substitute for advice from licensed professionals.</p>
+<p data-start="1021" data-end="1261"><strong data-start="1021" data-end="1047">15. Insurance Coverage</strong><br data-start="1047" data-end="1050" /> The Company recommends that all Customers, Members, and Affiliates seek advice from a qualified attorney to understand the extent of their personal legal liability related to operating an independent business.</p>
+<p data-start="1263" data-end="1427"><strong data-start="1263" data-end="1278">16. Rewards</strong><br data-start="1278" data-end="1281" /> Customers, Members, and Affiliates of NETWORTHY GLOBAL LLC may participate in the Company&rsquo;s rewards program as outlined on the official website.</p>
+<p data-start="1429" data-end="1871"><strong data-start="1429" data-end="1472">17. Commissions and Earnings Disclaimer</strong><br data-start="1472" data-end="1475" /> All Commissions are issued according to the terms specified on the Affiliate Rewards Plan page. Before registering or making any purchases, all Customers, Members, and Affiliates acknowledge and accept that no earnings are guaranteed. Any income representations or figures shown on the website are provided strictly for demonstration purposes and do not guarantee individual results or payouts.</p>
+<p data-start="1873" data-end="2228"><strong data-start="1873" data-end="1901">18. Referral Requirement</strong><br data-start="1901" data-end="1904" /> Participation in the rewards program does not imply entitlement to earnings. Customers, Members, and Affiliates should not expect to receive income without actively referring new participants. Neither NETWORTHY GLOBAL LLC nor any of its participants can assure profit or "spillover" earnings solely by joining the program.</p>
+<p data-start="2230" data-end="2587"><strong data-start="2230" data-end="2259">19. Expectation of Effort</strong><br data-start="2259" data-end="2262" /> Most participants earn less in commissions than they spend on products each month. While earnings are possible, no Customer, Member, or Affiliate should join NETWORTHY GLOBAL LLC solely for the expectation of financial gain. This is not a passive income program. Active participation and promotion of products are required.</p>
+<p data-start="2589" data-end="2892"><strong data-start="2589" data-end="2633">20. No Earning Assurances from Materials</strong><br data-start="2633" data-end="2636" /> The Company provides training and promotional materials for educational purposes only. Use of such materials does not guarantee success or profitability. Customers, Members, or Affiliates should not interpret any training content as a promise of results.</p>
+<p data-start="2894" data-end="3166"><strong data-start="2894" data-end="2922">21. Risk Acknowledgement</strong><br data-start="2922" data-end="2925" /> Participants should never spend money they cannot afford to lose. This includes funds used to purchase products, promotional tools, or marketing materials. Becoming a Customer, Member, or Affiliate does not ensure the right to earn income.</p>
+<p data-start="3168" data-end="3582"><strong data-start="3168" data-end="3194">22. Income Eligibility</strong><br data-start="3194" data-end="3197" /> Only Customers, Members, or Affiliates who fully comply with the Compensation Plan and the terms of the Contract are eligible to earn commissions. Success in the program is based solely on consistent personal effort, repeated purchase of products, and sales within one&rsquo;s organization. The Company does not reward recruitment alone, and commissions are only earned from product sales.</p>
+<p data-start="3584" data-end="3985"><strong data-start="3584" data-end="3605">23. Payment Terms</strong><br data-start="3605" data-end="3608" /> Commissions are paid only for qualifying orders that are received by the Company within the designated commission period and are paid in full with no outstanding balances. Payments are issued to the individual or legal entity listed in the Payment Method section of the participant&rsquo;s account. If no method is provided, the Company will withhold payment until one is selected.</p>
+<p data-start="3987" data-end="4207"><strong data-start="3987" data-end="4013">24. Commission Reissue</strong><br data-start="4013" data-end="4016" /> If a commission payment is returned to the Company due to a failed transaction or delivery issue, the Company will reissue the payment without charging any additional fees to the Affiliate.</p>
+<p data-start="4209" data-end="4584"><strong data-start="4209" data-end="4245">25. Minimum Commission Threshold</strong><br data-start="4245" data-end="4248" /> Affiliates must choose their preferred payout method on the designated Payment Methods page of the website. Commission payments will only be issued once the total earned commissions meet or exceed a minimum of ten U.S. dollars (USD $10). Any amount below this threshold will carry over to the next period until the minimum is reached.</p>
+<p data-start="4586" data-end="5033"><strong data-start="4586" data-end="4624">26. Unpaid or Withheld Commissions</strong><br data-start="4624" data-end="4627" /> The Company is committed to delivering earned commissions to Affiliates. However, if payment cannot be processed due to missing, incomplete, or invalid information, the payment will be held for up to ninety (90) days. If the issue remains unresolved beyond ninety (90) days, the Company reserves the right to deduct a monthly administrative fee of USD $10 (or local currency equivalent) from the balance.</p>
+<p data-start="5035" data-end="5491"><strong data-start="5035" data-end="5075">27. Prohibition of Plan Manipulation</strong><br data-start="5075" data-end="5078" /> Any attempt to manipulate or exploit the Compensation Plan is strictly prohibited. This includes bulk purchases made for the purpose of artificially inflating rank or earnings, placing fraudulent orders under other accounts, or engaging in conduct that violates anti-pyramid laws. Such behavior may lead to immediate suspension of commissions or termination of affiliate status at the Company&rsquo;s sole discretion.</p>
+<p data-start="5493" data-end="5721"><strong data-start="5493" data-end="5522">28. Commission Deductions</strong><br data-start="5522" data-end="5525" /> Affiliates hereby authorize the Company to deduct any applicable charges or fees from their commission payments, as described on the Payment Methods page or as deemed appropriate by the Company.</p>
+<p data-start="5493" data-end="5721"><strong data-start="5675" data-end="5708">29. Ordering Company Products</strong><br data-start="5708" data-end="5711" /> The Company does not mandate any minimum inventory requirements for its Customers, Members, or Affiliates. Each participant is solely responsible for determining the amount of product inventory needed for their personal use or business activity. Customers, Members, or Affiliates may only use product descriptions, benefits, or claims that appear in official literature provided and approved by the Company. Any marketing materials created by third parties must comply with all relevant national, state, and local laws. Products may not be prescribed for any specific medical condition under any circumstances. No therapeutic, preventive, or curative statements may be associated with the Company&rsquo;s Products unless officially approved.</p>
+<p data-start="57" data-end="248"><strong data-start="57" data-end="82">30. Product Integrity</strong><br data-start="82" data-end="85" /> Customers, Members, or Affiliates are strictly prohibited from altering, relabeling, repackaging, or tampering with any Product packaging or contents in any way.</p>
+<p data-start="250" data-end="571"><strong data-start="250" data-end="291">31. Regulatory Endorsement Disclaimer</strong><br data-start="291" data-end="294" /> No Customer, Member, or Affiliate is permitted to suggest or imply that the Company, its business model, or its Products are endorsed, authorized, or certified by any government or regulatory body, unless such endorsement is explicitly stated on the official Company website.</p>
+<p data-start="573" data-end="982"><strong data-start="573" data-end="602">32. Income Representation</strong><br data-start="602" data-end="605" /> Customers, Members, or Affiliates must not make exaggerated, misleading, or inaccurate statements regarding potential income. Any income claim made must be factual and supported by actual documented results. When referencing income, the most recent average annual earnings disclosure, as published by the Company on its website, must be clearly displayed alongside the claim.</p>
+<p data-start="984" data-end="1682"><strong data-start="984" data-end="1031">33. Use of Trademarks and Company Materials</strong><br data-start="1031" data-end="1034" /> Customers, Members, or Affiliates are not permitted to use Company trademarks, names, logos, or any proprietary identifiers in any unapproved Sales Tools or marketing materials. The use of Company trademarks is prohibited in jurisdictions where such use is restricted or not legally recognized. No reference may be made in Sales Tools, advertisements, or correspondence to the Company&rsquo;s business relationships, strategic partners, or operational affiliates without prior written consent. All literature, branding assets, and media content issued by the Company are protected by copyright and may not be copied, altered, or reproduced in any form.</p>
+<p data-start="1684" data-end="2228"><strong data-start="1684" data-end="1733">34. Identification as Independent Participant</strong><br data-start="1733" data-end="1736" /> If a Customer, Member, or Affiliate operates under a business name, that name must clearly indicate their independent status. For example, it must state: &ldquo;Independent Customer, Member, or Affiliate of NETWORTHY GLOBAL LLC.&rdquo; Under no circumstances should any name, title, or branding imply that the individual is an employee, agent, or official representative of the Company. When using the Company&rsquo;s name or logo, it must always be accompanied by the clear label of independent affiliation.</p>
+<p data-start="2230" data-end="3644"><strong data-start="2230" data-end="2267">35. Approved Advertising Channels</strong><br data-start="2267" data-end="2270" /> <strong data-start="2270" data-end="2290">Email Marketing:</strong> All email, telephone, or fax advertising must comply fully with applicable anti-spam regulations in the recipient&rsquo;s jurisdiction. It is the sole responsibility of the Customer, Member, or Affiliate to ensure full compliance with these laws.<br data-start="2531" data-end="2534" /> <strong data-start="2534" data-end="2559">Television and Radio:</strong> Advertising through broadcast media such as TV and radio requires prior written approval from the Company. All proposals must be submitted to Customer Support for review.<br data-start="2730" data-end="2733" /> <strong data-start="2733" data-end="2760">Celebrity Endorsements:</strong> The use of a celebrity's name or likeness in advertising is strictly prohibited unless both the Company and the celebrity have provided written consent for each specific usage.<br data-start="2937" data-end="2940" /> <strong data-start="2940" data-end="2958">Public Events:</strong> Customers, Members, or Affiliates may promote or sell Products at public venues such as flea markets, fairs, bazaars, expos, and trade shows&mdash;provided that the selling price is not lower than the advertised price listed on the official website.<br data-start="3202" data-end="3205" /> <strong data-start="3205" data-end="3225">Online Auctions:</strong> Customers, Members, or Affiliates may list Products on online auction platforms as long as the minimum sale price is not below the listed retail price. Third parties may not be used to sell Products on auction sites if the Customer, Member, or Affiliate knows or should reasonably know that such Products will be sold below the listed price. These rules continue to apply even after the termination of the Agreement.</p>
+<p data-start="3646" data-end="4103"><strong data-start="3646" data-end="3688">36. Event-Based Promotion Restrictions</strong><br data-start="3688" data-end="3691" /> At events organized or sponsored by the Company, Customers, Members, or Affiliates are prohibited&mdash;unless given written permission by the Company&mdash;from promoting, selling, or advertising any product, service, system, event, or material that is not directly owned or approved by the Company. This includes organizing personal meetings, selling unrelated materials, or promoting third-party business opportunities.</p>
+<p data-start="4105" data-end="4405"><strong data-start="4105" data-end="4144">37. Social Media and Online Conduct</strong><br data-start="4144" data-end="4147" /> Customers, Members, or Affiliates may promote Company Products and opportunities on social media platforms including, but not limited to, Facebook, Instagram, Twitter, YouTube, and blogging platforms. Such promotion must adhere to the following conditions:</p>
+<ul data-start="4406" data-end="4915">
+<li data-start="4406" data-end="4526">
+<p data-start="4408" data-end="4526">Products may not be advertised or resold online if originally purchased from another Customer, Member, or Affiliate.</p>
+</li>
+<li data-start="4527" data-end="4648">
+<p data-start="4529" data-end="4648">All posts and content shared must comply with Company guidelines and not contain unapproved income or product claims.</p>
+</li>
+<li data-start="4649" data-end="4915">
+<p data-start="4651" data-end="4915">Customers, Members, or Affiliates may link only to the official Company website or their authorized replicated website for further information.<br data-start="4794" data-end="4797" /> Any violation of this policy constitutes a material breach of the Agreement and may result in immediate termination.</p>
+</li>
+</ul>
+<p data-start="4917" data-end="5423"><strong data-start="4917" data-end="4959">38. Reporting of Recruiting Violations</strong><br data-start="4959" data-end="4962" /> Suspected violations related to recruitment within the Company must be reported within eighteen (18) months of the date the violation allegedly began. Allegations of cross-company recruiting must be reported within six (6) months. Complaints submitted after these time periods may not be investigated in order to preserve business continuity. However, the Company reserves the right to take disciplinary action at any time for serious or long-term misconduct.</p>
+<p data-start="5425" data-end="6041"><strong data-start="5425" data-end="5456">39. Circumvention of Policy</strong><br data-start="5456" data-end="5459" /> The Agreement prohibits indirect actions designed to circumvent its terms. If a Customer, Member, or Affiliate performs or encourages others to perform any act that violates the intent of this Agreement, even if technically within the rules, the Company will treat such behavior as a direct violation. Disciplinary measures may include suspension, termination, or any remedies allowed under this Agreement. This Agreement does not entitle any Customer, Member, or Affiliate to independently enforce its provisions against others, nor does it create private rights of legal action.</p>
+<p data-start="52" data-end="161"><strong data-start="52" data-end="79">40. Termination Process</strong><br data-start="79" data-end="82" /> A Customer, Member, or Affiliate may terminate this Agreement at any time by:</p>
+<ul data-start="162" data-end="333">
+<li data-start="162" data-end="223">
+<p data-start="164" data-end="223">Contacting the Company&rsquo;s support team via email or phone;</p>
+</li>
+<li data-start="224" data-end="268">
+<p data-start="226" data-end="268">Sending a termination notice by mail; or</p>
+</li>
+<li data-start="269" data-end="333">
+<p data-start="271" data-end="333">Using the "Personal Information" section of the back office.</p>
+</li>
+</ul>
+<p data-start="335" data-end="630">The Company may terminate the Agreement for any breach of its terms or failure to comply with updates or amendments. Upon termination, the Company reserves the right to either retain or fully dissolve the Customer&rsquo;s, Member&rsquo;s, or Affiliate&rsquo;s account and remove them from the Compensation Plan.</p>
+<p data-start="632" data-end="987"><strong data-start="632" data-end="671">41. Return of Proprietary Materials</strong><br data-start="671" data-end="674" /> All Confidential Information obtained during the term of this Agreement must be returned to the Company upon termination. If such data exists in digital format, it must be permanently deleted. This includes, but is not limited to, customer lists, team structures, marketing materials, and business intelligence.</p>
+<p data-start="989" data-end="1362"><strong data-start="989" data-end="1026">42. Post-Termination Restrictions</strong><br data-start="1026" data-end="1029" /> Any Customer, Member, or Affiliate whose Agreement was terminated for cause must wait a period of six (6) months before reapplying or participating in any way under a new account or name. During this time, the individual may not hold beneficial ownership or exercise influence over any other Customer, Member, or Affiliate account.</p>
+<p data-start="1364" data-end="1685"><strong data-start="1364" data-end="1404">43. Business Rights and Compensation</strong><br data-start="1404" data-end="1407" /> Upon termination, all rights granted under the Agreement&mdash;including team organization, compensation eligibility, and business activity&mdash;are immediately revoked. The Company reserves the right to seek compensation for damages or losses resulting from violations of the Agreement.</p>
+<p data-start="1687" data-end="1905"><strong data-start="1687" data-end="1732">44. Damages and Forfeiture of Commissions</strong><br data-start="1732" data-end="1735" /> If the Company determines that it has incurred or will incur damages due to a breach of the Agreement by a Customer, Member, or Affiliate, including but not limited to:</p>
+<ul data-start="1906" data-end="2064">
+<li data-start="1906" data-end="1971">
+<p data-start="1908" data-end="1971">Loss of goodwill or proprietary and confidential information;</p>
+</li>
+<li data-start="1972" data-end="2023">
+<p data-start="1974" data-end="2023">Reduction in the business value of the Company;</p>
+</li>
+<li data-start="2024" data-end="2064">
+<p data-start="2026" data-end="2064">Loss of projected or actual profits;</p>
+</li>
+</ul>
+<p data-start="2066" data-end="2233">then the Company reserves the right to withhold or forfeit any unpaid Commissions owed to the Customer, Member, or Affiliate as partial compensation for such losses.</p>
+<p data-start="2235" data-end="2589">In the event of termination due to a breach, the Company may choose to restructure the Downline of the terminated Customer, Member, or Affiliate to ensure stability and preserve the integrity of the organization. This decision is at the sole discretion of the Company and will be made in the best interests of the Company, the Downline, and the Upline.</p>
+<p data-start="2591" data-end="2715">Where more than one Beneficiary is associated with a terminated Customer, Member, or Affiliate, the following rules apply:</p>
+<ul data-start="2716" data-end="3048">
+<li data-start="2716" data-end="2854">
+<p data-start="2718" data-end="2854">All exiting Beneficiaries must fully and formally waive their rights to any claims or benefits associated with the terminated account.</p>
+</li>
+<li data-start="2855" data-end="2946">
+<p data-start="2857" data-end="2946">The Company shall not divide the structure or commission rights among multiple parties.</p>
+</li>
+<li data-start="2947" data-end="3048">
+<p data-start="2949" data-end="3048">No commissions will be split or allocated between former or current Beneficiaries of the account.</p>
+</li>
+</ul>
+<p data-start="3050" data-end="3502"><strong data-start="3050" data-end="3117">45. Voluntary Termination by the Customer, Member, or Affiliate</strong><br data-start="3117" data-end="3120" /> A Customer, Member, or Affiliate in good standing may voluntarily terminate the Agreement at any time by submitting a signed written notice to the Company, signed by all individuals listed on the original Agreement. Termination becomes effective upon receipt of this notice by the Company. Customers, Members, or Affiliates in breach may not voluntarily terminate their Agreement.</p>
+<p data-start="3504" data-end="3822">Upon voluntary termination, all rights and interests of the Customer, Member, or Affiliate in any related business activity or Downline organization will be cancelled immediately. A Customer, Member, or Affiliate who voluntarily terminates without breaching the Agreement may re-enroll at any time under any Sponsor.</p>
+<p data-start="3824" data-end="4043">The Company reserves the right to decline a termination request if it determines that the Customer, Member, or Affiliate is not in good standing. Conditions that may indicate bad faith include, but are not limited to:</p>
+<ul data-start="4044" data-end="4232">
+<li data-start="4044" data-end="4085">
+<p data-start="4046" data-end="4085">Temporary or inactive account status;</p>
+</li>
+<li data-start="4086" data-end="4114">
+<p data-start="4088" data-end="4114">Suspension or probation;</p>
+</li>
+<li data-start="4115" data-end="4165">
+<p data-start="4117" data-end="4165">Ongoing investigation of potential violations;</p>
+</li>
+<li data-start="4166" data-end="4232">
+<p data-start="4168" data-end="4232">Prior notice of intent to terminate received from the Company.</p>
+</li>
+</ul>
+<p data-start="129" data-end="463"><strong data-start="129" data-end="160">46. Disclaimer of Liability</strong><br data-start="160" data-end="163" /> NETWORTHY GLOBAL LLC provides a platform for managing the affiliate network and processing commissions. All payments and fund storage are handled through third-party services. While we make every effort to ensure safe and timely transactions, certain processes remain outside of our direct control.</p>
+<p data-start="465" data-end="833">Participation in the program does not guarantee income or results. Success depends on personal activity and sales, not merely on enrollment. All transactions are processed through selected payment platforms. The Company is not responsible for delays in crediting funds, errors or failures of payment services, or changes in fees or operating rules of these services.</p>
+<p data-start="835" data-end="1348">The Company does not guarantee or make any representations regarding the accuracy, likely results, or reliability of materials provided on the website or platform. Payout amounts may be affected by the terms of payment providers, including fees and currency exchange rates. The Company does not guarantee the exact correspondence of amounts at the time funds are credited. Under no circumstances shall the Company or its suppliers be liable for any damages arising from the use of the materials or the platform.</p>
+<p data-start="1350" data-end="1598">Each partner is solely responsible for verifying and providing correct payout details and for using the platform properly. The Company is not liable for loss of funds due to incorrect information or failure to follow payment service instructions.</p>
+<p data-start="1600" data-end="1897">The platform may contain links to third-party websites or services. The Company does not control the content of these resources and assumes no responsibility for their operation. The Company has not reviewed all linked websites and assumes no responsibility for the content of any external site.</p>
+<p data-start="1899" data-end="2156">The Company is committed to full transparency and provides all available information about the platform and the affiliate program. Partners are strongly encouraged to carefully review all terms, instructions, and guidelines before making any transactions.</p>
+<p data-start="2158" data-end="2513">Use of the platform, fund transfers, and participation in the affiliate program are entirely at the partner&rsquo;s own risk. While the Company makes every effort to ensure safe operations, certain processes remain outside its control. The use of materials and the platform is entirely at your own risk. The Company provides no warranties, express or implied.</p>
+    </div>
+  </div>
+
+  <!-- Side panel -->
+  <aside class="bg-neutral-900 rounded-2xl p-7 shadow-soft overflow-hidden relative">
+    <div class="text-xs font-semibold tracking-[0.18em] uppercase text-neutral-300">Need help?</div>
+    <div class="mt-2 text-xl font-semibold text-white text-safe">Contact Support</div>
+
+    <div class="mt-3 text-base text-neutral-200 leading-relaxed text-safe">
+      For questions about these Terms, email
+      <a class="decorated-link" href="mailto:support@nomarkupsclub.com">support@nomarkupsclub.com</a>.
+    </div>
+
+    <div class="mt-6 grid grid-cols-1 gap-3">
+      <div class="rounded-xl bg-white/10 border border-white/10 p-4">
+        <div class="text-xs font-semibold tracking-[0.18em] uppercase text-neutral-300">Reminder</div>
+        <div class="mt-2 text-sm text-neutral-100 text-safe">This page is written for clarity and compliance. Please review periodically for updates.</div>
+      </div>
+      <div class="rounded-xl bg-white/10 border border-white/10 p-4">
+        <div class="text-xs font-semibold tracking-[0.18em] uppercase text-neutral-300">Best practice</div>
+        <div class="mt-2 text-sm text-neutral-100 text-safe">Avoid making unapproved product or income claims when sharing the program publicly.</div>
+      </div>
+    </div>
+
+    <div class="absolute -right-10 -bottom-10 w-40 h-40 rounded-full bg-primary-600/20 blur-2xl"></div>
+    <div class="absolute -left-10 -top-10 w-40 h-40 rounded-full bg-success-500/15 blur-2xl"></div>
+  </aside>
+</div>
+	                 
+                            
+            </div>
+        </section>
+    </div>
+
+  
+		
+   
+    <footer class="bg-neutral-900 text-white py-16">
+<div class="max-w-6xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div>
+<div class="font-display font-bold text-2xl mb-6">
+                        <span class="notranslate" translate="no"><span class="notranslate" translate="no">NoMarkupsClub</span></span>
+</div>
+<p class="text-neutral-400 mb-6">
+                        No hidden markups, no retail tricks. Just honest wholesale pricing for smart shoppers.
+                    </p>
+<div class="flex space-x-4">
+<div class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors cursor-pointer">
+<a href="https://www.facebook.com/nomarkupsclub" target="_blank"><i class="ion-social-facebook"></i></a>
+</div>
+<div class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors cursor-pointer">
+<a href="https://www.x.com" target="_blank"><i class="ion-social-twitter"></i></a>
+</div>
+<div class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors cursor-pointer">
+<a href="https://www.instagram.com" target="_blank"><i class="ion-social-instagram"></i></a>
+</div>
+</div>
+</div>
+<div>
+<h4 class="font-semibold text-lg mb-6">Company</h4>
+<ul class="space-y-3 text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/aboutus">About Us</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/#howitworks">How It Works</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/affiliate_plan">Affiliate Plan</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/press">Press</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-lg mb-6">Support</h4>
+<ul class="space-y-3 text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/supports/index">Help Center</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/contact_us">Contact Us</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/shipping_info">Shipping Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/certificate">Certificate of Analysis</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-lg mb-6">Legal</h4>
+<ul class="space-y-3 text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/privacy_policy">Privacy Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/terms_conditions">Terms &amp; Conditions</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/refund_policy">Refund Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/cookie_policy">Cookie Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-neutral-800 mt-12 pt-8 text-center">
+<p class="text-neutral-400">
+                   © 2025 nomarkupsclub.com. All right reserved.
+                </p>
+</div>
+</div>
+</footer>
+	
+<script>
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  </script>	
+	
+					
+	
+	
+	
+
+</body>
+</html>

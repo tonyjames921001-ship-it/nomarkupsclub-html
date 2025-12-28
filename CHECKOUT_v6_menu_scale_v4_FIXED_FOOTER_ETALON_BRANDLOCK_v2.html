@@ -1,0 +1,489 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><span class="notranslate" translate="no">NoMarkupsClub</span> — Checkout</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50:'#eff6ff',100:'#dbeafe',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',900:'#1e3a8a' },
+            success: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',500:'#22c55e',600:'#16a34a',700:'#15803d' },
+            neutral: { 50:'#f8fafc',100:'#f1f5f9',200:'#e2e8f0',300:'#cbd5e1',400:'#94a3b8',500:'#64748b',600:'#475569',700:'#334155',800:'#1e293b',900:'#0f172a' }
+          },
+          fontFamily: {
+            sans: ['Inter','system-ui','sans-serif'],
+            display: ['Poppins','system-ui','sans-serif']
+          },
+          boxShadow: {
+            soft: '0 2px 15px -3px rgba(0,0,0,.07), 0 10px 20px -2px rgba(0,0,0,.04)',
+            medium: '0 4px 25px -5px rgba(0,0,0,.1), 0 10px 10px -5px rgba(0,0,0,.04)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Fonts + site css -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://nomarkupsclub.com/public/css/ionicons.min.css">
+  <link rel="stylesheet" href="https://nomarkupsclub.com/public/css/main.css">
+  <link rel="icon" href="https://nomarkupsclub.com/public/favicon/favicon.png">
+
+  <!-- Icons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <style>
+    body { font-family: Inter, system-ui, sans-serif; line-height: 1.6; }
+    .nums { font-variant-numeric: tabular-nums; }
+  </style>
+    <style>
+        .text-safe{overflow-wrap:anywhere;word-break:break-word;hyphens:auto}
+        .nums{white-space:nowrap}
+        .no-wrap{white-space:nowrap}
+        .card-stable{display:flex;flex-direction:column;height:100%}
+        .push-bottom{margin-top:auto}
+        .regional-store-card{display:flex;flex-direction:column;height:100%}
+        .regional-store-card .region-button{margin-top:auto}
+        .how-card{display:flex;flex-direction:column;height:100%}
+        .how-card .how-stat{margin-top:auto}
+        .hero-card{padding:1.1rem}
+
+        /* Compact 100%: -10% overall density without scaling the whole page */
+        .compact-10 .max-w-7xl,.compact-10 .max-w-6xl,.compact-10 .max-w-4xl{padding-left:1.35rem!important;padding-right:1.35rem!important}
+        .compact-10 section.py-14{padding-top:3.15rem!important;padding-bottom:3.15rem!important}
+        .compact-10 section.py-12{padding-top:2.7rem!important;padding-bottom:2.7rem!important}
+        .compact-10 .mb-12{margin-bottom:2.7rem!important}
+        .compact-10 .mb-10{margin-bottom:2.25rem!important}
+        .compact-10 .gap-10{gap:2.25rem!important}
+        .compact-10 .gap-8{gap:1.8rem!important}
+        .compact-10 .p-7{padding:1.575rem!important}
+        .compact-10 .p-6{padding:1.35rem!important}
+        .compact-10 .p-5{padding:1.125rem!important}
+        .compact-10 .text-4xl{font-size:2.025rem!important;line-height:2.25rem!important}
+        .compact-10 .text-3xl{font-size:1.6875rem!important;line-height:2.05rem!important}
+        .compact-10 .text-2xl{font-size:1.35rem!important;line-height:1.85rem!important}
+        .compact-10 .text-xl{font-size:1.125rem!important;line-height:1.7rem!important}
+        .compact-10 .text-lg{font-size:1.0125rem!important;line-height:1.6rem!important}
+
+        /* Hero headline only: slightly smaller to match 90% feel at 100% zoom */
+        .compact-10 .hero-h1{font-size:3.35rem!important;line-height:1.05!important}
+        @media (max-width: 768px){
+            .compact-10 .hero-h1{font-size:2.35rem!important;line-height:1.1!important}
+        }
+
+        /* Tighten some vertical spacing in hero cards */
+        .compact-10 .hero-card{padding:1rem!important}
+        .compact-10 .space-y-5 > :not([hidden]) ~ :not([hidden]){margin-top:1.125rem!important}
+        .compact-10 .space-y-4 > :not([hidden]) ~ :not([hidden]){margin-top:0.9rem!important}
+        .compact-10 .space-y-3 > :not([hidden]) ~ :not([hidden]){margin-top:0.675rem!important}
+
+        /* Menu: keep alignment stable under translate/zoom */
+        .nav-link{text-transform:uppercase!important;white-space:normal!important;}#mobileMenu a{text-transform:uppercase!important;white-space:normal!important;}
+        nav .bg-primary-600{white-space:nowrap}
+    
+/* === Translate/zoom stability: keep header single-line as much as possible on desktop === */
+.nav-link{white-space:nowrap;}
+@media (min-width:768px){
+  nav .hidden.md\:flex.space-x-8{
+    flex-wrap:nowrap;
+    white-space:nowrap;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    gap:1.25rem !important;
+  }
+  nav .hidden.md\:flex.space-x-8::-webkit-scrollbar{display:none;}
+}
+/* Make check bullets stay perfectly round even if browser translation injects different fonts */
+.check-dot{flex:0 0 auto; border-radius:9999px;}
+/* Numbers/currency should not wrap and should not be translated */
+.nums{white-space:nowrap;}
+</style>
+
+    <style>
+        html{font-size:90%;}
+    </style>
+
+    <style>
+  html{ overflow-y: scroll; }
+  body{ overflow-x: hidden; }
+</style>
+<style>
+/* Header hard-sticky (prevents pages where other CSS disables sticky) */
+nav.bg-white\/95.backdrop-blur-sm.sticky{position:-webkit-sticky !important; position:sticky !important; top:0 !important; z-index:50 !important;}
+</style>
+<style>
+/* Fixed header fallback: keep content from sliding under the header */
+body{ padding-top:64px; }
+@media (max-width: 768px){ body{ padding-top:64px; } }
+</style>
+<style>.notranslate{translate:no}</style></head>
+
+<body class="bg-neutral-50 text-neutral-900 min-h-screen flex flex-col compact-10">
+
+<!-- ===== HEADER (ORIGINAL, ПРОВЕРЕННЫЙ) ===== -->
+<nav class="right-0 left-0 bg-white/95 backdrop-blur-sm fixed top-0 z-50 border-b border-neutral-200">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex justify-between items-center h-16 gap-4">
+<div class="flex items-center gap-6 shrink-0">
+<div class="font-display font-bold text-2xl text-primary-600">
+<a class="nav-link" href="https://nomarkupsclub.com">
+<img alt="" src="https://nomarkupsclub.com/public/uploads/logo/260625_00_48_07.png" style="width:50px; !important;"/>
+</a>
+</div>
+<div class="hidden md:flex gap-2 items-center">
+<div class="w-2 h-2 bg-success-500 rounded-full pulse-green shrink-0"></div>
+<span class="text-sm font-medium text-success-600 live-pricing-text text-xs leading-tight whitespace-normal" style="max-width:140px; line-height:1.1; white-space:normal; overflow-wrap:anywhere;">Live Pricing</span>
+</div>
+</div>
+<div class="hidden md:flex flex-1 justify-center">
+<div class="flex items-center gap-6 lg:gap-7 xl:gap-8">
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[10.5rem] text-[15px]" href="https://nomarkupsclub.com">HOME</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[10.5rem] text-[15px]" href="https://nomarkupsclub.com/stores">STORES</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[10.5rem] text-[15px]" href="https://nomarkupsclub.com/affiliate_plan">AFFILIATE PLAN</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[10.5rem] text-[15px]" href="https://nomarkupsclub.com/membership">MEMBERSHIP</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[12rem] text-[15px]" href="https://nomarkupsclub.com/faqs">FAQ'S</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[12rem] text-[15px]" href="https://nomarkupsclub.com/login">DASHBOARD</a>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<a class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2.5 rounded-lg font-medium transition-colors" href="https://nomarkupsclub.com/r/admin">
+          Start Saving
+        </a>
+<div class="md:hidden flex items-center">
+<button class="text-2xl focus:outline-none" id="menuBtn">☰</button>
+</div>
+</div>
+</div>
+</div>
+<div class="md:hidden hidden px-4 pb-4" id="mobileMenu">
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com">HOME</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/stores">STORES</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/affiliate_plan">AFFILIATE PLAN</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/membership">MEMBERSHIP</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/faqs">FAQ'S</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/login">DASHBOARD</a>
+</div>
+</nav>
+
+ <!-- ================= PAGE ================= -->
+  <main class="pt-6">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 pb-16 fade-in">
+
+      <!-- Title row -->
+      <div class="flex flex-wrap items-start justify-between gap-4 py-6">
+        <div class="min0">
+          <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Checkout</h1>
+          <p class="text-sm text-neutral-600 text-safe">Please enter shipping details and payment to place your order.</p>
+        </div>
+
+        <a href="/cart"
+           class="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2 text-sm font-semibold text-neutral-800 shadow-soft hover:shadow-medium transition border border-neutral-200 whitespace-nowrap">
+          <ion-icon name="arrow-back-outline" class="text-lg"></ion-icon>
+          Back to Cart
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-6">
+
+        <!-- Left: Forms -->
+        <section class="space-y-6">
+
+          <!-- Contact -->
+          <div class="bg-white rounded-2xl border border-neutral-200 shadow-soft p-5 card-hover">
+            <div class="flex items-center justify-between gap-3">
+              <h2 class="font-bold text-lg">Contact</h2>
+              <span class="text-xs font-bold text-neutral-500">Step 1</span>
+            </div>
+
+            <div class="mt-5 grid gap-4">
+              <div>
+                <label class="text-sm font-semibold text-neutral-700">Email</label>
+                <div class="mt-2 relative">
+                  <ion-icon name="mail-outline" class="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-500 text-lg"></ion-icon>
+                  <input type="email" placeholder="you@example.com" autocomplete="email"
+                         class="w-full rounded-xl border border-neutral-200 bg-white pl-10 pr-4 py-3 text-sm font-semibold text-neutral-800 shadow-soft focus:outline-none focus:ring-2 focus:ring-primary-500/30">
+                </div>
+              </div>
+
+              <div>
+                <label class="text-sm font-semibold text-neutral-700">Phone (optional)</label>
+                <div class="mt-2 relative">
+                  <ion-icon name="call-outline" class="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-500 text-lg"></ion-icon>
+                  <input type="tel" placeholder="+1 (___) ___-____" autocomplete="tel"
+                         class="w-full rounded-xl border border-neutral-200 bg-white pl-10 pr-4 py-3 text-sm font-semibold text-neutral-800 shadow-soft focus:outline-none focus:ring-2 focus:ring-primary-500/30">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Shipping Address -->
+          <div class="bg-white rounded-2xl border border-neutral-200 shadow-soft p-5 card-hover">
+            <div class="flex items-center justify-between gap-3">
+              <h2 class="font-bold text-lg">Shipping Address</h2>
+              <span class="text-xs font-bold text-neutral-500">Step 2</span>
+            </div>
+
+            <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="text-sm font-semibold text-neutral-700">First name</label>
+                <input type="text" placeholder="First name" autocomplete="given-name"
+                       class="mt-2 w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm font-semibold text-neutral-800 shadow-soft focus:outline-none focus:ring-2 focus:ring-primary-500/30">
+              </div>
+              <div>
+                <label class="text-sm font-semibold text-neutral-700">Last name</label>
+                <input type="text" placeholder="Last name" autocomplete="family-name"
+                       class="mt-2 w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm font-semibold text-neutral-800 shadow-soft focus:outline-none focus:ring-2 focus:ring-primary-500/30">
+              </div>
+
+              <div class="sm:col-span-2">
+                <label class="text-sm font-semibold text-neutral-700">Address line 1</label>
+                <input type="text" placeholder="Street address" autocomplete="address-line1"
+                       class="mt-2 w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm font-semibold text-neutral-800 shadow-soft focus:outline-none focus:ring-2 focus:ring-primary-500/30">
+              </div>
+
+              <div class="sm:col-span-2">
+                <label class="text-sm font-semibold text-neutral-700">Address line 2 (optional)</label>
+                <input type="text" placeholder="Apartment, suite, etc." autocomplete="address-line2"
+                       class="mt-2 w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm font-semibold text-neutral-800 shadow-soft focus:outline-none focus:ring-2 focus:ring-primary-500/30">
+              </div>
+
+              <div>
+                <label class="text-sm font-semibold text-neutral-700">City</label>
+                <input type="text" placeholder="City" autocomplete="address-level2"
+                       class="mt-2 w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm font-semibold text-neutral-800 shadow-soft focus:outline-none focus:ring-2 focus:ring-primary-500/30">
+              </div>
+
+              <div>
+                <label class="text-sm font-semibold text-neutral-700">State / Region</label>
+                <input type="text" placeholder="State / Region" autocomplete="address-level1"
+                       class="mt-2 w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm font-semibold text-neutral-800 shadow-soft focus:outline-none focus:ring-2 focus:ring-primary-500/30">
+              </div>
+
+              <div>
+                <label class="text-sm font-semibold text-neutral-700">Postal code</label>
+                <input type="text" placeholder="ZIP / Postal" autocomplete="postal-code"
+                       class="mt-2 w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm font-semibold text-neutral-800 shadow-soft focus:outline-none focus:ring-2 focus:ring-primary-500/30">
+              </div>
+
+              <div>
+                <label class="text-sm font-semibold text-neutral-700">Country</label>
+                <select autocomplete="country"
+                        class="mt-2 w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm font-semibold text-neutral-800 shadow-soft focus:outline-none focus:ring-2 focus:ring-primary-500/30">
+                  <option>United States</option>
+                  <option>Canada</option>
+                  <option>United Kingdom</option>
+                  <option>Germany</option>
+                  <option>France</option>
+                  <option>Poland</option>
+                  <option>Ukraine</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Payment -->
+          <div class="bg-white rounded-2xl border border-neutral-200 shadow-soft p-5 card-hover">
+            <div class="flex items-center justify-between gap-3">
+              <h2 class="font-bold text-lg">Payment</h2>
+              <span class="text-xs font-bold text-neutral-500">Step 3</span>
+            </div>
+
+            <div class="mt-5 grid gap-4">
+              <div>
+                <label class="text-sm font-semibold text-neutral-700">Card number</label>
+                <div class="mt-2 relative">
+                  <ion-icon name="card-outline" class="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-500 text-lg"></ion-icon>
+                  <input type="text" inputmode="numeric" placeholder="1234 5678 9012 3456" autocomplete="cc-number"
+                         class="w-full rounded-xl border border-neutral-200 bg-white pl-10 pr-4 py-3 text-sm font-semibold text-neutral-800 shadow-soft focus:outline-none focus:ring-2 focus:ring-primary-500/30">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="sm:col-span-1">
+                  <label class="text-sm font-semibold text-neutral-700">Expiry</label>
+                  <input type="text" placeholder="MM/YY" autocomplete="cc-exp"
+                         class="mt-2 w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm font-semibold text-neutral-800 shadow-soft focus:outline-none focus:ring-2 focus:ring-primary-500/30">
+                </div>
+                <div class="sm:col-span-1">
+                  <label class="text-sm font-semibold text-neutral-700">CVC</label>
+                  <input type="text" placeholder="CVC" autocomplete="cc-csc"
+                         class="mt-2 w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm font-semibold text-neutral-800 shadow-soft focus:outline-none focus:ring-2 focus:ring-primary-500/30">
+                </div>
+                <div class="sm:col-span-1">
+                  <label class="text-sm font-semibold text-neutral-700">ZIP</label>
+                  <input type="text" placeholder="ZIP" autocomplete="billing postal-code"
+                         class="mt-2 w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm font-semibold text-neutral-800 shadow-soft focus:outline-none focus:ring-2 focus:ring-primary-500/30">
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <input id="terms" type="checkbox" class="mt-1 h-4 w-4 rounded border-neutral-300">
+                <label for="terms" class="text-sm text-neutral-600 nav-title-safe">
+                  I agree to the Terms &amp; Conditions and Privacy Policy.
+                </label>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- Right: Summary -->
+        <aside class="bg-white rounded-2xl border border-neutral-200 shadow-soft p-5 h-fit card-hover">
+          <div class="flex items-center justify-between gap-3">
+            <h2 class="font-bold text-lg">Order Summary</h2>
+            <span class="text-xs font-semibold text-neutral-500 nums whitespace-nowrap">USD</span>
+          </div>
+
+          <!-- Items placeholder (Laravel will render real cart items) -->
+          <div class="mt-4 space-y-3 text-sm">
+            <div class="flex items-start justify-between gap-3">
+              <div class="min-w-0">
+                <div class="font-semibold nav-title-safe">Item name example</div>
+                <div class="text-xs text-neutral-500">Qty: <span class="nums">1</span></div>
+              </div>
+              <div class="font-bold nums whitespace-nowrap">$0.00</div>
+            </div>
+
+            <div class="flex items-start justify-between gap-3">
+              <div class="min-w-0">
+                <div class="font-semibold nav-title-safe">Item name example</div>
+                <div class="text-xs text-neutral-500">Qty: <span class="nums">2</span></div>
+              </div>
+              <div class="font-bold nums whitespace-nowrap">$0.00</div>
+            </div>
+
+            <div class="pt-3 border-t border-neutral-200 space-y-2">
+              <div class="flex items-center justify-between gap-3">
+                <span class="text-neutral-600 min-w-0 nav-title-safe">Retail Total</span>
+                <span class="font-bold text-neutral-900 nums whitespace-nowrap shrink-0" id="retailTotal">$0.00</span>
+              </div>
+
+              <div class="flex items-center justify-between gap-3">
+                <span class="text-neutral-600 min-w-0 nav-title-safe">Wholesale Total</span>
+                <span class="font-bold text-success-600 nums whitespace-nowrap shrink-0" id="wholesaleTotal">$0.00</span>
+              </div>
+
+              <div class="flex items-center justify-between gap-3">
+                <span class="text-neutral-600 min-w-0 nav-title-safe">Tax</span>
+                <span class="font-semibold text-neutral-900 nums whitespace-nowrap shrink-0" id="taxLine">$0.00</span>
+              </div>
+
+              <div class="flex items-start justify-between gap-3">
+                <div class="min-w-0">
+                  <div class="text-neutral-600 nav-title-safe">Shipping</div>
+                  <div class="text-xs text-neutral-500 nav-title-safe">Calculated at checkout</div>
+                </div>
+                <span class="font-semibold text-neutral-900 nums whitespace-nowrap shrink-0" id="shippingLine">$0.00</span>
+              </div>
+
+              <div class="pt-3 border-t border-neutral-200 flex items-center justify-between gap-3">
+                <span class="text-neutral-700 font-bold min-w-0 nav-title-safe">Total (Wholesale)</span>
+                <span class="text-xl font-extrabold text-neutral-900 nums whitespace-nowrap shrink-0" id="grandTotal">$0.00</span>
+              </div>
+            </div>
+
+            <button class="mt-4 w-full rounded-xl bg-primary-600 px-4 py-3 text-sm font-bold text-white shadow-soft hover:bg-primary-700 hover:shadow-medium transition">
+              Place Order
+            </button>
+
+            <div class="mt-3 text-xs text-neutral-500 nav-title-safe">
+              Payment and final totals are processed at checkout.
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ================= FOOTER (ORIGINAL STYLE) ================= -->
+  <footer class="bg-neutral-900 text-white py-16">
+<div class="max-w-6xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div>
+<div class="font-display font-bold text-2xl mb-6">
+                        <span class="notranslate" translate="no"><span class="notranslate" translate="no">NoMarkupsClub</span></span>
+</div>
+<p class="text-neutral-400 mb-6">
+                        No hidden markups, no retail tricks. Just honest wholesale pricing for smart shoppers.
+                    </p>
+<div class="flex space-x-4">
+<div class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors cursor-pointer">
+<a href="https://www.facebook.com/nomarkupsclub" target="_blank"><i class="ion-social-facebook"></i></a>
+</div>
+<div class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors cursor-pointer">
+<a href="https://www.x.com" target="_blank"><i class="ion-social-twitter"></i></a>
+</div>
+<div class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors cursor-pointer">
+<a href="https://www.instagram.com" target="_blank"><i class="ion-social-instagram"></i></a>
+</div>
+</div>
+</div>
+<div>
+<h4 class="font-semibold text-lg mb-6">Company</h4>
+<ul class="space-y-3 text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/aboutus">About Us</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/#howitworks">How It Works</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/affiliate_plan">Affiliate Plan</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/press">Press</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-lg mb-6">Support</h4>
+<ul class="space-y-3 text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/supports/index">Help Center</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/contact_us">Contact Us</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/shipping_info">Shipping Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/certificate">Certificate of Analysis</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-lg mb-6">Legal</h4>
+<ul class="space-y-3 text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/privacy_policy">Privacy Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/terms_conditions">Terms &amp; Conditions</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/refund_policy">Refund Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/cookie_policy">Cookie Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-neutral-800 mt-12 pt-8 text-center">
+<p class="text-neutral-400">
+                   © 2025 nomarkupsclub.com. All right reserved.
+                </p>
+</div>
+</div>
+</footer>
+
+  <script>
+    // Placeholder totals (UI-only). Laravel will overwrite these server-side on real checkout.
+    (function () {
+      const retailTotal = 0;
+      const wholesaleTotal = 0;
+      const tax = 0;       // Tax (singular)
+      const shipping = 0;  // Shipping line exists even if 0
+
+      function money(n){ return '$' + (Math.round(n * 100) / 100).toFixed(2); }
+
+      const elRetail = document.getElementById('retailTotal');
+      const elWholesale = document.getElementById('wholesaleTotal');
+      const elTax = document.getElementById('taxLine');
+      const elShipping = document.getElementById('shippingLine');
+      const elGrand = document.getElementById('grandTotal');
+
+      if (elRetail) elRetail.textContent = money(retailTotal);
+      if (elWholesale) elWholesale.textContent = money(wholesaleTotal);
+      if (elTax) elTax.textContent = money(tax);
+      if (elShipping) elShipping.textContent = money(shipping);
+      if (elGrand) elGrand.textContent = money(wholesaleTotal + tax + shipping);
+    })();
+  </script>
+</body>
+</html>

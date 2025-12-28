@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><span class="notranslate" translate="no">NoMarkupsClub</span></title> 
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a'
+                        },
+                        success: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d'
+                        },
+                        warning: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            500: '#f59e0b',
+                            600: '#d97706'
+                        },
+                        neutral: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a'
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'display': ['Poppins', 'system-ui', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
+                        'medium': '0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                        'large': '0 10px 40px -10px rgba(0, 0, 0, 0.15), 0 20px 25px -5px rgba(0, 0, 0, 0.1)'
+                    }
+                }
+            }
+        }
+    </script>
+	 <link rel="icon" type="image/png" sizes="32x32" href="https://nomarkupsclub.com/public/favicon/favicon.png" />		
+	 <link rel="shortcut icon" href="https://nomarkupsclub.com/public/favicon/favicon.png" />			
+	<link rel="stylesheet" href="https://nomarkupsclub.com/public/css/ionicons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://nomarkupsclub.com/public/css/main.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.js" crossorigin="anonymous"></script>
+				
+		
+<style>
+        .text-safe{overflow-wrap:anywhere;word-break:break-word;hyphens:auto}
+        .nums{white-space:nowrap}
+        .no-wrap{white-space:nowrap}
+        .card-stable{display:flex;flex-direction:column;height:100%}
+        .push-bottom{margin-top:auto}
+        .regional-store-card{display:flex;flex-direction:column;height:100%}
+        .regional-store-card .region-button{margin-top:auto}
+        .how-card{display:flex;flex-direction:column;height:100%}
+        .how-card .how-stat{margin-top:auto}
+        .hero-card{padding:1.1rem}
+
+        /* Compact 100%: -10% overall density without scaling the whole page */
+        .compact-10 .max-w-7xl,.compact-10 .max-w-6xl,.compact-10 .max-w-4xl{padding-left:1.35rem!important;padding-right:1.35rem!important}
+        .compact-10 section.py-14{padding-top:3.15rem!important;padding-bottom:3.15rem!important}
+        .compact-10 section.py-12{padding-top:2.7rem!important;padding-bottom:2.7rem!important}
+        .compact-10 .mb-12{margin-bottom:2.7rem!important}
+        .compact-10 .mb-10{margin-bottom:2.25rem!important}
+        .compact-10 .gap-10{gap:2.25rem!important}
+        .compact-10 .gap-8{gap:1.8rem!important}
+        .compact-10 .p-7{padding:1.575rem!important}
+        .compact-10 .p-6{padding:1.35rem!important}
+        .compact-10 .p-5{padding:1.125rem!important}
+        .compact-10 .text-4xl{font-size:2.025rem!important;line-height:2.25rem!important}
+        .compact-10 .text-3xl{font-size:1.6875rem!important;line-height:2.05rem!important}
+        .compact-10 .text-2xl{font-size:1.35rem!important;line-height:1.85rem!important}
+        .compact-10 .text-xl{font-size:1.125rem!important;line-height:1.7rem!important}
+        .compact-10 .text-lg{font-size:1.0125rem!important;line-height:1.6rem!important}
+
+        /* Hero headline only: slightly smaller to match 90% feel at 100% zoom */
+        .compact-10 .hero-h1{font-size:3.35rem!important;line-height:1.05!important}
+        @media (max-width: 768px){
+            .compact-10 .hero-h1{font-size:2.35rem!important;line-height:1.1!important}
+        }
+
+        /* Tighten some vertical spacing in hero cards */
+        .compact-10 .hero-card{padding:1rem!important}
+        .compact-10 .space-y-5 > :not([hidden]) ~ :not([hidden]){margin-top:1.125rem!important}
+        .compact-10 .space-y-4 > :not([hidden]) ~ :not([hidden]){margin-top:0.9rem!important}
+        .compact-10 .space-y-3 > :not([hidden]) ~ :not([hidden]){margin-top:0.675rem!important}
+
+        /* Menu: keep alignment stable under translate/zoom */
+        .nav-link{text-transform:uppercase!important;white-space:normal!important;}#mobileMenu a{text-transform:uppercase!important;white-space:normal!important;}
+        nav .bg-primary-600{white-space:nowrap}
+    
+/* === Translate/zoom stability: keep header single-line as much as possible on desktop === */
+.nav-link{white-space:nowrap;}
+@media (min-width:768px){
+  nav .hidden.md\:flex.space-x-8{
+    flex-wrap:nowrap;
+    white-space:nowrap;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    gap:1.25rem !important;
+  }
+  nav .hidden.md\:flex.space-x-8::-webkit-scrollbar{display:none;}
+}
+/* Make check bullets stay perfectly round even if browser translation injects different fonts */
+.check-dot{flex:0 0 auto; border-radius:9999px;}
+/* Numbers/currency should not wrap and should not be translated */
+.nums{white-space:nowrap;}
+
+
+/* Cookie Policy typography (scoped) */
+.cookie-body p{
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #334155; /* neutral-700 */
+  margin-top: 0.85rem;
+}
+.cookie-body p:first-child{ margin-top: 0; }
+.cookie-body strong{ color: #0f172a; } /* neutral-900 */
+.cookie-body a{ text-decoration: underline; text-underline-offset: 3px; }
+.cookie-body ul{
+  margin-top: 0.75rem;
+  padding-left: 1.25rem;
+  list-style: disc;
+  color: #334155;
+}
+.cookie-body li{ margin-top: 0.4rem; }
+
+</style>
+<style>
+        html{font-size:90%;}
+    </style>
+<style>
+  html{ overflow-y: scroll; }
+  body{ overflow-x: hidden; }
+</style>
+<style>
+/* Header hard-sticky (prevents pages where other CSS disables sticky) */
+nav.bg-white\/95.backdrop-blur-sm.sticky{position:-webkit-sticky !important; position:sticky !important; top:0 !important; z-index:50 !important;}
+</style>
+<style>
+/* Fixed header fallback: keep content from sliding under the header */
+body{ padding-top:64px; }
+@media (max-width: 768px){ body{ padding-top:64px; } }
+</style>
+<style>.notranslate{translate:no}</style></head>
+<body class="bg-neutral-50 text-neutral-900 min-h-screen flex flex-col compact-10" cz-shortcut-listen="true">
+   
+    <nav class="right-0 left-0 bg-white/95 backdrop-blur-sm fixed top-0 z-50 border-b border-neutral-200">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex justify-between items-center h-16 gap-4">
+<div class="flex items-center gap-6 shrink-0">
+<div class="font-display font-bold text-2xl text-primary-600">
+<a class="nav-link" href="https://nomarkupsclub.com">
+<img alt="" src="https://nomarkupsclub.com/public/uploads/logo/260625_00_48_07.png" style="width:50px; !important;"/>
+</a>
+</div>
+<div class="hidden md:flex gap-2 items-center">
+<div class="w-2 h-2 bg-success-500 rounded-full pulse-green shrink-0"></div>
+<span class="text-sm font-medium text-success-600 live-pricing-text text-xs leading-tight whitespace-normal" style="max-width:140px; line-height:1.1; white-space:normal; overflow-wrap:anywhere;">Live Pricing</span>
+</div>
+</div>
+<div class="hidden md:flex flex-1 justify-center">
+<div class="flex items-center gap-6 lg:gap-7 xl:gap-8">
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[10.5rem] text-[15px]" href="https://nomarkupsclub.com">HOME</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[10.5rem] text-[15px]" href="https://nomarkupsclub.com/stores">STORES</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[10.5rem] text-[15px]" href="https://nomarkupsclub.com/affiliate_plan">AFFILIATE PLAN</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[10.5rem] text-[15px]" href="https://nomarkupsclub.com/membership">MEMBERSHIP</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[12rem] text-[15px]" href="https://nomarkupsclub.com/faqs">FAQ'S</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[12rem] text-[15px]" href="https://nomarkupsclub.com/login">DASHBOARD</a>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<a class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2.5 rounded-lg font-medium transition-colors" href="https://nomarkupsclub.com/r/admin">
+          Start Saving
+        </a>
+<div class="md:hidden flex items-center">
+<button class="text-2xl focus:outline-none" id="menuBtn">☰</button>
+</div>
+</div>
+</div>
+</div>
+<div class="md:hidden hidden px-4 pb-4" id="mobileMenu">
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com">HOME</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/stores">STORES</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/affiliate_plan">AFFILIATE PLAN</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/membership">MEMBERSHIP</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/faqs">FAQ'S</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/login">DASHBOARD</a>
+</div>
+</nav>
+<div class="page flex-1">
+         <section class="py-20 bg-neutral-50">
+            <div class="max-w-7xl mx-auto px-6">
+		
+                
+<div class="text-center">
+                    <h1 class="font-display font-bold text-4xl md:text-6xl text-neutral-900 mb-6">
+                     Cookie Policy
+                    </h1> 
+				</div>
+
+<div class="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
+  <!-- Main policy content -->
+  <div class="lg:col-span-2 bg-white border border-neutral-200 rounded-2xl p-7 shadow-soft">
+    <div class="flex items-start justify-between gap-4">
+      <div>
+        <div class="text-xs font-semibold tracking-[0.18em] uppercase text-neutral-500">Legal</div>
+        <div class="mt-2 text-lg font-semibold text-neutral-900 text-safe">Cookie Policy</div>
+        <div class="mt-1 text-base text-neutral-600 leading-relaxed text-safe">
+          A clear explanation of how cookies and similar technologies are used on this site.
+        </div>
+      </div>
+      <div class="hidden sm:flex items-center gap-2 shrink-0">
+        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-50 text-neutral-700 border border-neutral-200 text-xs font-semibold no-wrap">
+          Updated
+        </span>
+      </div>
+    </div>
+
+    <div class="mt-6 cookie-body">
+      <p data-start="145" data-end="393">We highly value your privacy and are committed to keeping your personal information secure and confidential at all times. If you have any questions or concerns regarding how we handle your data, our customer support team is available to assist you.</p>
+<p data-start="395" data-end="562">While shopping on our website, you may be asked to provide details such as your name, email, business or shipping address, phone number, payment details, and password.</p>
+<p data-start="564" data-end="843">We also keep records of your preferences and past orders. This helps us offer you a smoother experience, allowing you to track orders and revisit items you&rsquo;ve browsed or purchased. Cookies are used to save data related to your activity on the site&mdash;such as your cart and wishlist.</p>
+<p data-start="845" data-end="1069">Through cookies and data from your browser, we and certain third-party services may gather additional technical information like your IP address, browser type, location, pages visited, and search queries used on our website.</p>
+<p data-start="1071" data-end="1393">We collect this data to:<br /> &bull; Process transactions and deliver services;<br /> &bull; Analyze usage patterns to improve the site;<br /> &bull; Provide relevant content and offers;<br /> &bull; Run promotional activities and prize draws;<br /> &bull; Manage the functionality of our website;<br /> &bull; And&mdash;only with your consent&mdash;send updates about new products or special deals.</p>
+<p data-start="1395" data-end="1543">Your data may be shared with trusted partners solely to help complete your purchase. These partners are required to maintain strict confidentiality.</p>
+<p data-start="1545" data-end="1881">When you register an account, you&rsquo;ll have the option to subscribe to our mailing list. If you provide your contact details by entering promotions or signing up, we may use that information to send newsletters and updates about exclusive deals or new arrivals. You can unsubscribe at any time by following the opt-out link in our emails.</p>
+<p>&nbsp;</p>
+<p data-start="1883" data-end="2168" data-is-last-node="" data-is-only-node=""><strong data-start="1883" data-end="1903">Security Notice:</strong><br /> Our website uses 128-bit SSL encryption to protect your data during transmission. All payments are securely processed by PayPal&mdash;your card information is never stored on our servers. Additionally, we take great care to keep your account password private and secure.</p>
+    </div>
+
+    <div class="mt-8 rounded-xl border border-neutral-200 bg-neutral-50 p-4">
+      <div class="text-sm text-neutral-700 text-safe">
+        Tip: You can manage cookies in your browser settings. Some features may not work as intended if cookies are disabled.
+      </div>
+    </div>
+  </div>
+
+  <!-- Side panel -->
+  <aside class="bg-neutral-900 rounded-2xl p-7 shadow-soft overflow-hidden relative">
+    <div class="text-xs font-semibold tracking-[0.18em] uppercase text-neutral-300">Support</div>
+    <div class="mt-2 text-xl font-semibold text-white text-safe">Questions about cookies?</div>
+    <div class="mt-3 text-base text-neutral-200 leading-relaxed text-safe">
+      If you have questions about how data is handled on <span class="notranslate" translate="no">NoMarkupsClub</span>, contact us:
+      <a class="decorated-link" href="mailto:support@nomarkupsclub.com">support@nomarkupsclub.com</a>.
+    </div>
+
+    <div class="mt-6 grid grid-cols-1 gap-3">
+      <div class="rounded-xl bg-white/10 border border-white/10 p-4">
+        <div class="text-xs font-semibold tracking-[0.18em] uppercase text-neutral-300">What cookies do</div>
+        <div class="mt-2 text-sm text-neutral-100 text-safe">
+          Help remember preferences, keep your session stable, and improve performance.
+        </div>
+      </div>
+      <div class="rounded-xl bg-white/10 border border-white/10 p-4">
+        <div class="text-xs font-semibold tracking-[0.18em] uppercase text-neutral-300">Third parties</div>
+        <div class="mt-2 text-sm text-neutral-100 text-safe">
+          Some services may set cookies to provide analytics or essential functionality.
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute -right-10 -bottom-10 w-40 h-40 rounded-full bg-primary-600/20 blur-2xl"></div>
+    <div class="absolute -left-10 -top-10 w-40 h-40 rounded-full bg-success-500/15 blur-2xl"></div>
+  </aside>
+</div>
+	                 
+                            
+            </div>
+        </section>
+    </div>
+
+  
+		
+   
+    <footer class="bg-neutral-900 text-white py-16">
+<div class="max-w-6xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div>
+<div class="font-display font-bold text-2xl mb-6">
+                        <span class="notranslate" translate="no"><span class="notranslate" translate="no">NoMarkupsClub</span></span>
+</div>
+<p class="text-neutral-400 mb-6">
+                        No hidden markups, no retail tricks. Just honest wholesale pricing for smart shoppers.
+                    </p>
+<div class="flex space-x-4">
+<div class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors cursor-pointer">
+<a href="https://www.facebook.com/nomarkupsclub" target="_blank"><i class="ion-social-facebook"></i></a>
+</div>
+<div class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors cursor-pointer">
+<a href="https://www.x.com" target="_blank"><i class="ion-social-twitter"></i></a>
+</div>
+<div class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors cursor-pointer">
+<a href="https://www.instagram.com" target="_blank"><i class="ion-social-instagram"></i></a>
+</div>
+</div>
+</div>
+<div>
+<h4 class="font-semibold text-lg mb-6">Company</h4>
+<ul class="space-y-3 text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/aboutus">About Us</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/#howitworks">How It Works</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/affiliate_plan">Affiliate Plan</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/press">Press</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-lg mb-6">Support</h4>
+<ul class="space-y-3 text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/supports/index">Help Center</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/contact_us">Contact Us</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/shipping_info">Shipping Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/certificate">Certificate of Analysis</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-lg mb-6">Legal</h4>
+<ul class="space-y-3 text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/privacy_policy">Privacy Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/terms_conditions">Terms &amp; Conditions</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/refund_policy">Refund Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/cookie_policy">Cookie Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-neutral-800 mt-12 pt-8 text-center">
+<p class="text-neutral-400">
+                   © 2025 nomarkupsclub.com. All right reserved.
+                </p>
+</div>
+</div>
+</footer>
+	
+<script>
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  </script>	
+	
+					
+	
+	
+	
+
+</body>
+</html>

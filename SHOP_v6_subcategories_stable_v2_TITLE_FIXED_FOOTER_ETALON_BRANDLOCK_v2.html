@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><span class="notranslate" translate="no">NoMarkupsClub</span> — Shop</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50:'#eff6ff',100:'#dbeafe',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',900:'#1e3a8a' },
+            success: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',500:'#22c55e',600:'#16a34a',700:'#15803d' },
+            neutral: { 50:'#f8fafc',100:'#f1f5f9',200:'#e2e8f0',300:'#cbd5e1',400:'#94a3b8',500:'#64748b',600:'#475569',700:'#334155',800:'#1e293b',900:'#0f172a' }
+          },
+          fontFamily: {
+            sans: ['Inter','system-ui','sans-serif'],
+            display: ['Poppins','system-ui','sans-serif']
+          },
+          boxShadow: {
+            soft: '0 2px 15px -3px rgba(0,0,0,.07), 0 10px 20px -2px rgba(0,0,0,.04)',
+            medium: '0 4px 25px -5px rgba(0,0,0,.1), 0 10px 10px -5px rgba(0,0,0,.04)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Fonts + site css -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://nomarkupsclub.com/public/css/ionicons.min.css">
+  <link rel="stylesheet" href="https://nomarkupsclub.com/public/css/main.css">
+  <link rel="icon" href="https://nomarkupsclub.com/public/favicon/favicon.png">
+
+  <!-- Icons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  
+
+    <style>
+        .text-safe{overflow-wrap:anywhere;word-break:break-word;hyphens:auto}
+        .nums{white-space:nowrap}
+        .no-wrap{white-space:nowrap}
+        .card-stable{display:flex;flex-direction:column;height:100%}
+        .push-bottom{margin-top:auto}
+        .regional-store-card{display:flex;flex-direction:column;height:100%}
+        .regional-store-card .region-button{margin-top:auto}
+        .how-card{display:flex;flex-direction:column;height:100%}
+        .how-card .how-stat{margin-top:auto}
+        .hero-card{padding:1.1rem}
+
+        /* Compact 100%: -10% overall density without scaling the whole page */
+        .compact-10 .max-w-7xl,.compact-10 .max-w-6xl,.compact-10 .max-w-4xl{padding-left:1.35rem!important;padding-right:1.35rem!important}
+        .compact-10 section.py-14{padding-top:3.15rem!important;padding-bottom:3.15rem!important}
+        .compact-10 section.py-12{padding-top:2.7rem!important;padding-bottom:2.7rem!important}
+        .compact-10 .mb-12{margin-bottom:2.7rem!important}
+        .compact-10 .mb-10{margin-bottom:2.25rem!important}
+        .compact-10 .gap-10{gap:2.25rem!important}
+        .compact-10 .gap-8{gap:1.8rem!important}
+        .compact-10 .p-7{padding:1.575rem!important}
+        .compact-10 .p-6{padding:1.35rem!important}
+        .compact-10 .p-5{padding:1.125rem!important}
+        .compact-10 .text-4xl{font-size:2.025rem!important;line-height:2.25rem!important}
+        .compact-10 .text-3xl{font-size:1.6875rem!important;line-height:2.05rem!important}
+        .compact-10 .text-2xl{font-size:1.35rem!important;line-height:1.85rem!important}
+        .compact-10 .text-xl{font-size:1.125rem!important;line-height:1.7rem!important}
+        .compact-10 .text-lg{font-size:1.0125rem!important;line-height:1.6rem!important}
+
+        /* Hero headline only: slightly smaller to match 90% feel at 100% zoom */
+        .compact-10 .hero-h1{font-size:3.35rem!important;line-height:1.05!important}
+        @media (max-width: 768px){
+            .compact-10 .hero-h1{font-size:2.35rem!important;line-height:1.1!important}
+        }
+
+        /* Tighten some vertical spacing in hero cards */
+        .compact-10 .hero-card{padding:1rem!important}
+        .compact-10 .space-y-5 > :not([hidden]) ~ :not([hidden]){margin-top:1.125rem!important}
+        .compact-10 .space-y-4 > :not([hidden]) ~ :not([hidden]){margin-top:0.9rem!important}
+        .compact-10 .space-y-3 > :not([hidden]) ~ :not([hidden]){margin-top:0.675rem!important}
+
+        /* Menu: keep alignment stable under translate/zoom */
+        .nav-link{text-transform:uppercase!important;white-space:normal!important;}#mobileMenu a{text-transform:uppercase!important;white-space:normal!important;}
+        nav .bg-primary-600{white-space:nowrap}
+    
+/* === Translate/zoom stability: keep header single-line as much as possible on desktop === */
+.nav-link{white-space:nowrap;}
+@media (min-width:768px){
+  nav .hidden.md\:flex.space-x-8{
+    flex-wrap:nowrap;
+    white-space:nowrap;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    gap:1.25rem !important;
+  }
+  nav .hidden.md\:flex.space-x-8::-webkit-scrollbar{display:none;}
+}
+/* Make check bullets stay perfectly round even if browser translation injects different fonts */
+.check-dot{flex:0 0 auto; border-radius:9999px;}
+/* Numbers/currency should not wrap and should not be translated */
+.nums{white-space:nowrap;}
+</style>
+    <style>
+        html{font-size:90%;}
+    </style>
+    <style>
+  html{ overflow-y: scroll; }
+  body{ overflow-x: hidden; }
+</style>
+<style>
+/* Header hard-sticky (prevents pages where other CSS disables sticky) */
+nav.bg-white\/95.backdrop-blur-sm.sticky{position:-webkit-sticky !important; position:sticky !important; top:0 !important; z-index:50 !important;}
+</style>
+<style>
+/* Fixed header fallback: keep content from sliding under the header */
+body{ padding-top:64px; }
+@media (max-width: 768px){ body{ padding-top:64px; } }
+</style>
+<style>.notranslate{translate:no}</style></head>
+
+<body class="bg-neutral-50 text-neutral-900 min-h-screen flex flex-col compact-10">
+
+<!-- ===== HEADER (ORIGINAL, ПРОВЕРЕННЫЙ) ===== -->
+<nav class="right-0 left-0 bg-white/95 backdrop-blur-sm fixed top-0 z-50 border-b border-neutral-200">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex justify-between items-center h-16 gap-4">
+<div class="flex items-center gap-6 shrink-0">
+<div class="font-display font-bold text-2xl text-primary-600">
+<a class="nav-link" href="https://nomarkupsclub.com">
+<img alt="" src="https://nomarkupsclub.com/public/uploads/logo/260625_00_48_07.png" style="width:50px; !important;"/>
+</a>
+</div>
+<div class="hidden md:flex gap-2 items-center">
+<div class="w-2 h-2 bg-success-500 rounded-full pulse-green shrink-0"></div>
+<span class="text-sm font-medium text-success-600 live-pricing-text text-xs leading-tight whitespace-normal" style="max-width:140px; line-height:1.1; white-space:normal; overflow-wrap:anywhere;">Live Pricing</span>
+</div>
+</div>
+<div class="hidden md:flex flex-1 justify-center">
+<div class="flex items-center gap-6 lg:gap-7 xl:gap-8">
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[10.5rem] text-[15px]" href="https://nomarkupsclub.com">HOME</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[10.5rem] text-[15px]" href="https://nomarkupsclub.com/stores">STORES</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[10.5rem] text-[15px]" href="https://nomarkupsclub.com/affiliate_plan">AFFILIATE PLAN</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[10.5rem] text-[15px]" href="https://nomarkupsclub.com/membership">MEMBERSHIP</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[12rem] text-[15px]" href="https://nomarkupsclub.com/faqs">FAQ'S</a>
+<a class="nav-link text-neutral-600 hover:text-primary-600 font-medium transition-colors leading-tight text-center max-w-[12rem] text-[15px]" href="https://nomarkupsclub.com/login">DASHBOARD</a>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<a class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2.5 rounded-lg font-medium transition-colors" href="https://nomarkupsclub.com/r/admin">
+          Start Saving
+        </a>
+<div class="md:hidden flex items-center">
+<button class="text-2xl focus:outline-none" id="menuBtn">☰</button>
+</div>
+</div>
+</div>
+</div>
+<div class="md:hidden hidden px-4 pb-4" id="mobileMenu">
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com">HOME</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/stores">STORES</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/affiliate_plan">AFFILIATE PLAN</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/membership">MEMBERSHIP</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/faqs">FAQ'S</a>
+<a class="block py-2 hover:text-blue-600" href="https://nomarkupsclub.com/login">DASHBOARD</a>
+</div>
+</nav>
+
+<!-- Page -->
+  <main class="pt-6">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 pb-16">
+
+      <!-- Title + Cart -->
+      <div class="flex flex-wrap items-center justify-between gap-3 py-6">
+        <div>
+          <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Shop</h1>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <a href="/cart" class="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2 text-sm font-semibold text-neutral-800 shadow-soft hover:shadow-medium transition border border-neutral-200">
+            <ion-icon name="cart-outline" class="text-lg"></ion-icon>
+            Cart
+            <span class="ml-1 inline-flex h-6 min-w-[24px] items-center justify-center rounded-full bg-neutral-100 px-2 text-xs font-bold text-neutral-700">2</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-6">
+        <!-- Sidebar categories -->
+        <aside class="bg-white rounded-2xl border border-neutral-200 shadow-soft p-4">
+          <div class="flex items-center justify-between">
+            <h2 class="font-bold text-neutral-900">Categories</h2>
+            <span class="text-xs text-neutral-500">USA Stores</span>
+          </div>
+
+          <div class="mt-4 sidebar-scroll pr-1">
+
+            <!-- Beauty -->
+            <div class="mb-4">
+              <button data-accordion-btn data-category="Beauty"
+                class="w-full flex items-center justify-between rounded-xl px-3 py-2 bg-neutral-50 hover:bg-neutral-100 border border-neutral-200">
+                <span class="font-semibold text-neutral-800">Beauty</span>
+                <ion-icon name="chevron-down-outline" class="transition-transform duration-200"></ion-icon>
+              </button>
+              <div data-accordion-body class="mt-2 grid gap-1 pl-2 hidden">
+                <a href="#" data-subcategory="Perfume" class="rounded-lg px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-100">Perfume</a>
+                <a href="#" data-subcategory="Skincare" class="rounded-lg px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-100">Skincare</a>
+                <a href="#" data-subcategory="Makeup" class="rounded-lg px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-100">Makeup</a>
+              </div>
+            </div>
+
+            <!-- Jewelry -->
+            <div class="mb-4">
+              <button data-accordion-btn data-category="Jewelry"
+                class="w-full flex items-center justify-between rounded-xl px-3 py-2 bg-neutral-50 hover:bg-neutral-100 border border-neutral-200">
+                <span class="font-semibold text-neutral-800">Jewelry</span>
+                <ion-icon name="chevron-down-outline" class="transition-transform duration-200"></ion-icon>
+              </button>
+              <div data-accordion-body class="mt-2 grid gap-1 pl-2 hidden">
+                <a href="#" data-subcategory="Rings" class="rounded-lg px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-100">Rings</a>
+                <a href="#" data-subcategory="Necklaces" class="rounded-lg px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-100">Necklaces</a>
+                <a href="#" data-subcategory="Bracelets" class="rounded-lg px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-100">Bracelets</a>
+              </div>
+            </div>
+
+            <!-- Electronics -->
+            <div class="mb-4">
+              <button data-accordion-btn data-category="Electronics"
+                class="w-full flex items-center justify-between rounded-xl px-3 py-2 bg-neutral-50 hover:bg-neutral-100 border border-neutral-200">
+                <span class="font-semibold text-neutral-800">Electronics</span>
+                <ion-icon name="chevron-down-outline" class="transition-transform duration-200"></ion-icon>
+              </button>
+              <div data-accordion-body class="mt-2 grid gap-1 pl-2 hidden">
+                <a href="#" data-subcategory="Audio" class="rounded-lg px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-100">Audio</a>
+                <a href="#" data-subcategory="Accessories" class="rounded-lg px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-100">Accessories</a>
+                <a href="#" data-subcategory="Smart Home" class="rounded-lg px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-100">Smart Home</a>
+              </div>
+            </div>
+
+            <!-- Home & Kitchen -->
+            <div class="mb-2">
+              <button data-accordion-btn data-category="Home & Kitchen"
+                class="w-full flex items-center justify-between rounded-xl px-3 py-2 bg-neutral-50 hover:bg-neutral-100 border border-neutral-200">
+                <span class="font-semibold text-neutral-800">Home &amp; Kitchen</span>
+                <ion-icon name="chevron-down-outline" class="transition-transform duration-200"></ion-icon>
+              </button>
+              <div data-accordion-body class="mt-2 grid gap-1 pl-2 hidden">
+                <a href="#" data-subcategory="Kitchen" class="rounded-lg px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-100">Kitchen</a>
+                <a href="#" data-subcategory="Decor" class="rounded-lg px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-100">Decor</a>
+                <a href="#" data-subcategory="Bedding" class="rounded-lg px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-100">Bedding</a>
+              </div>
+            </div>
+
+          </div>
+        </aside>
+
+        <!-- Products -->
+        <section class="fade-in">
+
+          <!-- Pills (Live / Region / Category) -->
+          <div class="flex flex-wrap items-center gap-2 mb-4">
+            <span class="inline-flex items-center gap-2 rounded-full bg-white border border-neutral-200 px-3 py-1 text-xs font-semibold text-neutral-700">
+              <span class="h-2 w-2 rounded-full bg-success-500 pulse-green"></span>
+              Live
+            </span>
+
+            <span id="pillRegion" class="inline-flex items-center rounded-full bg-neutral-100 px-3 py-1 text-xs font-semibold text-neutral-700">
+              USA Stores
+            </span>
+
+            <span id="pillCategory" class="inline-flex items-center rounded-full bg-neutral-100 px-3 py-1 text-xs font-semibold text-neutral-700">
+              All
+            </span>
+
+            <span class="ml-auto text-sm text-neutral-600">
+              Showing <span id="productCount" class="font-semibold text-neutral-900">0</span> products
+            </span>
+          </div>
+
+          <!-- Search + Sort -->
+          <div class="mb-6 flex flex-col sm:flex-row gap-3">
+            <div class="relative flex-1">
+              <ion-icon name="search-outline" class="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-500 text-lg"></ion-icon>
+              <input
+                id="productSearch"
+                type="text"
+                placeholder="Search products..."
+                class="w-full rounded-xl border border-neutral-200 bg-white pl-10 pr-4 py-3 text-sm font-semibold text-neutral-800 shadow-soft focus:outline-none focus:ring-2 focus:ring-primary-500/30"
+              />
+            </div>
+
+            <div class="sm:w-[260px]">
+              <select
+                id="productSort"
+                class="w-full rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm font-semibold text-neutral-800 shadow-soft focus:outline-none focus:ring-2 focus:ring-primary-500/30"
+              >
+                <option value="newest">New arrivals</option>
+                <option value="price_asc">Price: low to high</option>
+                <option value="price_desc">Price: high to low</option>
+                <option value="popular">Popular</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Grid -->
+          <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+
+            <!-- CARD TEMPLATE -->
+            <article class="product-card bg-white rounded-2xl border border-neutral-200 shadow-soft overflow-hidden card-hover flex flex-col"
+                     data-title="CAROLINA HERRERA 212 VIP TESTER 4.2 EAU DE PARFUM SPRAY FOR WOMEN"
+                     data-price="65.00"
+                     data-new="10"
+                     data-pop="80">
+              <div class="h-44 bg-neutral-100 flex items-center justify-center shrink-0">
+                <div class="h-24 w-24 rounded-2xl bg-white shadow-soft flex items-center justify-center text-neutral-400 font-black">IMG</div>
+              </div>
+
+              <div class="p-4 flex flex-col flex-1 min-h-[240px]">
+                <div class="flex items-start justify-between gap-3">
+                  <h3 class="product-title font-bold leading-snug">
+                    CAROLINA HERRERA 212 VIP TESTER 4.2 EAU DE PARFUM SPRAY FOR WOMEN
+                  </h3>
+
+                  <span class="shrink-0 inline-flex items-center gap-1 rounded-full bg-success-50 border border-success-200 px-2 py-1 text-[10px] font-bold text-success-700">
+                    <ion-icon name="checkmark-circle" class="text-sm"></ion-icon>
+                    VERIFIED
+                  </span>
+                </div>
+
+                <div class="mt-3 grid gap-2">
+                  <div class="price-row">
+                    <span class="price-label">Retail Price</span>
+                    <span class="price-value text-neutral-900">$75.00</span>
+                  </div>
+                  <div class="price-row">
+                    <span class="price-label">Wholesale Price</span>
+                    <span class="price-value text-success-600">$65.00</span>
+                  </div>
+                </div>
+
+                <div class="mt-auto pt-4 flex items-center gap-2">
+                  <a href="#" class="flex-1 inline-flex items-center justify-center rounded-xl bg-primary-600 px-4 py-2 text-sm font-bold text-white hover:bg-primary-700 transition">
+                    View Product
+                  </a>
+                  <button class="inline-flex items-center justify-center rounded-xl border border-neutral-200 bg-white px-3 py-2 text-neutral-700 hover:bg-neutral-100" title="Add to cart">
+                    <ion-icon name="bag-add-outline" class="text-lg"></ion-icon>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card bg-white rounded-2xl border border-neutral-200 shadow-soft overflow-hidden card-hover flex flex-col"
+                     data-title="GIORGIO ARMANI ACQUA DI GIOIA 3.4 EAU DE PARFUM SPRAY FOR WOMEN"
+                     data-price="85.60"
+                     data-new="7"
+                     data-pop="65">
+              <div class="h-44 bg-neutral-100 flex items-center justify-center shrink-0">
+                <div class="h-24 w-24 rounded-2xl bg-white shadow-soft flex items-center justify-center text-neutral-400 font-black">IMG</div>
+              </div>
+
+              <div class="p-4 flex flex-col flex-1 min-h-[240px]">
+                <div class="flex items-start justify-between gap-3">
+                  <h3 class="product-title font-bold leading-snug">
+                    GIORGIO ARMANI ACQUA DI GIOIA 3.4 EAU DE PARFUM SPRAY FOR WOMEN
+                  </h3>
+                  <span class="shrink-0 inline-flex items-center gap-1 rounded-full bg-success-50 border border-success-200 px-2 py-1 text-[10px] font-bold text-success-700">
+                    <ion-icon name="checkmark-circle" class="text-sm"></ion-icon>
+                    VERIFIED
+                  </span>
+                </div>
+
+                <div class="mt-3 grid gap-2">
+                  <div class="price-row">
+                    <span class="price-label">Retail Price</span>
+                    <span class="price-value text-neutral-900">$146.00</span>
+                  </div>
+                  <div class="price-row">
+                    <span class="price-label">Wholesale Price</span>
+                    <span class="price-value text-success-600">$85.60</span>
+                  </div>
+                </div>
+
+                <div class="mt-auto pt-4 flex items-center gap-2">
+                  <a href="#" class="flex-1 inline-flex items-center justify-center rounded-xl bg-primary-600 px-4 py-2 text-sm font-bold text-white hover:bg-primary-700 transition">
+                    View Product
+                  </a>
+                  <button class="inline-flex items-center justify-center rounded-xl border border-neutral-200 bg-white px-3 py-2 text-neutral-700 hover:bg-neutral-100" title="Add to cart">
+                    <ion-icon name="bag-add-outline" class="text-lg"></ion-icon>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card bg-white rounded-2xl border border-neutral-200 shadow-soft overflow-hidden card-hover flex flex-col"
+                     data-title="925 Sterling Silver Inlaid Zircon Ring"
+                     data-price="15.00"
+                     data-new="3"
+                     data-pop="90">
+              <div class="h-44 bg-neutral-100 flex items-center justify-center shrink-0">
+                <div class="h-24 w-24 rounded-2xl bg-white shadow-soft flex items-center justify-center text-neutral-400 font-black">IMG</div>
+              </div>
+
+              <div class="p-4 flex flex-col flex-1 min-h-[240px]">
+                <div class="flex items-start justify-between gap-3">
+                  <h3 class="product-title font-bold leading-snug">925 Sterling Silver Inlaid Zircon Ring</h3>
+                  <span class="shrink-0 inline-flex items-center gap-1 rounded-full bg-success-50 border border-success-200 px-2 py-1 text-[10px] font-bold text-success-700">
+                    <ion-icon name="checkmark-circle" class="text-sm"></ion-icon>
+                    VERIFIED
+                  </span>
+                </div>
+
+                <div class="mt-3 grid gap-2">
+                  <div class="price-row">
+                    <span class="price-label">Retail Price</span>
+                    <span class="price-value text-neutral-900">$72.00</span>
+                  </div>
+                  <div class="price-row">
+                    <span class="price-label">Wholesale Price</span>
+                    <span class="price-value text-success-600">$15.00</span>
+                  </div>
+                </div>
+
+                <div class="mt-auto pt-4 flex items-center gap-2">
+                  <a href="#" class="flex-1 inline-flex items-center justify-center rounded-xl bg-primary-600 px-4 py-2 text-sm font-bold text-white hover:bg-primary-700 transition">
+                    View Product
+                  </a>
+                  <button class="inline-flex items-center justify-center rounded-xl border border-neutral-200 bg-white px-3 py-2 text-neutral-700 hover:bg-neutral-100" title="Add to cart">
+                    <ion-icon name="bag-add-outline" class="text-lg"></ion-icon>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card bg-white rounded-2xl border border-neutral-200 shadow-soft overflow-hidden card-hover flex flex-col"
+                     data-title="Sample Product 4" data-price="59.00" data-new="2" data-pop="20">
+              <div class="h-44 bg-neutral-100 flex items-center justify-center shrink-0">
+                <div class="h-24 w-24 rounded-2xl bg-white shadow-soft flex items-center justify-center text-neutral-400 font-black">IMG</div>
+              </div>
+              <div class="p-4 flex flex-col flex-1 min-h-[240px]">
+                <div class="flex items-start justify-between gap-3">
+                  <h3 class="product-title font-bold leading-snug">Sample Product 4</h3>
+                  <span class="shrink-0 inline-flex items-center gap-1 rounded-full bg-success-50 border border-success-200 px-2 py-1 text-[10px] font-bold text-success-700">
+                    <ion-icon name="checkmark-circle" class="text-sm"></ion-icon> VERIFIED
+                  </span>
+                </div>
+                <div class="mt-3 grid gap-2">
+                  <div class="price-row"><span class="price-label">Retail Price</span><span class="price-value text-neutral-900">$99.00</span></div>
+                  <div class="price-row"><span class="price-label">Wholesale Price</span><span class="price-value text-success-600">$59.00</span></div>
+                </div>
+                <div class="mt-auto pt-4 flex items-center gap-2">
+                  <a href="#" class="flex-1 inline-flex items-center justify-center rounded-xl bg-primary-600 px-4 py-2 text-sm font-bold text-white hover:bg-primary-700 transition">View Product</a>
+                  <button class="inline-flex items-center justify-center rounded-xl border border-neutral-200 bg-white px-3 py-2 text-neutral-700 hover:bg-neutral-100" title="Add to cart">
+                    <ion-icon name="bag-add-outline" class="text-lg"></ion-icon>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- Pagination -->
+          <div class="mt-8 flex items-center justify-center gap-2">
+            <button class="rounded-xl border border-neutral-200 bg-white px-4 py-2 text-sm font-semibold text-neutral-700 hover:bg-neutral-100">Prev</button>
+            <button class="rounded-xl bg-primary-600 px-4 py-2 text-sm font-bold text-white">1</button>
+            <button class="rounded-xl border border-neutral-200 bg-white px-4 py-2 text-sm font-semibold text-neutral-700 hover:bg-neutral-100">2</button>
+            <button class="rounded-xl border border-neutral-200 bg-white px-4 py-2 text-sm font-semibold text-neutral-700 hover:bg-neutral-100">3</button>
+            <button class="rounded-xl border border-neutral-200 bg-white px-4 py-2 text-sm font-semibold text-neutral-700 hover:bg-neutral-100">Next</button>
+          </div>
+
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer (как у тебя было) -->
+  <footer class="bg-neutral-900 text-white py-16">
+<div class="max-w-6xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div>
+<div class="font-display font-bold text-2xl mb-6">
+                        <span class="notranslate" translate="no"><span class="notranslate" translate="no">NoMarkupsClub</span></span>
+</div>
+<p class="text-neutral-400 mb-6">
+                        No hidden markups, no retail tricks. Just honest wholesale pricing for smart shoppers.
+                    </p>
+<div class="flex space-x-4">
+<div class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors cursor-pointer">
+<a href="https://www.facebook.com/nomarkupsclub" target="_blank"><i class="ion-social-facebook"></i></a>
+</div>
+<div class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors cursor-pointer">
+<a href="https://www.x.com" target="_blank"><i class="ion-social-twitter"></i></a>
+</div>
+<div class="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors cursor-pointer">
+<a href="https://www.instagram.com" target="_blank"><i class="ion-social-instagram"></i></a>
+</div>
+</div>
+</div>
+<div>
+<h4 class="font-semibold text-lg mb-6">Company</h4>
+<ul class="space-y-3 text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/aboutus">About Us</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/#howitworks">How It Works</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/affiliate_plan">Affiliate Plan</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/press">Press</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-lg mb-6">Support</h4>
+<ul class="space-y-3 text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/supports/index">Help Center</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/contact_us">Contact Us</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/shipping_info">Shipping Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/certificate">Certificate of Analysis</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-lg mb-6">Legal</h4>
+<ul class="space-y-3 text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/privacy_policy">Privacy Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/terms_conditions">Terms &amp; Conditions</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/refund_policy">Refund Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="https://nomarkupsclub.com/cookie_policy">Cookie Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-neutral-800 mt-12 pt-8 text-center">
+<p class="text-neutral-400">
+                   © 2025 nomarkupsclub.com. All right reserved.
+                </p>
+</div>
+</div>
+</footer>
+
+  <!-- Ionicons (обязательно для <ion-icon>) -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <script>
+    // Pills
+    const pillCategory = document.getElementById('pillCategory');
+
+    function setCategoryPill(text) {
+      if (!pillCategory) return;
+      pillCategory.textContent = text || 'All';
+    }
+
+    function anyAccordionOpen() {
+      return !!document.querySelector('[data-accordion-body]:not(.hidden)');
+    }
+
+    // Sidebar accordion (translate-safe):
+    // - event delegation (survives Google Translate DOM rewrites)
+    // - normalize state after mutations so it doesn't randomly "open/close"
+    function closeAllAccordions(exceptBtn) {
+      document.querySelectorAll('[data-accordion-btn]').forEach(btn => {
+        if (exceptBtn && btn === exceptBtn) return;
+        const body = btn.nextElementSibling;
+        const icon = btn.querySelector('ion-icon');
+        if (body && body.hasAttribute('data-accordion-body')) body.classList.add('hidden');
+        if (icon) icon.classList.remove('rotate-180');
+      });
+    }
+
+    function normalizeAccordions() {
+      // Enforce deterministic display behavior (do not rely on Tailwind only)
+      document.querySelectorAll('[data-accordion-body]').forEach(body => {
+        body.style.display = body.classList.contains('hidden') ? 'none' : 'grid';
+      });
+    }
+
+    // Initial normalize
+    closeAllAccordions(null);
+    normalizeAccordions();
+
+    // Delegated click handler (robust under translate)
+    document.addEventListener('click', (e) => {
+      const btnEl = e.target.closest('[data-accordion-btn]');
+      if (btnEl) {
+        e.preventDefault();
+
+        const body = btnEl.nextElementSibling;
+        const icon = btnEl.querySelector('ion-icon');
+        if (!body || !body.hasAttribute('data-accordion-body')) return;
+
+        const isOpen = !body.classList.contains('hidden');
+
+        // Close others first
+        closeAllAccordions(btnEl);
+
+        // Toggle current
+        if (isOpen) {
+          body.classList.add('hidden');
+          if (icon) icon.classList.remove('rotate-180');
+        } else {
+          body.classList.remove('hidden');
+          if (icon) icon.classList.add('rotate-180');
+        }
+
+        normalizeAccordions();
+
+        // Update pill
+        if (!isOpen) {
+          const cat = btnEl.getAttribute('data-category');
+          setCategoryPill(cat || 'All');
+        } else {
+          // If everything is closed -> All
+          const anyOpen = !!document.querySelector('[data-accordion-body]:not(.hidden)');
+          if (!anyOpen) setCategoryPill('All');
+        }
+        return;
+      }
+
+      // Subcategory click (delegated)
+      const subLink = e.target.closest('[data-accordion-body] a[data-subcategory]');
+      if (subLink) {
+        e.preventDefault();
+        const sub = subLink.getAttribute('data-subcategory');
+        setCategoryPill(sub || 'All');
+        return;
+      }
+    });
+
+    // MutationObserver: Google Translate can re-render text nodes and sometimes DOM fragments.
+    // We keep accordion state stable and prevent "random" layout flips.
+    const accObserver = new MutationObserver(() => {
+      // Keep whatever is currently open/closed, but enforce deterministic display.
+      normalizeAccordions();
+    });
+    accObserver.observe(document.body, { subtree: true, childList: true, characterData: true });
+
+    // Search + Sort + dynamic "Showing X products"
+ "Showing X products"
+    const searchInput = document.getElementById('productSearch');
+    const sortSelect  = document.getElementById('productSort');
+    const grid        = document.getElementById('productsGrid');
+    const countEl     = document.getElementById('productCount');
+
+    function getCards() {
+      return Array.from(grid.querySelectorAll('.product-card'));
+    }
+
+    function updateCount() {
+      const visible = getCards().filter(c => !c.classList.contains('hidden'));
+      countEl.textContent = String(visible.length);
+    }
+
+    function applySearch() {
+      const q = (searchInput.value || '').trim().toLowerCase();
+      getCards().forEach(card => {
+        const title = (card.dataset.title || '').toLowerCase();
+        const match = !q || title.includes(q);
+        card.classList.toggle('hidden', !match);
+      });
+      updateCount();
+    }
+
+    function applySort() {
+      const value = sortSelect.value;
+      const cards = getCards();
+
+      const sorted = cards.slice().sort((a, b) => {
+        const pa = parseFloat(a.dataset.price || '0');
+        const pb = parseFloat(b.dataset.price || '0');
+        const na = parseFloat(a.dataset.new || '0');
+        const nb = parseFloat(b.dataset.new || '0');
+        const oa = parseFloat(a.dataset.pop || '0');
+        const ob = parseFloat(b.dataset.pop || '0');
+
+        if (value === 'price_asc') return pa - pb;
+        if (value === 'price_desc') return pb - pa;
+        if (value === 'popular') return ob - oa;
+        return nb - na; // newest
+      });
+
+      sorted.forEach(el => grid.appendChild(el));
+    }
+
+    if (searchInput) searchInput.addEventListener('input', applySearch);
+    if (sortSelect)  sortSelect.addEventListener('change', () => { applySort(); updateCount(); });
+
+    // init
+    applySort();
+    applySearch();
+    updateCount();
+    setCategoryPill('All');
+  </script>
+</body>
+</html>
